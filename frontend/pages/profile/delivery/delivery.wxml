@@ -1,0 +1,41 @@
+<!--pages/profile/delivery/delivery.wxml-->
+<view class='containter'>
+  <view style="overflow-y:auto;" scroll-y class='postadd-view'>
+    <view wx:for="{{address}}" wx:for-item="receiver" wx:key="index">
+      <view class='postman'>
+        <view class='postman-info'>
+          <view class='postman-text'>
+            <text class='postman-name' style="font-weight: bold;">{{receiver.name}}</text>
+            <text class='postman-phonenumber' style="font-weight: bold;">{{receiver.showphone}}</text>
+          </view>
+          <text class='postman-address' selectable='true'>{{receiver.detail_address}}</text>
+        </view>
+        <view class='postman-operation'>
+          <view wx:if="{{receiver.state==1}}" class="font-size" style='display: inline-block'>
+            <radio class='postman-mainaddress' id="{{index}}" checked="true" bindtap="checkMainAddress"></radio>设置为默认地址
+          </view>
+          <view style='display: inline-block' class="font-size" wx:else>
+            <radio class='postman-mainaddress' id="{{index}}" bindtap="checkMainAddress"></radio>设置为默认地址
+          </view>
+          <button bindtap="on_click_edit" class='postman-edit' id="{{index}}">编辑</button>
+          <button class='postman-cancel' bindtap="on_click_delete" id="{{receiver.no}}">删除</button>
+        </view>
+      </view>
+    </view>
+  </view>
+  <button class='btn-submit' bindtap="on_click_new">新增收货地址</button>
+</view>
+
+<view class="modal-mask1" bindtap="hideModal" catchtouchmove="preventTouchMove" wx:if="{{showModal1}}"></view>
+<view class="modal-dialog1" wx:if="{{showModal1}}">
+  <view class='modal-text1'>请您确认是否删除收货地址？
+  </view>
+  <view class='modal-footer1'>
+    <view bindtap="onConfirm1" class='modal-confirm1'>
+      <view style='margin-top:20rpx'>确定</view>
+    </view>
+    <view bindtap="onCancel1" class='modal-cancel1'>
+      <view style='margin-top:20rpx'>取消</view>
+    </view>
+  </view>
+</view>

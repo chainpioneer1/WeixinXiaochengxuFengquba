@@ -1,0 +1,59 @@
+<view class='container'>
+  <view class='auth-state' style='color: #E6B53C;' wx:if="{{user_info.state==1}}">{{userState[user_info.state]}}</view>
+  <view class='auth-state' style='color: #87E63C;' wx:if="{{user_info.state==2}}">{{userState[user_info.state]}}</view>
+  <view class='auth-state' style='color: #E63C3C;' wx:if="{{user_info.state==3}}">{{userState[user_info.state]}}</view>
+  <view wx:if="{{user_info.role==1}}">
+    <view style="overflow-y:auto;" scroll-y class='auth-scroll-view' wx:if="{{user_info.state !=1}}">
+      <view class='auth-text'>*角色类型：商家</view>
+      <view class='auth-text'>*商家名称：{{user_info.site_name}}</view>
+      <view class='auth-text'>*商家姓名：{{user_info.name}}</view>
+      <view class='auth-text'>*联系方式：{{user_info.phone}}</view>
+      <view class='auth-text-auto'>
+        <view class='text-auto1'>*商家地址：</view>
+        <view class='text-auto2'>{{user_info.detail_address}}</view>
+      </view>
+      <view class='auth-image-view' style='height: auto'>
+        <view class='auth-image-text'>*身份证照片：</view>
+        <image class='auth-image' style="margin-right: 28rpx; " mode="aspectFill" src='{{user_info.id_pic1}}'></image>
+        <image class='auth-image' src='{{user_info.id_pic2}}' mode="aspectFill"></image>
+      </view>
+      <view class='auth-image-view'>
+        <view class='auth-image-text'>*营业执照照片：</view>
+        <image class='auth-image' src='{{user_info.allow_pic}}' mode="aspectFill"></image>
+      </view>
+      <view class='auth-text' style = "display:none">*身份证号：{{user_info.id_no}}</view>
+      
+    </view>
+    <view style="overflow-y:auto;" scroll-y class='auth-scroll-view1' wx:if="{{user_info.state == 1}}">
+      <view class='auth-text'>*角色类型：商家</view>
+      <view class='auth-text'>*商家名称：{{user_info.site_name}}</view>
+      <view class='auth-text'>*商家姓名：{{user_info.name}}</view>
+      <view class='auth-text-auto'>
+        <view class='text-auto1'>*商家地址：</view>
+        <view class='text-auto2'>{{user_info.detail_address}}</view>
+      </view>
+      <view class='auth-text'>*联系方式：{{user_info.phone}}</view>
+      <view class='auth-image-view' style='height: auto'>
+        <view class='auth-image-text'>*身份证照片：</view>
+        <image class='auth-image' style="margin-right: 28rpx;" mode="aspectFill" src='{{user_info.id_pic1}}'></image>
+        <image class='auth-image' src='{{user_info.id_pic2}}' mode="aspectFill"></image>
+      </view>
+      <view class='auth-image-view'>
+        <view class='auth-image-text'>*营业执照照片：</view>
+        <image class='auth-image' src='{{user_info.allow_pic}}' mode="aspectFill"></image>
+      </view>
+      <view class='auth-text' style = "display:none">*身份证号：{{user_info.id_no}}</view>
+      
+    </view>
+    <button class='submit-btn' bindtap='On_click_submit' wx:if="{{user_info.state==2}}">修改信息</button>
+    <button class='submit-btn' bindtap='On_click_submit' wx:if="{{user_info.state==3}}">重新编辑</button>
+  </view>
+  <view wx:if="{{user_info.role==2}}">
+    <view class='auth-text'>*角色类型：个人</view>
+    <view class='auth-text' style = "display:none">*昵称：{{user_info.nickname}}</view>
+    <view class='auth-text' style = "display:none">*真实姓名：{{user_info.name}}</view>
+    <view class='auth-text'>*联系方式：{{user_info.phone}}</view>
+    <button class='submit-btn' bindtap='On_click_submit' wx:if="{{user_info.state==2}}">修改信息</button>
+    <button class='submit-btn' bindtap='On_click_submit' wx:if="{{user_info.state==3}}">重新编辑</button>
+  </view>
+</view>

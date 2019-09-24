@@ -1,0 +1,4 @@
+<view class="map_container">
+    <map bindmarkertap="on_Click_maker" class="bee-map" id="mymap" latitude="{{latitude}}" longitude="{{longitude}}" markers="{{markers}}" scale="15" showLocation="{{true}}">
+    </map>
+</view>

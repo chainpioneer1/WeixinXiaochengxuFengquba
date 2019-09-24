@@ -1,0 +1,259 @@
+page {
+    -webkit-user-select: none;
+    user-select: none;
+    width: 100%;
+    overflow-x: hidden;
+    background: #f8f8f8;
+}
+
+view {
+    font-size: 28rpx;
+}
+
+.container {
+    margin-top: 10rpx;
+    height: calc(100vh - 10rpx);
+    overflow: hidden;
+    position: absolute;
+}
+
+.top-scroll {
+    width: 100%;
+    height: 130rpx;
+}
+
+.booking-scroll {
+    width: 100%;
+    height: calc(100vh - 325rpx);
+}
+
+.top-date-select-bar {
+    height: auto;
+    width: auto;
+    white-space: nowrap;
+    background: white;
+}
+
+.top-date-item {
+    display: inline-block;
+    text-align: center;
+    width: 200rpx;
+    padding: 10rpx 0 20rpx;
+    background: white;
+    color: black;
+}
+
+.top-date-item.cur {
+    background: #e6b53c;
+    color: white;
+}
+
+.top-date-title {
+    width: 100%;
+    font-weight: 600;
+    height: 100%;
+    line-height: 2;
+}
+
+.top-date-dayofweek {
+    width: 100%;
+    font-size: 23rpx;
+}
+
+.time-container {
+    width: 150rpx;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.room-container {
+    display: inline-block;
+    width: 600rpx;
+    vertical-align: top;
+}
+
+.tr {
+    width: auto;
+    height: 80rpx;
+    line-height: 80rpx;
+    display: block;
+}
+
+.tr.time {
+    position: relative;
+    text-align: center;
+    width: 100%;
+}
+
+.tr.time view {
+    position: absolute;
+    text-align: center;
+    left: 50%;
+    top: 95%;
+    transform: translate(-50%, -50%);
+}
+
+.table {
+    width: auto;
+    height: auto;
+    word-wrap: none;
+    white-space: nowrap;
+}
+
+.td,
+.th {
+    position: relative;
+    display: inline-block;
+    padding: 0rpx;
+    margin: 0rpx;
+    width: 145rpx;
+    height: 78rpx;
+    line-height: 78rpx;
+    text-align: center;
+    border-right: 1px solid #f8f8f8;
+    border-top: 1px solid #f8f8f8;
+    color: white;
+    background: #b2b2b2;
+}
+
+.th {
+    background: transparent;
+    border: none;
+    color: black;
+}
+
+.th,
+.header-cell {
+    height: 100rpx;
+}
+
+.th text {
+    position: absolute;
+    width: 145rpx;
+    height: auto;
+    line-height: 1.3;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    white-space: normal;
+    word-break: keep-all;
+}
+
+.td.enabled {
+    background: #6cab3b;
+}
+
+.td.booked {
+    background: #e6b53c;
+}
+
+.tr,
+.td,
+th {
+    font-size: 24rpx;
+}
+
+.bottom-tools {
+    height: 180rpx;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+}
+
+.booked-info {
+    position: absolute;
+    width: 100%;
+    height: 90rpx;
+    background: white;
+    line-height: 90rpx;
+}
+
+.info-label {
+    width: 180rpx;
+    text-align: center;
+    display: inline-block;
+    white-space: nowrap;
+    word-wrap: none;
+    vertical-align: top;
+    line-height: 100rpx;
+}
+
+.info-content {
+    position: relative;
+    display: inline-block;
+    width: calc(100vw - 185rpx);
+    height: calc(100% - 24rpx);
+    white-space: normal;
+    word-wrap: none;
+    vertical-align: top;
+    line-height: 1;
+    padding-top: 20rpx;
+}
+
+.book-item {
+    position: relative;
+    display: inline-block;
+    width: 95%;
+    border-radius: 8rpx;
+    border: 1px solid #e6b53c;
+    margin: 8rpx 0;
+    padding: 0;
+    height: 1rem;
+    -webkit-border-radius: 8rpx;
+    -moz-border-radius: 8rpx;
+    -ms-border-radius: 8rpx;
+    -o-border-radius: 8rpx;
+}
+
+.book-title,
+.book-time {
+    position: absolute;
+    width: 35%;
+    height: 1rem;
+    line-height: 1rem;
+    background: #e6b53c;
+    color: white;
+    text-align: center;
+    font-size: 22rpx;
+}
+
+.book-time {
+    left: 35%;
+    width: 64%;
+    background: transparent;
+    color: #e6b53c;
+}
+
+.btn-area {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 90rpx;
+    line-height: 90rpx;
+}
+
+.btn-area view {
+    font-weight: 500;
+    font-size: 32rpx;
+}
+
+.btn-info {
+    position: absolute;
+    width: 60%;
+    padding: 0 1rem;
+    bottom: 0;
+}
+
+.btn-confirm {
+    position: absolute;
+    width: 40%;
+    background: #e6b53c;
+    height: 100%;
+    left: 60%;
+    color: white;
+    text-align: center;
+}

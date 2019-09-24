@@ -1,0 +1,22 @@
+<view class='container'>
+  <view class='postname-view'>
+    <text class='postname-text'>姓名：</text>
+    <input class='postname-input' bindinput='on_blur_postname' placeholder='请输入姓名' value="{{address.name}}" />
+  </view>
+  <view class='phonenumber-view'>
+    <text class='phonenumber-text'>联系电话:</text>
+    <input type='number' class='phonenumber-input' bindinput='on_blur_phonenumber' placeholder='请输入电话号码' value="{{address.phone}}" />
+  </view>  
+  <view class='event-view' bindtap='On_click_map'>
+    <text>收货地址:</text>
+    <input class='map-input' disabled placeholder='选择省/市/县'></input>
+    <image class='map-next-image' src='../../../image/next@2x.png'></image>
+  </view>    
+  <input class="detail-address" placeholder='请输入详细地址'  bindinput='on_blur_address' value='{{address.detail_address}}'/>
+  
+  <view class='mail-view'>
+    <text class='mail-text'>邮政编码：</text>
+    <input type="digit" class='mail-input' bindinput='on_blur_mail' placeholder='请输入邮政编码' value="{{address.email}}" />
+  </view>
+  <button class='submit_btn' bindtap='on_click_submit'>保存</button>
+</view>

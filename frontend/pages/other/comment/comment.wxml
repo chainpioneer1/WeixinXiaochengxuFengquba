@@ -1,0 +1,39 @@
+<!--index.wxml-->
+<view>
+  <view class="cls_title" wx:if="{{method=='event'}}">
+    <text class="cls_all_comments" style="font-weight: bold;">全部评论(共{{rating.length}}人)</text>
+  </view>
+  <view class="site_detail" wx:else>
+    <view class="site_name">{{siteInfo.site_name}}</view>
+    <view class="site_point">
+      <view style="display: inline;" wx:for="{{starparam.stars}}" wx:key="star" wx:for-item="star_place">
+          <image class="star-image" src="{{star_place-siteInfo.point+1<=0?starparam.srcImage_4:star_place-siteInfo.point+1>=1?starparam.srcImage_0:star_place-siteInfo.point+1<0.5?starparam.srcImage_3:star_place-siteInfo.point+1==0.5?starparam.srcImage_2:starparam.srcImage_1}}"></image>
+      </view>
+      <view class="point_text">{{siteInfo.point}}分</view>
+    </view>
+    <view class="site_type">
+      <image class="img_point" src="../../../image/my_bee_category@2x.png" />
+      <view class="type_text" wx:for="{{type_array}}" wx:key="id">
+          {{item}}
+      </view>     
+      
+    </view>
+  </view>
+  <view wx:for="{{rating}}" class="cls_user_comment_info" wx:item="item" wx:key="index">
+    <image class="cls_user_photo" src="{{item.avatar}}" mode="aspectFill"> </image>
+    <view class='name-star-view'>
+      <text class="cls_user_name" style="font-weight: bold;">{{item.name}}</text>
+      <view class="stars" wx:for="{{[1, 2, 3, 4, 5]}}" wx:for-index="idx" wx:for-item="itm" wx:key="{{itm.point}}">
+        <view wx:if="{{idx >= (5-item.point)}}">
+          <image id="{{idx}}" class="cls_user_comment_star" src="{{img_yellow_start_src}}" mode="aspectFill" style='right:{{star_img_position + idx*37}}rpx' />
+        </view>
+        <view wx:else>
+          <image id="{{idx}}" class="cls_user_comment_star" src="{{img_black_start_src}}" mode="aspectFill" style='right:{{star_img_position + idx*37}}rpx' />
+        </view>
+      </view>
+    </view>
+    <text class="cls_comment_date">{{item.submit_time}}</text>
+    <text class="cls_comment_content">{{item.comment}}</text>
+  </view>
+
+</view>

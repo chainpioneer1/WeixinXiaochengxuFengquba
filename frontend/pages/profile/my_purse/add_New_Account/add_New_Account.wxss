@@ -1,0 +1,204 @@
+/**index.wxss**/
+
+.cls_cardholder_name {
+    position: absolute;
+    left: 0rpx;
+    top: 0rpx;
+    width: 100%;
+    height: 90rpx;
+    border-bottom-style: solid;
+    border-bottom-width: 1rpx;
+    border-bottom-color: #D8D8D8;
+}
+
+.cls_cardholder_name_txt {
+    position: absolute;
+    left: 10rpx;
+    bottom: 16rpx;
+    width: auto;
+    height: auto;
+    font-family: PingFangSC-Regular;
+    text-indent: 30rpx;
+    font-size: 30rpx;
+}
+
+.cls_cardholder_name_input {
+    position: absolute;
+    left: 225rpx;
+    width: calc(100% - 225rpx);
+    bottom: 10rpx;
+    height: auto;
+    font-family: PingFangSC-Regular;
+    font-size: 30rpx;
+}
+
+.cls_bank_card_number {
+    position: absolute;
+    left: 0rpx;
+    top: 90rpx;
+    width: 100%;
+    height: 90rpx;
+    border-bottom-style: solid;
+    border-bottom-width: 1rpx;
+    border-bottom-color: #D8D8D8;
+}
+
+.cls_bank_card_number_txt {
+    position: absolute;
+    left: 10rpx;
+    bottom: 16rpx;
+    width: auto;
+    height: auto;
+    font-family: PingFangSC-Regular;
+    text-indent: 30rpx;
+    font-size: 30rpx;
+}
+
+.cls_bank_card_number_input {
+    position: absolute;
+    left: 195rpx;
+    bottom: 10rpx;
+    width: calc(100% - 195rpx);
+    height: auto;
+    font-family: PingFangSC-Regular;
+    font-size: 30rpx;
+}
+
+.cls_id_card_number {
+    position: absolute;
+    left: 0rpx;
+    top: 180rpx;
+    width: 100%;
+    height: 90rpx;
+    border-bottom-style: solid;
+    border-bottom-width: 1rpx;
+    border-bottom-color: #D8D8D8;
+}
+
+.cls_id_card_number_txt {
+    position: absolute;
+    left: 10rpx;
+    bottom: 16rpx;
+    width: auto;
+    height: auto;
+    font-family: PingFangSC-Regular;
+    text-indent: 30rpx;
+    font-size: 30rpx;
+}
+
+.cls_id_card_number_input {
+    position: absolute;
+    left: 195rpx;
+    bottom: 10rpx;
+    width: calc(100%-195rpx);
+    height: auto;
+    font-family: PingFangSC-Regular;
+    font-size: 30rpx;
+}
+
+.cls_phone_number {
+    position: absolute;
+    left: 0rpx;
+    top: 270rpx;
+    width: 100%;
+    height: 90rpx;
+    border-bottom-style: solid;
+    border-bottom-width: 1rpx;
+    border-bottom-color: #D8D8D8;
+}
+
+.cls_phone_number_txt {
+    position: absolute;
+    left: 10rpx;
+    bottom: 16rpx;
+    width: auto;
+    height: auto;
+    font-family: PingFangSC-Regular;
+    text-indent: 30rpx;
+    font-size: 30rpx;
+}
+
+.cls_phone_number_input {
+    position: absolute;
+    left: 165rpx;
+    bottom: 10rpx;
+    width: calc(100% - 165rpx);
+    height: auto;
+    font-family: PingFangSC-Regular;
+    font-size: 30rpx;
+}
+
+.cls_bank_name {
+    position: absolute;
+    left: 0rpx;
+    top: 360rpx;
+    width: 100%;
+    height: 90rpx;
+    border-bottom-style: solid;
+    border-bottom-width: 1rpx;
+    border-bottom-color: #D8D8D8;
+}
+
+.cls_bank_name_txt {
+    position: absolute;
+    left: 10rpx;
+    top: 30rpx;
+    width: auto;
+    height: auto;
+    font-family: PingFangSC-Regular;
+    text-indent: 30rpx;
+    font-size: 30rpx;
+}
+
+.cls_bank_name_input {
+    position: absolute;
+    left: 225rpx;
+    top: 24rpx;
+    width: calc(100% - 225rpx);
+    height: auto;
+    font-family: PingFangSC-Regular;
+    font-size: 30rpx;
+}
+
+.cls_note_title {
+    position: absolute;
+    left: 0rpx;
+    top: 450rpx;
+    width: 100%;
+    height: 90rpx;
+}
+
+.cls_note_title_txt {
+    position: absolute;
+    left: 60rpx;
+    top: 18rpx;
+    margin-right: 20rpx;
+    width: auto;
+    height: auto;
+    font-family: PingFangSC-Regular;
+    letter-spacing: 2rpx;
+    color: #F9611C;
+    font-size: 22rpx;
+}
+
+.cls_note_title_image {
+    position: absolute;
+    left: 30rpx;
+    top: 25rpx;
+    width: 22rpx;
+    height: 22rpx;
+}
+
+.cls_ok_button {
+    position: fixed;
+    left: 0rpx;
+    bottom: 0rpx;
+    letter-spacing: 5rpx;
+    line-height: 98rpx;
+    width: 100%;
+    font-size: 30rpx;
+    height: 98rpx;
+    text-align: center;
+    color: #FFFFFF;
+    background-color: #E6B53C;
+}

@@ -1,0 +1,125 @@
+.container {
+  background-color: white;
+}
+
+.postname-view {
+  width: 100%;
+  line-height: 88rpx;
+  border-bottom: solid 3rpx #f4f4f4;
+  font-family: PingFangSC-Regular;
+  font-size: 30rpx;
+  color: #333;
+  letter-spacing: 0.64rpx;
+}
+
+.postname-text {
+  margin-left: 30rpx;
+}
+
+.postname-input {
+  margin-left: 30rpx;
+  vertical-align: middle;
+  display: inline-block;
+}
+
+.phonenumber-view {
+  width: 100%;
+  line-height: 88rpx;
+  border-bottom: solid 3rpx #f4f4f4;
+  font-family: PingFangSC-Regular;
+  font-size: 30rpx;
+  color: #333;
+  letter-spacing: 0.64rpx;
+}
+
+.phonenumber-text {
+  margin-left: 30rpx;
+}
+
+.phonenumber-input {
+  margin-left: 30rpx;
+  vertical-align: middle;
+  display: inline-block;
+}
+
+
+.detail-address {
+  width: calc(100%-180rpx); 
+  height: 85rpx;
+  vertical-align: middle;
+  padding-left: 30rpx;
+  font-family: PingFangSC-Regular;
+  font-size: 30rpx;
+  color: #888;
+  letter-spacing: 0.64rpx;
+  border-bottom: solid 3rpx #f4f4f4;
+  margin-right:30rpx;
+}
+
+.mail-view {
+  width: calc(100% - 30rpx);
+  line-height: 88rpx;
+  vertical-align: middle;
+  border-bottom: solid 3rpx #f4f4f4;
+  font-family: PingFangSC-Regular;
+  font-size: 30rpx;
+  color: #333;
+  letter-spacing: 0.64rpx;
+}
+
+.mail-text {
+  margin-left: 30rpx;
+}
+
+.mail-input {
+  margin-left: 30rpx;
+  vertical-align: middle;
+  display: inline-block;
+}
+
+.submit_btn {
+  width: 100%;
+  line-height: 98rpx;
+  position: fixed;
+  bottom: 0rpx;
+  background-color: #e6b53c;
+  font-family: PingFangSC-Semibold;
+  font-size: 32rpx;
+  color: #fff;
+  letter-spacing: 1.54rpx;
+}
+
+.event-view {
+  padding-left: 30rpx;
+  line-height: 88rpx;
+  font-family: PingFangSC-Regular;
+  font-size: 30rpx;
+  color: #333;
+  letter-spacing: 0.64rpx;
+  border-bottom: solid 3rpx #f4f4f4;
+}
+.stadiumaddress-text {
+  margin-left: 30rpx;
+}
+.stadiumaddress-input {
+  margin-left: 30rpx;
+  width: 500rpx;
+  vertical-align: middle;
+  display: inline-block;
+  font-family: PingFangSC-Semibold;
+  overflow: visible;
+}
+
+.map-next-image {
+  float: right;
+  margin-right: 30rpx;
+  width: 15rpx;
+  height: 26rpx;
+  padding-top: 32rpx;
+}
+.map-input {
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 10rpx;
+  width: 65%;
+}

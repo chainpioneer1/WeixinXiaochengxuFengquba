@@ -1,0 +1,127 @@
+<!--pages/booking/booking.wxml-->
+
+<import src="../../profile/template/get_userinfo.wxml"></import>
+
+<scroll-view scroll-y class='container'>
+  <view style='width:100%; padding-bottom:30rpx;background:white;'>
+    <view class="booking">
+      <view class="booking-detail">        
+        <view>
+          <text class='booking-name' style="font-weight: bold;">{{booking.site_name}}</text>
+          <text class="booking-role-text">{{booking.room_name}}</text>          
+          <text wx:if="{{(booking.state == 0)&&(1.0*booking.pay_cost>0.0)}}" class="booking-status">{{bookingState[booking.state]}}</text>
+          <text wx:if="{{booking.state > 0}}" class="booking-status">{{bookingState[booking.state]}}</text>
+        </view>    
+        <view class="booking-place">
+            <view class="address_content" bindtap="goto_mapView">
+                <view class="booking-address">地址 | </view>
+                <view class="booking-address1">{{booking.detail_address}}</view>
+            </view>           
+        </view>
+        <view class="booking-time">
+          <block wx:for="{{booking.book_info}}" wx:key="idx" wx:for-item="room">
+            <view class="time_content">
+                <view style="width:140rpx;word-break: keep-all;">{{room.room_name}}</view>
+                <view style="padding-left: 10rpx;">时间 | {{room.start_time}} ~ {{room.end_time}}</view>
+                <view class='booking-fav-text'>￥{{room.cost}}</view>
+            </view>
+          </block>
+        </view>
+      </view>          
+    </view>
+  </view>
+  
+  <view class="detail-info" style='width: calc(100% - 30rpx); padding-left: 30rpx;margin-top:1px;'>
+    <view class="booking-time" style="margin-top:0rpx;">          
+      <view class="time_content">
+          <view style="width:140rpx;display:inline-block;text-align:center;"> </view>
+          合计<view class='booking-fav-text'>￥{{booking.pay_cost}}</view>
+      </view>          
+      <view class="time_content">
+          <view style="width:140rpx;display:inline-block;text-align:center;"> </view>
+          蜂蜜抵扣优惠<view class='booking-fav-text'>￥{{booking.pay_honey}}</view>
+      </view>          
+      <view class="time_content">
+          <view style="width:140rpx;display:inline-block;text-align:center;"> </view>
+          共支付<view class='booking-fav-text'>￥{{booking.pay_cost - booking.pay_honey}}</view>
+      </view>          
+    </view>
+  </view>
+
+  <view class="detail-info" style='width: calc(100% - 30rpx); padding-left: 30rpx;'>
+    <view>
+      <label class="detail-info-label" style="font-weight: bold;">预订人信息</label>
+    </view>
+    <view>
+      <label class="detail-txt">昵称: {{booking.nickname}}</label>
+    </view>
+    <view class="personal-phone" bindtap="phone_call">
+      <label class="detail-txt">电话: <view class="booking-address1" style="font-size:30rpx;">{{booking.user_phone}}</view>
+       </label>
+    </view>
+  </view>
+
+
+
+  <view wx:if="{{booking.state == 0}}" class="detail-info" style='width: calc(100% - 30rpx); padding-left: 30rpx;'>    
+    <view>
+      <label class="detail-info-label" style="font-weight: bold;">预订规则</label>
+    </view>
+    <view wx:if="{{booking.cancel_time>0 && booking.cancel_time<100}}">
+      <label class="detail-txt">开始前{{booking.cancel_time}}小时可退/可用蜂蜜抵扣</label>
+    </view>
+    <view wx:elif="{{booking.cancel_time==0}}">
+      <label class="detail-txt">开始前可退/可用蜂蜜抵扣</label>
+    </view>
+    <view wx:elif="{{booking.cancel_time>100}}">
+      <label class="detail-txt">不可退</label>
+    </view>
+  </view>
+
+  <view class='action' wx:if="{{booking.user_id == user_id}}">    
+    <view wx:if="{{booking.state!=2}}" class="before_complete">
+      <view bindtap="go_to_place" class="view_place">查看商家</view>      
+      <button  wx:if="{{booking.state<2}}" class="share_wechat"  open-type="share">
+        <image class="img_share" src="../../../image/WeChat@2x.png" />
+        <view class="text_share">分享到微信</view>        
+      </button>
+      <view wx:if="{{booking.state==0}}" bindtap="onclick_cancel_booking" class="cancel_booking {{cancel_state}}">取消订单</view>      
+    </view>
+
+    <view wx:if="{{booking.state==2}}" class="after_complete">
+      <view class='introduce' wx:if="{{booking.point}}">
+        <view class='introduce-view'>
+          <text class='introduce-border' style="font-weight: bold;">我的评价</text>
+        </view>
+        <view class="cls_score_title_bar">
+          <text class="cls_score_title">评分：</text>
+          <view class="cls-score-star-view1" wx:for="{{[1, 2, 3, 4, 5]}}">
+            <view class="cls-score-star-view2" wx:if="{{item <= booking.point}}">
+              <image class="cls_score_star" src="{{img_yellow_start_src}}" />
+            </view>
+            <view class="cls-score-star-view2" wx:else>
+              <image class="cls_score_star" src="{{img_black_start_src}}" />
+            </view>
+          </view>
+        </view>
+        <view style='padding-left: 30rpx; width: 100%; height: auto;'>
+          <text class='introduce-detail'>{{booking.rating_comment}}</text>
+        </view>
+      </view>
+      <view bindtap="go_to_place" class="view_place_complete">查看商家</view>
+      <view class="go_review" bindtap="btn_write_comment" wx:if="{{!booking.point}}">去评价</view>
+    </view>
+    
+  </view>
+
+  <view class='action' wx:else>    
+    <view class="before_complete">
+      <view bindtap="go_to_place" class="view_place">查看商家</view> 
+    </view>   
+  </view>
+
+  <view style="height:100rpx;background:transparent;"></view>
+  
+</scroll-view>
+
+<template is="get-user-template" wx:if="{{getUserInfoDisabled == true}}"></template>

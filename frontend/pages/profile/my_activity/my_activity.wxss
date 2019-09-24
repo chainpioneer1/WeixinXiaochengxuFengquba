@@ -1,0 +1,143 @@
+/* pages/booking/booking.wxss */
+
+@import "booking.wxss";
+.all_tab {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100rpx;
+    background-color: white;
+}
+
+.all_tab_bar {
+    position: absolute;
+    top: 18rpx;
+    left: 73rpx;
+    width: 612rpx;
+    height: 64rpx;
+    font-size: 30rpx;
+    color: #E6B53C;
+    font-weight: 400;
+}
+
+.activity_tab {
+    position: absolute;
+    width: 306rpx;
+    height: 64rpx;
+    line-height: 64rpx;
+    vertical-align: center;
+    text-align: center;
+    left: 0;
+    top: 0;
+    border: solid 3rpx #E6B53C;
+    border-radius: 15rpx 0rpx 0rpx 15rpx;
+}
+
+.booking_tab {
+    position: absolute;
+    width: 306rpx;
+    height: 64rpx;
+    line-height: 64rpx;
+    vertical-align: center;
+    text-align: center;
+    left: 306rpx;
+    top: 0;
+    border: solid 3rpx #E6B53C;
+    border-left-width: 0rpx;
+    border-radius: 0rpx 15rpx 15rpx 0rpx;
+}
+
+.select {
+    background-color: #E6B53C;
+    color: white;
+}
+
+.tab {
+    position: absolute;
+    top: 100rpx;
+    left: 0;
+    width: 100%;
+    height: 90rpx;
+    background-color: white;
+}
+
+.tab-bar {
+    position: absolute;
+    top: 18rpx;
+    left: 0;
+    width: 100%;
+    height: 64rpx;
+    font-size: 30rpx;
+    font-weight: 400;
+}
+
+.tab-item {
+    position: absolute;
+    width: 33%;
+    height: 50rpx;
+    line-height: 50rpx;
+    vertical-align: center;
+    text-align: center;
+}
+
+.tab-item1 {
+    left: 0;
+    top: 0;
+    border-right: 2rpx solid;
+    border-right-color: #bbb;
+}
+
+.tab-item2 {
+    left: 33.5%;
+    top: 0;
+    border-right: 3rpx solid;
+    border-color: #bbb;
+}
+
+.tab-item3 {
+    left: 67%;
+    top: 0;
+}
+
+.active {
+    color: #E6B53C;
+}
+
+.tab-label {
+    position: absolute;
+    left: 57rpx;
+    top: 12rpx;
+}
+
+.activities {
+    position: absolute;
+    left: 0;
+    top: 190rpx;
+    width: 100%;
+    background-color: #f4f4f4;
+    color: #333333;
+}
+
+.btn-view {
+    background-color: white;
+    width: 100%;
+    height: 90rpx;
+}
+
+.activity-button {
+    float: right;
+    margin-right: 30rpx;
+    margin-top: 14rpx;
+    width: 150rpx;
+    text-align: center;
+    height: 60rpx;
+    line-height: 60rpx;
+    background-color: #e6b53c;
+    border-radius: 10rpx;
+    font-size: 26rpx;
+    font-family: "PingFangSC-Semibold";
+    color: white;
+}
+
+@import "../template/act_template.wxss";

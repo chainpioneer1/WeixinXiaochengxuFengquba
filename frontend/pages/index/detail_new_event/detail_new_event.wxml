@@ -1,0 +1,185 @@
+<!-- User Activity Detail Viewer -->
+<import src="../../../wxParse/wxParse.wxml" />
+<import src="../../profile/template/get_userinfo.wxml"></import>
+
+<view class="container" style="width:calc(100vw);height:calc(100vh);">
+
+  <scroll-view scroll-y class='postadd-view'>
+          
+    <swiper class="personal-img-wrapper" wx:if="{{pictures.length==1}}"  autoplay="true" interval="3000" duration="300">
+      <block wx:for="{{pictures}}" wx:key="index">
+        <swiper-item>
+          <image class="personal-event-img" mode="aspectFill" src="{{item}}" id="{{index}}" bindtap="show_preview" />
+        </swiper-item>
+      </block>
+    </swiper>
+    <swiper class="personal-img-wrapper" wx:if="{{pictures.length>1}}" indicator-dots="true" autoplay="true" interval="3000" duration="300">
+      <block wx:for="{{pictures}}" wx:key="index">
+        <swiper-item>
+          <image class="personal-event-img" mode="aspectFill" src="{{item}}" id="{{index}}" bindtap="show_preview" />
+        </swiper-item>
+      </block>
+    </swiper>
+
+ <!-- Event Info -->   
+    <view class="event-info">
+      <view class="event-type-info">
+        <text class="event-type" style="font-weight: bold;">{{event.eventName}}</text>        
+      </view>
+      <view class='detail-info'>        
+        <image class="cost_img" src='../../../image/my_bee_m@2x.png'></image>
+        <view class="detail-info-text">报名费{{event.cost}}元/人</view>
+      </view>    
+      <view class="detail-info"  bindtap="goto_mapView">
+        <image class="place_img" src='../../../image/icon_place@2x.png'></image>
+        <view class="detail-info-text" selectable='true' style='text-decoration: underline;'>{{event.detail_address}}</view>
+      </view>
+      <view class='detail-info'bindtap="phone_call">        
+        <image  class="phone_img" src='../../../image/iphone@2x.png'></image>
+        <view class="detail-info-text" style='text-decoration: underline;'>{{event.agent_phone}}</view>
+      </view> 
+
+      <view class="act_date">
+        <view class="date_content" style="border-right:1rpx solid #eee;">
+          <view class="date_bottom">{{train_type[is_train]}}日期</view>
+          <view class="date_top">{{start_date}} 到</view>
+          <view class="date_top">{{end_date}}</view>
+        </view>
+        <view class="date_content" style="color:#e6b53c">
+          <view class="date_bottom" style="padding-bottom: 20rpx;">截止日({{final_date}})</view>
+          <view class="date_top">{{remain_day}}(报满即止)</view>
+        </view>        
+      </view>
+
+      <view class="fav_info">
+        <text class='favor_text'>{{rating}}</text>        
+        <image class="favor_star" bindtap="btn_Clicked_Favor" src='{{fav_img_list[favourite_num]}}'></image>
+               
+        <text class='view_count_text'>{{event.read_count}}</text>        
+        <image class="view_count_img" src='../../../image/eye@2x.png'></image>        
+      </view>
+    </view> 
+
+ <!-- Event limit info -->
+    <view class='limit_info'>
+      <view class='limit-payment'>
+        <text class='limit-title-text' style="font-weight: bold;">支付方式 </text>
+        <text class='limit-value-text'>{{pay_type_array[event.pay_type]}}</text>
+      </view> 
+      <view class='limit-num'>       
+        <text class='limit-title-text' style="font-weight: bold;">报名限制</text>
+        <text class="limit-value-text">{{condition_str}}</text>      
+      </view>     
+    </view>
+
+ <!-- Event introduce info -->
+    <view class='introduce'>
+      <view class='introduce-view'>
+        <text class='introduce-border' style="font-weight: bold;">{{train_type[is_train]}}介绍</text>
+      </view>
+      <view class='product-explain-view'>
+        <template is="wxParse" data="{{wxParseData:event_comment.nodes}}" />
+      </view>
+      <!-- <view style='width: 80%; padding-left: 30rpx;'>
+        <template is="wxParse" data="{{wxParseData:event_comment.nodes}}" />        
+      </view> -->
+    </view>
+    <view class='applicant-view'>
+      <view class='applicant-title'>
+        <text class='applicant-title-text' style="font-weight: bold;">报名成员（{{register_amount}}人）</text>
+      </view>
+      <view class='applicant-each-view' wx:for="{{booking}}" wx:key="{{item.name}}" wx:if="{{item.state!='2'}}">
+        <image class="applicant-image" id="{{index}}" bindtap="onclick_viewUserInfo" src="{{item.avatar}}"></image>
+        <view class='applicant-name'>{{item.name}}({{item.reg_num}}人)</view>
+      </view>
+    </view>
+
+
+
+
+    <!-- comment list -->
+    <view class="applicant-view">
+      <!-- add feedback part -->
+      <view class="applicant-title">
+        <text class="applicant-title-text" style="font-weight: bold;">留言</text>
+      </view>
+      <view class="submit_feedback">
+        <view class="comment_content">
+          <input type="text" class="text_comment" bindinput='On_input_comment' placeholder="我也来说几句" value="{{comment}}"></input>
+        </view>
+        <view bindtouchstart="add_feedback" class="comment-btn">发表</view>
+      </view>
+      <!-- feedback list -->
+      <view class="comment-view" wx:for="{{feedbacks}}" wx:key="{{index}}" wx:for-index="mainid">
+        <view class="cls_user_comment_info">
+          <image class="cls_user_photo" mode="aspectFill" src="{{item.avatar}}"></image>
+          <view class="cls_comment_date">{{item.nickname}}</view>
+          <text class="cls_comment_time">{{item.submit_time}}</text>
+          <text class="cls_comment_content">{{item.comment}}</text>
+        </view>
+        <view class="interested_content">
+          <view class="message_back" data-id="{{mainid}}" bindtap="select_feedback" data-parent="{{item.user_id}}" data-type="main">回复</view>
+          <view class="message_delete" wx:if="{{item.user_id == myId}}" data-id="{{item.no}}" bindtap="delete_feedback" data-type="main">删除</view>
+          <image class="message_img" mode="scaleToFill" src="../../../image/msg@2x.png"></image>
+          <view class="message_count">{{item.child_array.length}}</view>
+          <image class="fav_img" mode="scaleToFill" id="{{index}}" bindtap="submit_event_favorite" src="{{fav_img_list[item.fav_state]}}"></image>
+          <view class="fav_count" style="color: {{(item.fav_state==0)?'#888':'#604000'}};">{{item.fav_count}}</view>
+        </view>
+        <!-- child feedback list -->
+        <view class="child_feedback" wx:if="{{item.child_array.length>0}}">
+          <view class="child_item" wx:for="{{item.child_array}}" wx:for-item="child_item" wx:for-index="subid" wx:key="subid">
+            <view class="child_name">
+              <text data-id="{{child_item.user_id}}" bindtap="go2UserDetail" style="color: {{(child_item.user_id == myId)?'black':'#604000'}};">{{(child_item.user_id == myId)?'我':child_item.nickname}}</text>
+              <text wx:if="{{child_item.user_id != child_item.parent_user}}">回复</text>
+              <text wx:if="{{child_item.user_id != child_item.parent_user}}" style="color: {{(child_item.parent_user == myId)?'black':'#604000'}};" data-id="{{child_item.parent_user}}" bindtap="go2UserDetail">{{(child_item.parent_user == myId)?'我':child_item.parent_user_name}}</text>:
+              <text>{{child_item.comment}}</text>
+            </view>
+            <view class="child_content">
+              <view class="child_time_content">
+                <view class="message_back" data-id="{{mainid}}" data-parent="{{child_item.user_id}}" data-type="child" bindtap="select_feedback">回复</view>
+                <view class="message_delete" wx:if="{{child_item.user_id == myId}}" data-id="{{child_item.no}}" data-type="child" bindtap="delete_feedback">删除</view>
+                <view class="child_time">{{child_item.submit_time}}</view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </scroll-view>
+
+  <view class="input-message" wx:if="{{focus}}">
+    <view class="input-area">
+      <textarea class="input-comment" focus="{{focus}}" bindblur="unselect_comment" bindinput='On_input_comment' value="{{comment}}"></textarea>
+      <view class="input-comment-btn" bindtouchstart="add_feedback">发送</view>
+    </view>
+  </view>
+
+ <!-- footer view-->
+  <view class='btn-footer'>
+    <view class="share_part">
+      <view class="go_home_view" bindtap="onclick_goHome">
+        <image class="go_home_img" src="../../../image/home@2x.png" />
+        <view class="share_text">回到首页</view>
+      </view> 
+      <button class="share_wechat_view"  open-type="share">
+        <image class="share_wechat_img" src="../../../image/WeChat@2x.png" />
+        <view class="share_text">分享</view>
+      </button>
+      <view class="download_view"  bindtap="downlaod_img">
+        <image class="download_img" src="../../../image/download@2x.png" />
+        <view class="share_text">保存分享图</view>
+      </view>     
+    </view>    
+    
+    <button bindtap="btn_Clicked_Personal_Input" id="{{event.id}}" disabled="{{is_disabled}}" class='btn-personal-participate'>{{btn_text}}</button>
+  </view>
+  
+</view>
+
+<view class="view_mask" bindtap='hide_canvas' wx:if="{{show_state}}"></view>
+<canvas canvas-id="shareImg" style="width:750px;height:985px"></canvas>
+<view class="show_canvas{{event.detail_address.length>20?2:1}}"  wx:if="{{show_state}}">
+  <image class="canvas_image" src='{{img_url}}' bindtap='hide_canvas'></image>
+</view>
+
+<template is="get-user-template" wx:if="{{getUserInfoDisabled == true}}"></template>

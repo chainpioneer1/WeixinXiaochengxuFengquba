@@ -1,0 +1,28 @@
+/* pages/backyard/help/help.wxss */
+
+.container {
+  background-color: white;
+  letter-spacing: 0.64rpx;
+  line-height: 45rpx;
+}
+
+.help {
+  width: calc(100% - 60rpx);
+  padding-left: 30rpx;
+  padding-right: 30rpx;
+  padding-top: 40rpx;
+  font-family: PingFangSC-Regular;
+  font-size: 30rpx;
+}
+.title{
+  font-family: PingFangSC-Semibold;
+  border-left: solid 8rpx #e6b53c;
+  padding-left: 12rpx;
+}
+.normal-text{
+  margin-top: 30rpx;
+}
+.normal-text text{
+  font-family: PingFangSC-Semibold;
+  margin-right: 20rpx;
+}

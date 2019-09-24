@@ -1,0 +1,585 @@
+@import "../profile/template/act_template.wxss";
+@import "template/template.wxss";
+@import "template/template_event.wxss";
+@import "../profile/template/get_userinfo.wxss";
+.container {
+    background-color: white;
+}
+
+.tab {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100rpx;
+    background-color: white;
+}
+
+.tab-bar {
+    position: absolute;
+    top: 18rpx;
+    left: 123rpx;
+    width: 508rpx;
+    height: 64rpx;
+    font-size: 28rpx;
+    color: #e6b53c;
+    font-family: PingFangSC-Semibold;
+    letter-spacing: 1.8rpx;
+}
+
+.tab-item {
+    position: absolute;
+    width: 254rpx;
+    height: 60rpx;
+    line-height: 60rpx;
+    vertical-align: middle;
+    text-align: center;
+}
+
+.tab-item1 {
+    left: 0;
+    top: 0;
+    border-radius: 15rpx 0rpx 0rpx 15rpx;
+    border: solid 3rpx #e6b53c;
+}
+
+.tab-item2 {
+    left: 254rpx;
+    top: 0;
+    border-radius: 0rpx 15rpx 15rpx 0rpx;
+    border: solid 3rpx #e6b53c;
+}
+
+.active {
+    background-color: #e6b53c;
+    color: white;
+}
+
+.tab-label1 {
+    position: absolute;
+    left: 67rpx;
+    top: 12rpx;
+}
+
+.tab-detail-open {
+    position: absolute;
+    left: 675rpx;
+    top: 30rpx;
+    width: 45rpx;
+    height: 38rpx;
+}
+
+.tab-label2 {
+    position: absolute;
+    left: 34rpx;
+    top: 12rpx;
+}
+
+.activities {
+    position: fixed;
+    left: 0;
+    top: 190rpx;
+    width: 100%;
+    bottom: 0rpx;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+.activity-button {
+    size: default;
+    float: right;
+    margin-right: 30rpx;
+    margin-top: 14rpx;
+    width: 150rpx;
+    height: 67rpx;
+    background-color: #e6b53c;
+    border-radius: 10rpx;
+    font-size: 26rpx;
+    font-family: "PingFangSC-Semibold";
+    color: white;
+}
+
+.modal-mask {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: #000;
+    opacity: 0.2;
+    overflow: hidden;
+    z-index: 9000;
+    color: #fff;
+}
+
+.modal-dialog {
+    position: absolute;
+    left: 200rpx;
+    width: calc(100% - 200rpx);
+    height: 100%;
+    overflow: hidden;
+    z-index: 99999;
+    background: white;
+}
+
+.modal-title {
+    width: 100%;
+    height: 280rpx;
+    border-bottom: 3rpx solid #f4f4f4;
+}
+
+.modal-title-image {
+    display: inline-block;
+}
+
+.modal-title-image {
+    position: absolute;
+    font-size: 32rpx;
+    left: 30rpx;
+    top: 33rpx;
+    width: 45rpx;
+    height: 34rpx;
+}
+
+.modal-title-text {
+    display: inline-block;
+    width: auto;
+    height: auto;
+    padding-top: 31rpx;
+    padding-left: 255rpx;
+    font-family: PingFangSC-Semibold;
+    font-size: 30rpx;
+    color: #333;
+    letter-spacing: 1.93rpx;
+}
+
+.modal-text-select {
+    position: absolute;
+    left: 30rpx;
+    top: 120rpx;
+    font-family: PingFangSC-Regular;
+    font-size: 26rpx;
+    color: #333;
+    letter-spacing: 1.67rpx;
+}
+
+.modal-tab-bar {
+    position: absolute;
+    top: 185rpx;
+    left: 28rpx;
+    width: 498rpx;
+    height: 64rpx;
+    font-size: 28rpx;
+    color: #e6b53c;
+    font-family: PingFangSC-Semibold;
+    letter-spacing: 1.8rpx;
+}
+
+.modal-tab-item {
+    position: absolute;
+    width: 249rpx;
+    height: 64rpx;
+    line-height: 64rpx;
+    vertical-align: middle;
+    text-align: center;
+}
+
+.modal-tab-item1 {
+    left: 0;
+    top: 0;
+    border-radius: 15rpx 0rpx 0rpx 15rpx;
+    border: solid 3rpx #e6b53c;
+}
+
+.modal-tab-item2 {
+    left: 249rpx;
+    top: 0;
+    border-radius: 0rpx 15rpx 15rpx 0rpx;
+    border: solid 3rpx #e6b53c;
+}
+
+.modal-active {
+    background-color: #e6b53c;
+    color: white;
+}
+
+.modal-tab-label1 {
+    position: absolute;
+    left: 80rpx;
+    top: 12rpx;
+}
+
+.modal-tab-label2 {
+    position: absolute;
+    left: 95rpx;
+    top: 12rpx;
+}
+
+.modal-selkind {
+    width: 100%;
+    padding-left: 30rpx;
+}
+
+.modal-selkind-text {
+    font-family: PingFangSC-Regular;
+    font-size: 28rpx;
+    color: #333;
+    letter-spacing: 1.8rpx;
+}
+
+.modal-kind-view {
+    width: 100%;
+}
+
+.modal-kind-btn {
+    display: inline-block;
+    width: 140rpx;
+    height: 54rpx;
+    line-height: 54rpx;
+    margin-right: 28rpx;
+    margin-top: 20rpx;
+    background: #e8e8e8;
+    border-radius: 10rpx;
+    font-family: PingFangSC-Regular;
+    font-size: 24rpx;
+    color: #333;
+    letter-spacing: 1.8rpx;
+    text-align: center;
+}
+
+.selected {
+    width: 140rpx;
+    height: 54rpx;
+    line-height: 54rpx;
+    background: #E6B53C;
+    border-radius: 10rpx;
+    font-family: PingFangSC-Regular;
+    font-size: 24rpx;
+    color: white;
+    letter-spacing: 1.8rpx;
+}
+
+.modal-actual-time {
+    margin-top: 50rpx;
+    width: 100%;
+    font-family: PingFangSC-Regular;
+    font-size: 28rpx;
+    color: #333;
+    letter-spacing: 1.8rpx;
+}
+
+.modal-start-time {
+    display: inline-block;
+    margin-top: 30rpx;
+    margin-right: 20rpx;
+    background-color: #e8e8e8;
+    border-radius: 10rpx;
+    width: 200rpx;
+    height: 54rpx;
+    text-align: center;
+    font-family: PingFangSC-Regular;
+    font-size: 27rpx;
+    line-height: 54rpx;
+    color: #333;
+    letter-spacing: 1.8rpx;
+    margin-left: 20rpx;
+}
+
+.modal-end-time {
+    display: inline-block;
+    margin-top: 30rpx;
+    background-color: #e8e8e8;
+    border-radius: 10rpx;
+    width: 200rpx;
+    height: 54rpx;
+    text-align: center;
+    font-family: PingFangSC-Regular;
+    font-size: 27rpx;
+    line-height: 54rpx;
+    color: #333;
+    letter-spacing: 1.8rpx;
+}
+
+.model-time-symbol {
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 20rpx;
+    width: 40rpx;
+    height: 3rpx;
+    background-color: #e8e8e8;
+}
+
+.modal-cancel {
+    position: fixed;
+    left: 200rpx;
+    bottom: 0rpx;
+    width: 275rpx;
+    line-height: 98rpx;
+    background-color: #fff;
+    font-family: PingFangSC-Regular;
+    font-size: 28rpx;
+    color: #333;
+    letter-spacing: 1.8rpx;
+}
+
+.modal-ok {
+    position: fixed;
+    bottom: 0rpx;
+    left: 475rpx;
+    width: 275rpx;
+    line-height: 98rpx;
+    font-family: PingFangSC-Regular;
+    font-size: 28rpx;
+    color: white;
+    letter-spacing: 1.8rpx;
+    background-color: #e6b53c;
+}
+
+.index_table_search_view {
+    position: fixed;
+    z-index: 9;
+    top: 100rpx;
+    left: 0rpx;
+    width: 100%;
+    height: 86rpx;
+    background-color: white;
+}
+
+.index_table_search_item_view {
+    position: absolute;
+    z-index: 10;
+    top: 0rpx;
+    height: 100%;
+}
+
+.filter_order {
+    position: absolute;
+    font-size: 27rpx;
+    font-weight: bold;
+    color: #666666;
+    left: 20rpx;
+    top: 30rpx;
+    width: 130rpx;
+    text-align: center;
+}
+
+.img_up_arrow {
+    position: fixed;
+    width: 16rpx;
+    height: 24rpx;
+    left: 140rpx;
+    top: 136rpx;
+}
+
+.index_table_search_view_new {
+    position: fixed;
+    z-index: 9;
+    top: 100rpx;
+    left: 0rpx;
+    width: 100%;
+    height: 86rpx;
+    background-color: white;
+}
+
+.index_table_search_item_view_new {
+    position: absolute;
+    z-index: 10;
+    top: 0rpx;
+    height: 100%;
+}
+
+.filter_order_new {
+    position: absolute;
+    font-size: 27rpx;
+    font-weight: bold;
+    color: #666666;
+    left: 58rpx;
+    top: 30rpx;
+    width: 130rpx;
+    text-align: center;
+}
+
+.img_up_arrow_new {
+    position: fixed;
+    width: 16rpx;
+    height: 24rpx;
+    left: 180rpx;
+    top: 135rpx;
+}
+
+
+/* select menu content */
+
+.modal-mask1 {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 188rpx;
+    left: 0;
+    background: #000;
+    opacity: 0.2;
+    overflow: #bbbbbb;
+    z-index: 99999;
+    color: #fff;
+}
+
+.modal-dialog1 {
+    position: fixed;
+    left: 0vw;
+    top: 188rpx;
+    width: 185rpx;
+    overflow: hidden;
+    z-index: 99999;
+    background: white;
+}
+
+.main-text1 {
+    width: 100%;
+    height: 100%;
+    z-index: 10000000;
+    font-family: PingFangSC-Regular;
+    font-size: 27rpx;
+}
+
+.type_contain_each {
+    display: inline-block;
+    padding-top: 18rpx;
+    width: 24%;
+}
+
+.display_show {
+    text-align: center;
+    height: 63rpx;
+    border-top: 0.5rpx solid;
+    border-top-color: #dddddd;
+    padding-top: 23rpx;
+    font-size: 27rpx;
+}
+
+.img_check {
+    position: absolute;
+    width: 18rpx;
+    height: 18rpx;
+    line-height: 20rpx;
+    right: 13rpx;
+    top: 34rpx;
+}
+
+.modal-dialog2 {
+    position: fixed;
+    left: 180rpx;
+    top: 188rpx;
+    width: 188rpx;
+    overflow: hidden;
+    z-index: 99999;
+    background: white;
+}
+
+.modal-dialog3 {
+    position: fixed;
+    left: 0vw;
+    top: 190rpx;
+    width: 100vw;
+    overflow: hidden;
+    z-index: 99999;
+    background: white;
+}
+
+.modal-dialog4 {
+    position: fixed;
+    left: 0vw;
+    top: 190rpx;
+    width: 100vw;
+    overflow: hidden;
+    z-index: 99999;
+    background: white;
+}
+
+.main-type-content {
+    width: 100%;
+    padding-left: 24rpx;
+    z-index: 10000000;
+    font-family: PingFangSC-Regular;
+    font-size: 27rpx;
+}
+
+.main-type-buttons {
+    width: 100%;
+    height: 15%;
+    z-index: 10000000;
+    font-family: PingFangSC-Regular;
+    font-size: 28rpx;
+    padding-top: 30rpx;
+    padding-bottom: 35rpx;
+}
+
+.type-button-cancel {
+    width: 45%;
+    height: 50rpx;
+    margin-left: 27rpx;
+    display: inline-block;
+    text-align: center;
+    border: solid 2rpx #e6b53c;
+    color: #e6b53c;
+    margin-right: 17rpx;
+    padding-top: 10rpx;
+}
+
+.type-button-ok {
+    width: 45%;
+    height: 50rpx;
+    display: inline-block;
+    text-align: center;
+    color: white;
+    background: #e6b53c;
+    border: solid 2rpx #e6b53c;
+    padding-top: 10rpx;
+}
+
+.display_type {
+    width: 150rpx;
+    padding: 9rpx;
+    text-align: center;
+    background: #eeeeee;
+    border-radius: 5rpx;
+}
+
+.display_all_type {
+    width: 510rpx;
+    padding: 9rpx;
+    text-align: center;
+    background: #eeeeee;
+    border-radius: 5rpx;
+}
+
+
+/* buttons */
+
+.btn-item {
+    width: 180rpx;
+    height: 54rpx;
+    line-height: 54rpx;
+    vertical-align: middle;
+    text-align: center;
+    display: inline-block;
+    border: solid 3rpx #e6b53c;
+    border-radius: 15rpx;
+    font-size: 28rpx;
+    margin-left: 30rpx;
+    margin-right: 30rpx;
+    color: #e6b53c;
+}
+
+.btn_ok {
+    color: white;
+}
+
+.swiper_box {
+    width: 100vw;
+    height: 320rpx;
+}
+
+.slide-image {
+    width: 100%;
+    height: 100%;
+}

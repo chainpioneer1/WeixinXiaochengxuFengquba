@@ -1,0 +1,39 @@
+<template name="template_place">
+    <view class="place">
+        <view bindtap="click_detail_place" id="{{item.boss_id}}" data-no="{{item.boss_no}}">
+            <view class="place-detail">
+                <view class="place-role">
+                    <text class="place-name" style="font-weight: bold;">{{item.site_name}}</text>
+                </view>
+                <view class="place-picture">
+                    <swiper class="swiper_box" autoplay="{{true}}" interval="3000" duration="300">
+                        <block wx:for="{{item.picture}}" wx:key="index" wx:if="{{index==0}}">
+                            <swiper-item>
+                                <image class="img-item" mode="aspectFill" src="{{uploadUrl + item.picture}}"></image>
+                            </swiper-item>
+                        </block>
+                    </swiper>
+                </view>
+                <view class="place-content">
+                    <image class="place-type" src="{{rooturl}}image/my_bee_category@2x.png"></image>
+                    <text class="place-type-text">{{event_type[item.site_type]}}</text>
+                    <view class='place-rating'>
+                        <view style="display: inline;" wx:for="{{starparam.stars}}" wx:key="star" wx:for-item="star_place">
+                            <image class="star-image" src="{{star_place-item.point+1<=0?starparam.srcImage_4:star_place-item.point+1>=1?starparam.srcImage_0:star_place-item.point+1<0.5?starparam.srcImage_3:star_place-item.point+1==0.5?starparam.srcImage_2:starparam.srcImage_1}}"></image>
+                        </view>
+                        <text class='rating-star-text'>{{item.point}}分</text>
+                    </view>
+                    <text class="place-fav_count">粉丝: {{item.favourite_count}}</text>
+                </view>
+                <view class="place-state">
+                    <text class="place-status-text" wx:if="{{item.room_state}}">预订</text>
+                    <text class="place-status-text" wx:if="{{item.bossgroup_state}}">团购</text>
+                    <text class="place-status-text" wx:if="{{item.event_state}}">蜂约</text>
+                    <text class="place-distance">{{item.show_distance_str}}</text>
+                    <image class="place-distance-img" src="{{rooturl}}image/location1@2x.png"></image>
+                </view>
+            </view>
+        </view>
+        <image class="place-status" bindtap="click_set_status" id="{{item.boss_id}}" data-no="{{item.boss_no}}" src="{{favorite_pictures[item.isfavourite]}}"></image>
+    </view>
+</template>

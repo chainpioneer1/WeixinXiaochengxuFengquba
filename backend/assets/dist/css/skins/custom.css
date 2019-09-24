@@ -1,0 +1,329 @@
+.area-search-name-view label {
+    padding-left: 15px;
+    padding-right: 10px;
+}
+
+.area-search-area-view label {
+    padding-right: 10px;
+}
+
+.area-search-area-view select {
+    margin-right: 10px;
+}
+
+.area-search-control-view {
+    float: right;
+}
+
+.area-search-control-view button {
+    width: 80px;
+}
+
+.table-bordered > tbody > tr > td {
+    border: 1px solid #b0b0b0;
+}
+
+.alert {
+    padding: 6px;
+    margin-bottom: 10px;
+
+}
+
+.alert-dismissable .close {
+    right: 0;
+}
+
+.content-header {
+    padding-bottom: 10px;
+    background-color: red;
+}
+
+.area-result-view {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.area-result-view th {
+    text-align: center;
+}
+
+.area-add-view {
+    padding-bottom: 20px;
+}
+
+#pointList {
+    list-style: none;
+}
+
+#custom-confirm-delete-view, #custom-confirm-deploy-view, #custom-generate-auth-view, #custom-generate-auth-count-view, #custom-generate-qr-view {
+    position: absolute;
+    border: 1px solid;
+    text-align: center;
+    background-color: white;
+    padding: 30px;
+    left: 45%;
+    width: 30%;
+    top: 20%;
+    z-index: 10000000;
+}
+
+#custom-confirm-delete-view p, #custom-confirm-deploy-view p {
+    padding: 30px;
+}
+
+.area-list-view li, .course-item-view li {
+    list-style: none;
+}
+
+.area-list-view, .course-item-view {
+    height: 100%;
+    background-color: white;
+    padding: 10px;
+    overflow: auto;
+}
+
+.form-control.date-picker {
+    width: 30%;
+}
+
+#courseList, #courseItems {
+    padding: 0px;
+}
+
+.selected-area, .selected-courseitem {
+    background-color: #f2f2f2;
+}
+
+.custom-course-control-view {
+    padding-top: 20px;
+}
+
+.custom-error {
+    color: red;
+}
+
+.custom-info-row {
+    padding-bottom: 10px;
+}
+
+.custom-info-row select {
+    height: 27px;
+}
+
+.custom-course-itemlist-view {
+    padding: 0px;
+    border: 0px solid;
+    height: 450px;
+    background-color: #f2f2f2;
+}
+
+.custom-course-itemlist-control {
+    padding-top: 250px;
+}
+
+.custom-course-itemlist-control input {
+    width: 100%;
+    background-color: #0099ff;
+    color: white;
+}
+
+#custom-generate-qr-view {
+    padding: 5px;
+}
+
+#tip{
+    background-color: transparent !important;
+    border: transparent !important;
+    padding: 0 0px;
+    position: relative !important;
+    font-size: inherit !important;
+    left: 0px;
+    top: 0px !important;
+    border-radius: 3px !important;
+    line-height: 36px !important;
+}
+
+#tip select {
+    width: 100px;
+    height: 35px;
+    padding:0 5px !important;
+}
+
+.col-lg-1, .col-lg-10, .col-lg-11, .col-lg-12, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-md-1, .col-md-10, .col-md-11, .col-md-12, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-sm-1, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-xs-1, .col-xs-10, .col-xs-11, .col-xs-12, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9{
+    padding-left:12px;
+    padding-right:8px;
+
+}
+
+.container .row{
+    overflow-x:hidden;
+}
+
+a{
+    cursor: pointer;
+}
+.table-bordered > tbody > tr > td{
+    vertical-align: middle;
+
+}
+.table > thead > tr > th, .table > tbody > tr > th, .table > tfoot > tr > th,
+.table > thead > tr > td, .table > tbody > tr > td, .table > tfoot > tr > td {
+    border-top: 1px solid #e0e0e0;
+    text-align: center;
+    font-size:15px;
+    vertical-align: middle;
+}
+
+.table > thead > tr > th, .table > tbody > tr > th {
+    background-color: #0090bf;
+    color: white;
+}
+
+.head-selected {
+    color: #0090bf;
+}
+
+.skin-blue .content-header {
+    background-color: white;
+    border-bottom: 1px solid #d0d0d0;
+    height: 55px;
+}
+
+h1 {
+    font-weight: 400;
+}
+
+.info-box, .info-box-icon {
+    margin-top: 0px;
+    max-height: 150px;
+    min-height: 150px;
+}
+
+.info-box-icon {
+    padding-top: 20px;
+}
+
+.info-box-content {
+    padding-top: 40px;
+}
+
+.main-shadow {
+    box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
+}
+
+.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
+    margin-top: 0px;
+}
+
+.form-control {
+    /*margin-bottom: 10px;*/
+    /*margin-left: 10px;*/
+    /*margin-right: 10px;*/
+}
+
+.form-group .radio {
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.form-control input {
+    width: 300px;
+}
+
+.form-inline {
+    margin: 10px;
+}
+
+.form-inline label{
+    width: 150px;
+    text-align: right;
+}
+.modal-dialog{
+    border:1px solid grey;
+    width:400px;
+    position:absolute;
+    z-index: 10000;
+    top: 30%;
+    left:40%;
+}
+.modal-header{
+    background-color: lightgrey;
+}
+#tip{
+    vertical-align: top;
+}
+#tip select {
+    width: 80px;
+    height: 33px;
+}
+
+#donate label {
+    float: left;
+    width: 250px;
+    color:#333;
+    font-weight:500;
+    background-color:#d8d8d7;
+    border: 1px solid #848181;
+    overflow: auto;
+}
+
+#donate label span {
+    text-align: center;
+    padding: 0px;
+    font-size: 20px;
+    display: block;
+}
+#donate label input {
+    position:absolute;
+    top:-20px;
+}
+
+#donate input:checked + span {
+    background-color:#0fa00f;
+    color:white;
+}
+
+.home_item{
+    padding: 5px 0px;
+}
+
+#contentpageNavPosition{
+    text-align: right;
+    padding-right: 50px;
+    padding-bottom: 10px;
+}
+
+.item_group{
+    position: absolute;
+    width: 140px;
+    height: 100px;
+    right: 21px;
+    top: 21px;
+    display: none;
+}
+
+.modify_item{
+    position: absolute;
+    top: 45px;
+    left: 40px;
+    padding: 4px 19px;
+    background-color: rgba(128, 128, 128, 0.7);
+    color: #09090a;
+    border-radius: 44%;
+    cursor: pointer;
+}
+
+.close_item{
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    right: 0px;
+    background-color: red;
+    color: white;
+    cursor: pointer
+}
+
+.content{
+    padding: 2px;
+}
+

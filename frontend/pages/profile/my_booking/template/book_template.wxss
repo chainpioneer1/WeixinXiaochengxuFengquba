@@ -1,0 +1,133 @@
+.booking {
+    margin-top: 20rpx;
+    padding-bottom: 5rpx;
+    background-color: white;
+    width: 100%;
+    height: auto;
+    border-bottom: 3rpx solid #f4f4f4;
+}
+
+.booking-type {
+    vertical-align: middle;
+    padding: 1px 5px;
+    background: white;
+    color: #E6B53C;
+    border: 1px solid #E6B53C;
+    font-size: 24rpx;
+    margin-right: 10rpx;
+    border-radius: 10rpx;
+    -webkit-border-radius: 10rpx;
+    -moz-border-radius: 10rpx;
+    -ms-border-radius: 10rpx;
+    -o-border-radius: 10rpx;
+}
+
+.booking-bar {
+    padding-left: 30rpx;
+    line-height: 60rpx;
+    font-size: 26rpx;
+    font-family: "PingFangSC-Semibold";
+}
+
+.booking-status {
+    float: right;
+    padding-right: 30rpx;
+    color: #E6B53C;
+    vertical-align: middle;
+    font-size: 26rpx;
+    padding-top: 8rpx;
+}
+
+.booking-detail {
+    height: auto;
+    padding-top: 20rpx;
+    padding-left: 30rpx;
+}
+
+.booking-picture {
+    float: left;
+    width: 100rpx;
+    height: 100rpx;
+}
+
+.booking-name {
+    font-size: 32rpx;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.booking-role-text {
+    margin-left: 22rpx;
+    text-align: center;
+    border-radius: 10rpx;
+    font-size: 24rpx;
+    display: inline-block;
+    vertical-align: middle;
+    padding-top: 10rpx;
+}
+
+.booking-time {
+    margin-top: 30rpx;
+    display: block;
+    font-size: 26rpx;
+    font-family: "PingFangSC-Regular";
+    padding-bottom: 15rpx;
+}
+
+.time_content {
+    display: inline-block;
+    line-height: 30rpx;
+    width: 85%;
+    white-space: normal;
+    word-break: keep-all;
+    padding: 10rpx 0;
+}
+
+.time_content view {
+    display: inline-block;
+    width: 170rpx;
+    text-align: center;
+    vertical-align: bottom;
+}
+
+.booking-place {
+    padding-top: 0rpx;
+}
+
+.address_content {
+    display: inline-block;
+    width: 80%;
+}
+
+.booking-address {
+    display: inline-block;
+    font-size: 26rpx;
+    font-family: "PingFangSC-Regular";
+    vertical-align: top;
+}
+
+.booking-address1 {
+    display: inline-block;
+    font-size: 26rpx;
+    font-family: "PingFangSC-Regular";
+    width: 80%;
+    vertical-align: top;
+    padding-bottom: 10rpx;
+}
+
+.booking-fav-content {
+    display: inline-block;
+    width: 15%;
+    /* float: right; */
+    vertical-align: middle;
+}
+
+.booking-fav-text {
+    float: right;
+    margin-right: 30rpx;
+    font-family: PingFangSC-Regular;
+    font-size: 24rpx;
+    color: #472e00;
+    letter-spacing: 0.47rpx;
+    padding-bottom: 11rpx;
+}

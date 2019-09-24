@@ -1,0 +1,16 @@
+<template name="get-user-template">
+    <view class="get-user-modal-bg">
+        <view class="get-user-confirm-msg-modal">
+            <view class="get-user-modal-content">
+                <text>为了让您顺利使用蜂去吧小程序\n</text>
+                <text>请允许获取用户信息的权限</text>
+            </view>
+            <view class="get-user-modal-btn">
+                <!-- <button class="get-user-btn-cancel" bindtap="getUserModalHide">拒绝</button> -->
+                <button class="get-user-btn-ok" open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="getUserModalHide">
+                    确定
+                </button>
+            </view>
+        </view>
+    </view>
+</template>

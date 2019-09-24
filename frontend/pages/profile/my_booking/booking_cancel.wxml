@@ -1,0 +1,28 @@
+<!-- pages/booking/booking.wxml -->
+<import src="template/pay_template.wxml" />
+<view class='container'>
+  <view class="detail-info" style='width: calc(100% - 30rpx); padding-left: 30rpx;'>
+    <view>
+      <label class="detail-info-label" style="font-weight: bold;">可退款金额</label>
+      <view class="booking-fav-text">￥{{price}}</view>
+    </view>
+    <view>
+      <label>钱款将原路退回您的支付账号</label>
+    </view>
+  </view>
+  <view class='action'>    
+    <view class="before_complete">
+      <view bindtap="onclick_cancel_booking" class="view_place">提交申请</view>
+    </view>
+  </view>  
+  
+  <view class="modal-mask1" bindtap="hideModal" catchtouchmove="preventTouchMove" wx:if="{{showModal}}"></view>
+  <view class="modal-dialog1" wx:if="{{showModal}}">
+    <view class='modal-text1'>退款申请提交成功</view>
+    <view class='modal-text1' style="font-size:28rpx;">退款已经发起，请耐心等待</view>
+    <view class='modal-footer1'>
+      <view bindtap="onConfirm1" class='modal-confirm1'>确定</view>
+    </view>
+  </view>
+
+</view>

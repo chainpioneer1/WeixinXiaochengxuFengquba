@@ -1,0 +1,43 @@
+/**index.wxss**/
+
+.cls_cost_item {
+    display: inline-block;
+    width: calc(100vw - 40rpx);
+    /* height: 160rpx; */
+    padding: 20rpx;
+    margin-bottom: 2px;
+    background: white;
+}
+
+.cls_cost_label {
+    width: 100%;
+    font-size: 28rpx;
+    height: 55rpx;
+    line-height: 55rpx;
+    text-align: left;
+}
+
+.cls_cost_content,
+.cls_cost_title {
+    display: inline-block;
+    width: 400rpx;
+    font-size: 28rpx;
+    text-align: left;
+}
+
+.cls_cost_title {
+    width: 150rpx;
+    text-align: center;
+}
+
+.status_0 {
+    color: #e6b53c;
+}
+
+.status_1 {
+    color: #41e932;
+}
+
+.status_2 {
+    color: #d82222;
+}

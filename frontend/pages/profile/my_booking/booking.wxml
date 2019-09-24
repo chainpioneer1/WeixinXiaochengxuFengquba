@@ -1,0 +1,32 @@
+<!--pages/booking/booking.wxml-->
+<import src="template/book_template.wxml" />
+
+<view class="container">
+
+  <view class="tab">
+     <view class="tab-bar">
+      <view id="btn1" class="tab-item tab-item1 {{active1}}" bindtap='selectTab'>
+        进行中
+      </view>
+      <view id="btn2" class="tab-item tab-item2 {{active2}}" bindtap='selectTab'>
+        已完成
+      </view>
+      <view id="btn3" class="tab-item tab-item3 {{active3}}" bindtap='selectTab'>
+        已取消
+      </view>
+    </view>
+  </view>
+  <scroll-view scroll-y class="activities">
+    <view wx:for="{{booking}}" wx:key="index">
+      <block wx:if="{{(item.state==0 || item.state==4)&&(selectedtab == 1)}}">
+        <template is="act-template" data="{{ register_num, item,index, userRole, eventType, bookingState}}"></template>
+      </block>
+      <block wx:if="{{item.state==selectedtab}}">
+        <template is="act-template" data="{{ register_num, item,index, userRole, eventType, bookingState}}"></template>
+        <view wx:if="{{(selectedtab == 2) && (item.is_rating==0) &&(item.roll_state == 0)}}" class="btn-view">         
+          <button id="{{index}}" class="activity-button" bindtap='btn_write_comment'> 评价 </button>
+        </view>
+      </block>
+    </view>
+  </scroll-view>
+</view>

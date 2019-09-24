@@ -1,0 +1,13 @@
+<template name="registeration_member">
+  <view class="reg_cls_user_comment_info">
+    <image class="reg_cls_user_photo" src="{{item.avatar}}" mode="aspectFill"> </image>
+    <view style='display: inline-block; margin-top: 10rpx; width: 80%;'>
+      <text class="reg_cls_user_name" style="font-weight: bold;">{{item.name}}</text>
+      <text class="reg_member_status" style="{{item.pay_type==0?'color: #E65A3C;':''}}">{{pay_type[item.pay_type]}}</text>
+    </view>
+    <view class='reg_member_detail'>
+      <text class="reg_cls_comment_number" bindtap="phone_call1" style="text-decoration: underline; color: blue;" id="{{index}}">{{item.phone}}</text>
+      <text class="reg_cls_comment_content">共{{item.reg_num}}人，合计{{item.cost*item.reg_num}}元</text>
+    </view>
+  </view>
+</template>

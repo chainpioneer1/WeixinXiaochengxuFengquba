@@ -1,0 +1,87 @@
+/* pages/booking/booking.wxss */
+.tab{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100rpx;
+  background-color: white;
+}
+
+.tab-bar{
+  position: absolute;
+  top: 18rpx;
+  left: 73rpx;
+  width: 612rpx;
+  height: 64rpx;
+  line-height: 64rpx;
+  font-size: 28rpx;
+  color: #E6B53C;
+}
+
+.tab-item{
+  position: absolute;
+  width:204rpx;
+  height: 64rpx;
+  line-height: 64rpx;
+  text-align: center;
+}
+
+.tab-item1{
+  left:0;
+  top:0;
+  border: solid 3rpx #E6B53C;
+  border-radius: 15rpx 0rpx 0rpx 15rpx;
+}
+
+.tab-item2{
+  left: 204rpx;
+  top: 0;
+  border: solid 3rpx #E6B53C;
+  border-left-width: 0rpx;
+}
+
+.tab-item3{
+  left: 408rpx;
+  top: 0;
+  border: solid 3rpx #E6B53C;
+  border-left-width: 0rpx;
+  border-radius: 0rpx 15rpx 15rpx 0rpx;
+}
+
+.active{
+  background-color: #E6B53C;
+  color: white;
+}
+
+.tab-label{
+  position:absolute;
+  left: 57rpx;
+  top: 12rpx;
+}
+
+.activities {
+  position: absolute;
+  left: 0;
+  top: 100rpx;
+  width: 100%;
+  background-color: #f4f4f4;
+  color: #333333;
+}
+.btn-view{
+  background-color: white;
+  width: 100%;
+  height: 95rpx;
+}
+.event-button {
+  float: right;
+  margin-right: 30rpx;
+  margin-top: 14rpx;
+  height: 67rpx;
+  background-color: #e6b53c;
+  border-radius: 10rpx;
+  font-size: 26rpx;
+  font-family: "PingFangSC-Semibold";
+  color: white;
+}
+@import "../template/booking_template1.wxss"

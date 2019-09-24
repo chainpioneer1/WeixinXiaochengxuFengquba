@@ -1,0 +1,58 @@
+<!--index.wxml-->
+
+<view>
+  <view class="cls_my_wallet_title">
+    <text class="cls_my_wallet_title_txt">账户余额</text>
+    <text class="cls_my_account_balance">¥{{account_balance}}</text>
+  </view>
+
+  <view class="cls_my_withdrawal" bindtap='on_Clicked_Cost'>
+    <text class="cls_my_withdrawal_text">提现</text>
+    <image class="cls_my_withdrawal_next_img" src="../../../image/next@2x.png" mode="aspectFill"> </image>
+  </view>
+
+  <view class="cls_my_transaction_details" bindtap='on_Clicked_Detail'>
+    <text class="cls_my_transaction_details_text">交易明细</text>
+    <image class="cls_my_withdrawal_next_img" src="../../../image/next@2x.png" mode="aspectFill"> </image>
+  </view>
+
+  <view class="modal-mask" bindtap="hideModal" catchtouchmove="preventTouchMove" wx:if="{{showModal}}"></view>
+  <view class="modal-dialog" wx:if="{{showModal}}">
+    <view class='modal-title'>提现</view>
+    <view class='modal-name'>
+      <text class='modal-name-text'>持卡人</text>
+      <text class='modal-name-input'>{{receiver}}</text>
+    </view>
+    <view class='modal-card'>
+      <text class='modal-card-text'>银行卡</text>
+      <text class='modal-card-input'>{{'尾号'+credit_no_hidden}}</text>
+    </view>
+    <view class='modal-idcard'>
+      <text class='modal-idcard-text'>身份证号</text>
+      <text class='modal-idcard-input'>{{id_no_hidden}}</text>
+    </view>
+    <input type="number" bindinput="on_Input_Cost" class='input-cost' value="{{ms_errormsg}}" placeholder='输入提现金额'></input>
+    <text class='modal-alert'>注：账户余额满100元后才可提现</text>
+    <view class='modal-footer'>
+      <view bindtap="onCancel" class='modal-cancel'>
+        <view style='margin-top:20rpx'>取消</view>
+      </view>
+      <view bindtap="onConfirm" class='modal-confirm'>
+          <view style='margin-top:20rpx'>确定提交</view>
+      </view>
+    </view>
+  </view>
+
+  <view class="modal-mask1" bindtap="hideModal" catchtouchmove="preventTouchMove" wx:if="{{showModal1}}"></view>
+  <view class="modal-dialog1" wx:if="{{showModal1}}">
+    <view class='modal-text1'>您还未绑定银行卡，请先绑定银行卡后再进行提现！</view>
+    <view class='modal-footer1'>
+      <view bindtap="onCancel1" class='modal-cancel1'>
+        <view style='margin-top:20rpx'>取消</view>
+      </view>
+      <view bindtap="onConfirm1" class='modal-confirm1'>
+          <view style='margin-top:20rpx'>立即绑定</view>
+      </view>
+    </view>
+  </view>
+</view>

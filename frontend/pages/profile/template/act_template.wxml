@@ -1,0 +1,37 @@
+<template name="act-template">
+  <view class="activity">
+    <view id="{{item.id}}" bindtap="click_detail_event">
+      <view class="activity-detail">
+        <view class="activity-picture">
+          <swiper class="swiper_box" autoplay="true" interval="3000" duration="300">
+              <block wx:for="{{item.picture}}" wx:key="index">
+                  <swiper-item>
+                      <image class="img-item" mode="aspectFill" src="{{uploadURL + item}}"></image>
+                  </swiper-item>
+              </block>
+          </swiper>
+        </view>
+        <view class='activity-role'>
+          <text class='activity-name' style="font-weight: bold;">{{item.name}}</text>
+          <text class="activity-role-text">{{userRole[item.role]}}</text>
+          <text class="activity-status">{{eventState[item.state]}}</text>
+        </view>
+        <view class="activity-content">
+          <image class="activity-type" src="../../../image/my_bee_category@2x.png"></image>
+          <text class="activity-type-text">{{eventType[item.type]}}</text>
+          <image class="activity-limit" src="../../../image/my_bee_number@2x.png"></image>
+          <text class="activity-limit-text">{{item.register_num}}/{{item.limit}}人</text>
+          <block wx:if="{{item.role==1}}">
+            <image class="activity-cost" src="../../../image/my_bee_m@2x.png"></image>
+            <text class="activity-cost-text">{{item.cost}}元/人</text>
+          </block>
+        </view>
+        <view class="activity-time">时间 | {{item.start_time+' - '+item.end_time}}</view>
+        <view class="activity-address">地址 | </view>
+        <view class="activity-address1">{{item.detail_address}}</view>
+        <text class='activity-fav-text'>{{item.favor_num}}</text>
+        <image class='activity-fav-image' src='{{image_favs[item.favor_state]}}'></image>
+      </view>
+    </view>
+  </view>
+</template>

@@ -1,0 +1,95 @@
+/* pages/profile/my_member_ship/my_member_ship.wxss */
+
+.user-info {
+    width: 100vw;
+    height: 403rpx;
+    font-size: 30rpx;
+    font-family: "PingFangSC-Semibold";
+    color: red;
+    background-color: white;
+}
+
+.user-info-bkimage {
+    padding-left: 10rpx;
+    padding-top: 24rpx;
+    width: calc(100% - 20rpx);
+    height: 100%;
+}
+
+.user-info-image {
+    position: absolute;
+    top: 69rpx;
+    left: 50rpx;
+    width: 120rpx;
+    height: 120rpx;
+    border-radius: 50%;
+}
+
+.touxiang-image {
+    position: absolute;
+    top: 61rpx;
+    left: 41rpx;
+    width: 40rpx;
+    height: 40rpx;
+}
+
+.user-is-vip {
+    position: absolute;
+    top: 73rpx;
+    right: 47rpx;
+    width: 120rpx;
+    height: 62rpx;
+}
+
+.user-info-term {
+    position: absolute;
+    top: 296rpx;
+    left: 50rpx;
+    font-family: PingFangSC-Semibold;
+    font-size: 24rpx;
+    color: #888;
+    letter-spacing: 0.5rpx;
+}
+
+.user-info-cost {
+    position: absolute;
+    top: 360rpx;
+    left: 50rpx;
+    font-family: PingFangSC-Regular;
+    font-size: 30rpx;
+    color: #333;
+    letter-spacing: 0.35rpx;
+}
+
+.user-info-ok {
+    position: absolute;
+    color: #e6b53c;
+    font-size: 30rpx;
+    top: 360rpx;
+    right: 50rpx;
+}
+
+.member-treatment {
+    width: 100%;
+    font-family: PingFangSC-Regular;
+    font-size: 30rpx;
+    color: #333;
+    letter-spacing: 1.04rpx;
+    line-height: 50rpx;
+    background-color: white;
+    margin: 0;
+    padding-top: 135rpx;
+    padding-bottom: 100rpx;
+}
+
+.member-treatment view {
+    margin-left: 20rpx;
+    margin-top: 50rpx;
+    padding-left: 5rpx;
+    padding-right: 20rpx;
+}
+
+.alert-text {
+    border-left: solid 8rpx #e6b53c;
+    padding-left: 10rpx;
+}

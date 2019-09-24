@@ -1,0 +1,8 @@
+<!--index.wxml-->
+<template name="honeybox">
+<image id="{{item.start_time}}" bindtap='on_click_honey' src='../../image/garden_sc_fm02@2x.png' 
+style='position: absolute; top: calc(140rpx + {{item.x}} * 73rpx); left: calc(140rpx + {{item.y}} * 147rpx); width: 57rpx; height: 67rpx;z-index: 5;'></image>
+<text id="{{item.start_time}}" bindtap='on_click_honey'
+style='position: absolute; top: calc(170rpx + {{item.x}} * 73rpx); left: calc(197rpx + {{item.y}} * 147rpx); width: 87rpx; height: 30rpx;background-color:#E6B53C; text-align: center; font-family: PingFangSC-Semibold; font-size: 22rpx; color: #472E00; border: 2rpx solid #472E00; border-radius: 6rpx;z-index: 5;'>{{item.honey}}ml</text>
+
+</template>

@@ -1,0 +1,19 @@
+<template name="registerd_member">
+  <!--index.wxml-->
+  <image class="cls_user_photo" src="{{item.avatar}}" mode="aspectFill"> </image>
+  <view class="cls_user_comment_info">
+    <view>
+      <text class="cls_user_name" style="font-weight: bold;">{{item.name}}</text>
+      <view class="stars" wx:for="{{[1, 2, 3, 4, 5]}}" wx:for-item="num" wx:key="index">
+        <view wx:if="{{num  >= 6 - 1* item.point}}">
+          <image class="cls_user_comment_star" bindtap="substractStar" src="{{img_yellow_star_src}}" mode="aspectFill" style='right:{{star_img_position + index*37}}rpx' />
+        </view>
+        <view wx:else>
+          <image class="cls_user_comment_star" bindtap="additionStar" src="{{img_black_star_src}}" mode="aspectFill" style='right:{{star_img_position + index*37}}rpx' />
+        </view>
+      </view>
+    </view>
+    <text class="cls_comment_date">{{item.submit_time}}</text>
+    <text class="cls_comment_content">{{item.comment}}</text>
+  </view>
+</template>

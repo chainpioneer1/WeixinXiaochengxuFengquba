@@ -1,0 +1,15 @@
+<!-- index.wxml -->
+<view class="cls_cost_item" wx:for="{{payment}}" wx:key="{{item.name}}">
+  <view class="cls_cost_label">
+    <view class="cls_cost_title">提现时间:</view>
+    <view class="cls_cost_content">{{item.submit_time}}</view>
+  </view>
+  <view class="cls_cost_label">
+    <view class="cls_cost_title">提现金额:</view>
+    <view class="cls_cost_content">{{item.amount}}元</view>
+  </view>
+  <view class="cls_cost_label ">
+    <view class="cls_cost_title">提现状态:</view>
+    <view class="cls_cost_content status_{{item.state}}">{{status_str[item.state]}}</view>
+  </view>
+</view>

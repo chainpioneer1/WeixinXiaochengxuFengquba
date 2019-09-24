@@ -1,0 +1,36 @@
+<view class='container'>
+  <view class='postman-data-view' bindtap='on_click_address'>
+    <image class='postman-pos-image' src='../../../image/garden_dw@2x.png'></image>
+    <view wx:if="{{show}}" class='postman-address-view'>
+      <text class='postman-name-text' style="font-weight: bold;">收货人：{{address.name}}</text>
+      <text class='postman-number-text'>{{address.phone}}</text>
+      <view class='postman-address-text' style="font-weight: bold;">
+        <text selectable='true'>{{address.detail_address}}</text>
+      </view>
+    </view> 
+    <view wx:if="{{!show}}" class='not-address'>请填写收货地址!</view>
+    <image class='postman-all-image' src='../../../image/next@2x.png'></image>
+  </view>
+  <view wx:if="{{show}}" class='product-statemen-view'>
+    <view class='product-statement-text'>
+      <text style="font-weight: bold;">商品清单</text>
+    </view>
+    <view class='product-statement-detail'>
+      <image class="product-data-image" src='{{upload_url + good.avatar}}'></image>
+      <view class='product-data-detail'>
+        <text class='product-data-name' style="font-weight: bold;">{{good.name}}</text>
+        <text class='product-data-beecost'>{{good.cost}}ml蜂蜜</text>
+      </view>
+      <text class='product-order-count'>x1</text>
+    </view>
+    <view class='product-total-cost'>共计1件商品，需
+      <text class='product-real-cost'>{{good.cost}}</text>ml蜂蜜</view>
+  </view>
+  <view wx:if="{{show}}" class='product-comment-view'>
+    <text class='product-comment-text'>留言：</text>
+    <textarea class='product-comment-textarea' bindinput="onBlurtextarea" maxlength="100" placeholder='请输入留言，不超过100字'></textarea>
+    <image class='product-alert-image' src='../../../image/garden_zy@2x.png'></image>
+    <text class='product-alert-text'>商品兑换后，不接受退换货。</text>
+  </view>
+  <button wx:if="{{show}}" class='btn_submit' id="{{good.id}}" bindtap='onBtnsubmit'>确认兑换</button>
+</view>

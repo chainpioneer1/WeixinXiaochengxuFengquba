@@ -1,0 +1,40 @@
+<template name="act-template">
+  <view class="booking">
+    <view id="{{item.id}}" data-boss="{{item.boss_id}}" data-status="{{item.state}}" data-name="{{item.site_name}}" data-type="{{item.book_type}}" bindtap="click_detail_event">      
+      <view class="booking-detail">        
+        <view>
+          <text class="booking-type">{{item.book_type==0?'预订':'团购'}}</text>
+          <text class='booking-name' style="font-weight: bold;">{{item.site_name}}</text>
+          <!-- <text class="booking-role-text">{{item.room_name}}</text>           -->
+          <text wx:if="{{(item.state == 0)&&(1.0*item.pay_cost>0.0)}}" class="booking-status">{{bookingState[item.state]}}</text>
+          <text wx:if="{{item.state > 0}}" class="booking-status">{{bookingState[item.state]}}</text>
+        </view>    
+        <view class="booking-time">
+          <block wx:for="{{item.book_info}}" wx:key="idx" wx:for-item="room" wx:if="{{item.book_type==0}}">
+            <view class="time_content">
+                <view>{{room.room_name}}</view> 时间 | {{room.start_time}} ~ {{room.end_time}}
+            </view>
+          </block>
+          <block wx:if="{{item.book_type==1}}">
+            <view class="time_content">
+                <view>有效期: </view> {{item.start_time}} 到 {{item.end_time}}
+            </view>
+          </block>
+          <view class="booking-fav-content"  wx:if="{{true || item.roll_state == 1}}">
+              <view class='booking-fav-text' style="padding-bottom: 2rpx;">￥{{item.pay_cost}}</view>
+          </view>  
+        </view>
+        <view class="booking-place" wx:if="{{ false && item.roll_state == 0}}">
+            <view class="address_content">
+                <view class="booking-address">地址 | </view>
+                <view class="booking-address1">{{item.detail_address}}</view>
+            </view>
+            <view class="booking-fav-content">
+                <view class='booking-fav-text'>￥{{item.pay_cost}}</view>
+            </view>            
+             
+        </view>      
+      </view>
+    </view>
+  </view>
+</template>

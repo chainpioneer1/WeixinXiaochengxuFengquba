@@ -1,0 +1,32 @@
+<!--index.wxml-->
+
+<view>
+  <view class="cls_bind_bank_card_info" wx:for="{{payment}}" wx:key="{{item.name}}">
+    <view class="cls_cost_m">
+      <text class="cls_user_active_state_txt" style="font-weight: bold;">{{title[item.type]}}</text>
+      <text class="cls_user_active_pay_amount_txt" style="color:{{(plus[item.type]=='+')?'':'#E66E3C'}}" wx:if="{{item.amount>0}}">{{plus[item.type]+'¥'+item.amount}}</text>
+      <text class="cls_user_active_pay_amount_txt" style="color:{{(plus[item.type]=='+')?'':'#E66E3C'}}" wx:else>微信支付</text>
+    </view>
+    <view class='cls_cost_detail'>
+      <text class="cls_user_active_date_txt">{{item.submit_time}}</text>      
+      <text class="cls_user_active_pay_state_txt" wx:if="{{item.type==0 || item.type==2}}">{{sub_title[1]}}</text>
+      <text class="cls_user_active_pay_state_txt" wx:elif="{{item.type==1}}">{{(item.name==null)?"":item.name}}活动报名</text>
+      <text class="cls_user_active_pay_state_txt" wx:elif="{{item.type==3}}">{{(item.paid_user==null)?"":item.paid_user}}报名活动</text>
+      <text class="cls_user_active_pay_state_txt" wx:elif="{{item.type==4}}">{{(item.paid_user==null)?"":item.paid_user}}取消报名</text>
+      <text class="cls_user_active_pay_state_txt" wx:elif="{{item.type==5}}">{{(item.name==null)?"":item.name}}活动取消</text>
+      <text class="cls_user_active_pay_state_txt" wx:elif="{{item.type==6}}">{{(item.name==null)?"":item.name}}活动报名取消</text>
+      <text class="cls_user_active_pay_state_txt" wx:elif="{{item.type==7}}">{{(item.name==null)?"":item.name}}活动报名</text>
+      <text class="cls_user_active_pay_state_txt" wx:elif="{{item.type==9}}">{{(item.site_name==null)?"":item.site_name}}商家的场地</text>
+      <text class="cls_user_active_pay_state_txt" wx:elif="{{item.type==10}}">{{(item.paid_user==null)?"":item.paid_user}}预订场地</text>
+      <text class="cls_user_active_pay_state_txt" wx:elif="{{item.type==11}}">{{(item.paid_user==null)?"":item.paid_user}}取消预订场地</text>
+      <text class="cls_user_active_pay_state_txt" wx:elif="{{item.type==12}}">{{(item.name==null)?"":item.name}}赛事报名</text>
+      <text class="cls_user_active_pay_state_txt" wx:elif="{{item.type==13}}">{{(item.paid_user==null)?"":item.paid_user}}报名赛事</text>
+      <text class="cls_user_active_pay_state_txt" wx:elif="{{item.type==14}}">{{(item.site_name==null)?"":item.site_name}}商家的场地</text>
+      <text class="cls_user_active_pay_state_txt" wx:elif="{{item.type==15}}">{{(item.site_name==null)?"":item.site_name}}商家的团购</text>
+      <text class="cls_user_active_pay_state_txt" wx:elif="{{item.type==16}}">{{(item.paid_user==null)?"":item.paid_user}}购买团购</text>
+      <text class="cls_user_active_pay_state_txt" wx:elif="{{item.type==17}}">{{(item.site_name==null)?"":item.site_name}}商家的团购</text>
+      <text class="cls_user_active_pay_state_txt" wx:elif="{{item.type==18}}">{{(item.paid_user==null)?"":item.paid_user}}取消预订团购</text>
+      <text class="cls_user_active_pay_state_txt" wx:else></text>
+    </view>
+  </view>
+</view>

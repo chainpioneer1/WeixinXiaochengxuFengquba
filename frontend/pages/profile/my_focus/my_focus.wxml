@@ -1,0 +1,20 @@
+<view>
+  <view wx:for="{{favourite}}" wx:key="index" wx:item="{{item}}">
+    <view class="reg_cls_user_comment_info">
+      <image class="reg_cls_user_photo" src="{{(item.boss_id==0)?defaultAvatar:item.avatar}}" mode="aspectFill" id="{{index}}" bindtap="btn_Clicked_Focus"> </image>
+      <view id="{{index}}" bindtap="btn_Clicked_Focus">
+        <view class="reg_cls_city_name" style="font-weight: bold;"><text>{{item.site_name}}</text></view>
+      </view>
+      <view class="reg_member_place" id="{{index}}" bindtap="btn_Clicked_Focus">
+        <view class="reg-member-txt">地址｜</view>
+        <view class="reg-member-add">{{item.detail_address}}</view>
+      </view>
+      <view class="reg_cls_comment_number">电话｜<text id="{{index}}" bindtap='phone_call' style="text-decoration: underline; color:blue;">{{item.phone}}</text></view>
+    </view>
+    <button class="reg_cls_clear_btn" id="{{index}}" bindtap="on_cancel">取消关注</button>
+  </view>
+  <view wx:if="{{favourite.length == 0}}">
+    <image class='no-focus-image' src='{{imgURL}}'></image>
+    <view class='no-focus-text' style="font-weight: bold;">您还未关注商家！</view>
+  </view>
+</view>

@@ -1,0 +1,52 @@
+/* pages/backyard/ordercomplete/ordercomplete.wxss */
+
+.container {
+  background-color: white;
+}
+
+.com_image {
+  position: absolute;
+  top: 148rpx;
+  left: 285rpx;
+  width: 180rpx;
+  height: 200rpx;
+}
+
+.com-text {
+  position: absolute;
+  top: 430rpx;
+  left: 106rpx;
+  font-family: PingFangSC-Semibold;
+  font-size: 32rpx;
+  color: #333;
+  letter-spacing: 1.54rpx;
+}
+
+.com-cancel-btn {
+  position: absolute;
+  top: 735rpx;
+  left: 107rpx;
+  width: 240rpx;
+  background-color: #e6b53c;
+  border-radius: 22rpx;
+  font-family: PingFangSC-Semibold;
+  font-size: 32rpx;
+  color: #fff;
+  letter-spacing: 1.54rpx;
+  line-height: 74rpx;
+}
+
+.com-submit-btn {
+  position: absolute;
+  top: 735rpx;
+  left: 408rpx;
+  width: 240rpx;
+  background-color: white;
+  border: 4rpx solid #e6b53c;
+  border-radius: 22rpx;
+  font-family: PingFangSC-Semibold;
+  font-size: 32rpx;
+  color: #E6B53C;
+  letter-spacing: 1.54rpx;
+  line-height: 74rpx;
+}

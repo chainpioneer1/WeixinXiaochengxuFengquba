@@ -1,0 +1,134 @@
+<import src="../../profile/template/stadium_template.wxml" />
+
+<import src="../../profile/template/get_userinfo.wxml"></import>
+
+<view class='container'>
+  <view>
+    <swiper class="swiper_box" wx:if="{{pictures.length==1}}" autoplay="true" interval="3000" duration="300">
+      <block wx:for="{{pictures}}" wx:key="index">
+        <swiper-item>
+          <image class="slide-image" mode="aspectFill" src="{{item}}" id="{{index}}" bindtap="show_preview" />
+        </swiper-item>
+      </block>
+    </swiper>
+    <swiper class="swiper_box" wx:if="{{pictures.length>1}}" indicator-dots="true" autoplay="true" interval="3000" duration="300">
+      <block wx:for="{{pictures}}" wx:key="index">
+        <swiper-item>
+          <image class="slide-image" mode="aspectFill" src="{{item}}" id="{{index}}" bindtap="show_preview" />
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+  <view class="focus-event-info">
+    <view class="focus-event-place-info">
+      <text class="focus-event-place" style="font-weight: bold;">{{site.site_name}}</text>
+    </view>
+    <view class="focus-event-favor-btn">
+      <image class="focus-event-favor" bindtap="on_click_favourite" src='{{favourite_image[site.fav_state]}}'></image>
+      <text class="place-favorite-text">粉丝: {{site.favourite_count}}</text>
+      <text class='focus-count-comment' bindtap="on_Clicked_Comment" id="{{site.boss_id}}">{{site.rating_amount}}条评论》</text>
+    </view>     
+    <view>
+      <image class="place-type" src="{{rooturl}}image/my_bee_category@2x.png"></image>
+      <text class="place-type-text">{{site.site_type_detail}}</text>
+      <view class='focus-event-rating'>
+      <view wx:for="{{starparam.stars}}" style='display: inline;' wx:key="star">
+        <image class="star-image" style="margin-left: 10rpx; padding-top: 20rpx; width:26rpx; height:26rpx " 
+          src="{{item-(starparam.score-1) <= 0 ? starparam.srcImage_4 : (item-(starparam.score-1) >= 1 ? starparam.srcImage_0 :(item-(starparam.score-1) < 0.5 ? starparam.srcImage_3 : (item-(starparam.score-1) == 0.5 ? starparam.srcImage_2 : starparam.srcImage_1)))}}">
+        </image>
+      </view>
+      <text class='rating-star-text'>{{starparam.score}}分</text>
+    </view>
+    </view>
+    <view>
+      <view class="focus-event-date">电话 | <text bindtap='phone_call' style="text-decoration: underline; color: blue;">{{site.phone}}</text></view>
+    </view>
+    <view>
+      <view class="focus-event-place-detail">
+        <view style='float: left; display: inline-block;'>地址 | </view>
+        <view class="detail-addr" bindtap="goto_mapView"><text selectable='true'>{{site.detail_address}}</text></view>
+      </view>
+    </view>
+  </view>
+  <view class='comment-gym'>
+    <view class='comment-gym-label'>
+      <text style="font-weight: bold;">预订规则</text>
+    </view>
+    <view wx:if="{{site.cancel_time>0 && site.cancel_time<100}}"
+          style="padding-left: 60rpx;margin-top:10rpx;">
+      <label  class='comment-gym-text'>开始前{{site.cancel_time}}小时可退/可用蜂蜜抵扣</label>
+    </view>
+    <view wx:elif="{{site.cancel_time=='0'}}"
+          style="padding-left: 60rpx; margin-top:10rpx;">
+      <label  class='comment-gym-text'>开始前可退/可用蜂蜜抵扣</label>
+    </view>
+    <view wx:elif="{{site.cancel_time>100}}"
+          style="padding-left: 60rpx;margin-top:10rpx;">
+      <label  class='comment-gym-text'>不可退</label>
+    </view>
+    <!-- <view>      
+      <text selectable = "true" class='comment-gym-text'>开始前{{cancel_time}}可退/可用蜂蜜{{site.allow_time!=null?site.allow_time:''}}</text>
+    </view> -->
+    <view style="width:100%;text-align:center;">
+      <button class="booking-btn" bindtap="go2booking" wx:if="{{site.boss_id!='0' && site_room}}">去预订</button>
+      <button class="booking-btn" wx:else style="background: #b0b0b0; color: white;">去预订</button>
+    </view>
+  </view>
+  <view class='comment-gym'>
+    <view class='comment-gym-label'>
+      <text style="font-weight: bold;">商家介绍</text>
+    </view>
+    <view style="padding-left: 30rpx; padding-right:30rpx;">
+      <text selectable = "true" class='comment-gym-text'>{{site.site_introduction!=null?site.site_introduction:''}}</text>
+    </view>
+  </view>
+
+  <view class='comment-service'>
+    <view class='comment-service-label' style="font-weight: bold;">服务介绍</view>
+    <view style="padding-left: 30rpx; padding-right:30rpx;">
+      <text class='comment-service-text' selectable='true'>{{site.site_service!=null?site.site_service:''}}</text>
+    </view>
+  </view>
+
+  <view class='gym_events bossgroup'>
+    <view class='gym-events-label' style="font-weight: bold;">商家团购（{{bossgroup.length}}）</view>
+    <view class="list-parent" wx:for="{{bossgroup}}" wx:key="event_index">
+      <view id="{{item.no}}" class="activity" bindtap="click_detail_bossgroup" data-type="bossgroup">
+        <view class="activity-detail">
+          <view class="activity-picture">
+              <swiper class="swiper_box" autoplay="true" interval="3000" duration="300">
+                  <block wx:for="{{pictures}}" wx:key="index">
+                      <swiper-item>
+                          <image class="img-item" mode="aspectFill" src="{{item}}"></image>
+                      </swiper-item>
+                  </block>
+              </swiper>
+          </view>
+          <view class='activity-role'>
+            <text class='activity-name' style="font-weight: bold;">{{item.group_package}}</text>
+          </view>
+          <view class="activity-content">
+            <text class="activity-type-text">￥{{item.group_price}}</text>
+            <text class="activity-limit-text">门市价:￥{{item.group_inprice}}</text>
+            <text class="group-pay-btn">购买</text>
+            <text class='activity-favourite-text'>已售: {{item.sell_cnt}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class='gym_events'>
+    <view class='gym-events-label' style="font-weight: bold;">商家活动（共{{event.length}}场）</view>
+    <view wx:for="{{event}}" wx:key="event_index">
+      <template is="stadium-template" data="{{item, eventType, userRole, eventState, image_favs, uploadURL}}"/>
+    </view>
+  </view>
+  <view wx:if="{{true || site.boss_id=='0' || pageType=='1'}}" style="height: {{site.boss_id=='0'?'230':'180'}}rpx;text-align:center;">
+   <button wx:if="{{true || pageType=='1'}}" bindtap="go_home" class="btn_submit">去首页</button>
+   <button class="share_wechat_view" open-type="share" class="btn_submit">分享到微信</button>
+  </view>
+   <view wx:if="{{site.boss_id=='0' && !isAuthorized}}" class="btn_submit gym-claim" bindtap="go_claim">我是商家主人, 立即去认证, 增加收入哦</view>
+   <view wx:elif="{{site.boss_id=='0'}}" class="btn_submit gym-claim" style="background: #aaa;">我是商家主人, 立即去认证, 增加收入哦</view>
+</view>
+<template is="get-user-template" wx:if="{{getUserInfoDisabled == true}}"></template>

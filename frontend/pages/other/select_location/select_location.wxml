@@ -1,0 +1,16 @@
+<!--pages/other/select_location/select_location.wxml-->
+<view class="map-box">
+  <map class="map-container" id="myMap" longitude="{{longitude}}" latitude="{{latitude}}" bind:tap="on_click_map" markers="{{marker}}" bindcontroltap='end_select'></map>
+  <view class="modal-mask1" bindtap="hideModal" catchtouchmove="preventTouchMove" wx:if="{{showModal}}"></view>
+  <view class="modal-dialog1" wx:if="{{showModal}}">
+    <view class='modal-text1'>正确选择该位置？</view>
+    <view class='modal-footer1'>
+      <view bindtap="onCancel1" class='modal-cancel1'>
+        <view style='margin-top:20rpx'>取消</view>
+      </view>
+      <view bindtap="onConfirm1" class='modal-confirm1'>
+          <view style='margin-top:20rpx'>确定</view>
+      </view>
+    </view>
+  </view>
+</view>

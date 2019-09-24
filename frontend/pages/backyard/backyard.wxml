@@ -1,0 +1,40 @@
+<!-- index.wxml -->
+<import src="honeybox/honeybox.wxml" />
+<view class="container">
+  <view class='content-view'>
+    <image class='content-background-image' src='{{uploadRoot}}global/garden_bg@2x.png'></image>
+    <image class='content-avatar-image' src='{{avatar}}'></image>
+    <text class='content-honey-text'>{{total}}ml</text>
+    <image bindtap="On_click_beeshop" class="content-shop-imagebtn" src='../../image/garden_sc@2x.png'></image>
+    <image bindtap="On_click_beelist" class="content-list-imagebtn" src='../../image/garden_jl@2x.png'></image>
+    <image bindtap="On_click_comment" class="content-explain-imagebtn" src='../../image/garden_bz@2x.png'></image>
+    <image bindtap="On_click_calendar" class="content-calendar-imagebtn" src='{{calendar_icon[signed_status]}}'></image>
+    <view bindtap="On_click_leader" class="content-leader-imagebtn" wx:if="{{show_leader!=1}}">
+      排行榜
+    </view>
+    <image bindtap="On_click_friend" class="content-friend-imagebtn" src='../../image/garden_fy@2x.png'>
+      <view class="friend-notify" wx:if="{{newCount!=0}}">{{newCount}}</view>
+    </image>
+    <view class="content-bee-view">
+      <template is="honeybox" wx:for="{{honeybox_array}}" wx:key="{{item.start_time}}" data="{{item}}" />
+    </view>
+    <view class="leader-view-container" wx:if="{{show_leader==1}}">
+      <scroll-view class="leader-list" scroll-y>
+        <block wx:for="{{filterList}}" wx:key="index">
+        <view class="leader-item" bindtap="go2FriendBackyard" data-id="{{item.show_id}}" style="{{(item.show_id == mine)?'background:rgba(255,255,0,0.3)':''}}">
+          <image class="leader-icon" src="{{rank_icon[index]}}" wx:if="{{index<4}}"></image>
+          <image class="leader-icon" src="{{rank_icon[index]}}" wx:else></image>
+          <image class="leader-avatar" src="{{item.avatar}}"></image>
+          <view class="leader-name">{{item.name}}</view>
+          <view class="leader-honey">{{item.honey}}ml</view>
+          <image class="leader-honey-icon" src="{{honey_icon[0]}}" wx:if="{{isSelectedFav=='cur' && item.honey_cnt>0}}"></image>
+          <image class="leader-honey-icon" src="{{honey_icon[1]}}" wx:elif="{{true || isSelectedFav=='cur'}}"></image>
+        </view>
+        </block>
+      </scroll-view>
+      <view class="leader-title fav {{isSelectedFav}}" bindtap="leaderFavSelected">好友榜</view>
+      <view class="leader-title total {{isSelectedTotal}}" bindtap="leaderTotalSelected">总榜</view>
+      <image class="leader-close" bindtap="closeLeaderView" src="../../image/close@2x.png"></image>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,56 @@
+
+<import src="../profile/template/get_userinfo.wxml"></import>
+
+<view class="container">
+    <view style="background: #e6b53c;padding: 40rpx;">
+        <view class="user_info">
+            <view class="user_info_basic">
+                <image class="img_profile" src="{{userInfo.avatar}}" />
+                <view class="user_name">{{userInfo.name}}</view>
+                <view class="user_age" wx:if="{{userInfo.age!=0}}">
+                    <image class="img_sex" src="{{sex_images[userInfo.gender]}}" />
+                    <view class="age_text">{{userInfo.age}}岁</view>
+                </view>
+                <view class="user_phone" wx:if="{{userInfo.show_state==1}}" bindtap="phone_call" data-id="{{userInfo.phone}}">{{userInfo.phone}}</view>
+            </view>
+            <view class="user_detail">{{userInfo.person_sign}}</view>
+            <view style="overflow-x:auto;" scroll-x class="type_content">
+                <view class="type_detail">
+                    <view class="type">运动项目</view>
+                    <view class="counts">运动次数</view>
+                </view>
+                <view class="type_detail" wx:for="{{type_array}}" wx:key="{{index}}">
+                    <view class="type">{{event_types[item.type]}}</view>
+                    <view class="counts">{{item.count}}次</view>
+                </view>
+            </view>
+            <button class="share_btn"  bindtap='on_clicked_share_info' 
+                open-type="share" data-id="{{userInfo.no}}">
+                <image class="img_share" src="../../../image/share@2x.png" />
+            </button>
+        </view>
+    </view>
+    <view class="friend-top-bar" bindtap="go2FriendBackyard" data-id="{{userInfo.no}}" data-status="{{applyStatus}}">
+        <view class="top-title">他的后花园</view>
+        <image class="apply-friend" src="../../../image/next@2x.png"></image>
+        <view class="friend-notify">{{userInfo.honey}}ml</view>
+    </view>
+    <block wx:if="pageType!=2">
+        <view class="friend-add-btn" bindtap="addFriend" data-id="{{userInfo.no}}" data-type="add" wx:if="{{applyStatus==2}}">+ 蜂友</view>
+        <view class="friend-remove-btn" bindtap="removeFriend" data-id="{{userInfo.no}}" data-type="remove" wx:elif="{{applyStatus==1}}">解除蜂友</view>
+        <view class="friend-apply-btn" bindtap="applyFriend" data-id="{{userInfo.no}}" data-type="apply" wx:elif="{{pageType==1 && applyStatus==0}}">通过蜂友申请</view>
+        <view class="friend-apply-msg" wx:elif="{{pageType==0 && applyStatus==0}}">等待对方确认中...</view>
+    </block>
+</view>
+<view class="modal-msg" wx:if="{{isModalShow == 1}}" style="width:65%;">添加为蜂友才能查看彼此的后花园哦</view>
+<!-- <view class="modal-bg" wx:if="{{isModalShow == 1}}">
+    <view class="confirm-msg-modal">
+        <view class="modal-content">确定解除蜂友?</view>
+        <view class="modal-btn">
+            <view class="btn-cancel" bindtap="cancelModal">算了</view>
+            <view class="btn-ok" bindtap="confirmModal" data-id="{{userInfo.no}}">好的</view>
+        </view>
+    </view>
+</view> -->
+
+<template is="get-user-template" wx:if="{{getUserInfoDisabled == true}}"></template>

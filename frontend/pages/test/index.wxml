@@ -1,0 +1,21 @@
+<!--pages/test/canvas.wxml-->
+
+<!-- 画布大小按需定制 这里我按照背景图的尺寸定的  -->
+
+  
+<!-- 预览区域  -->
+<view class="main_content">
+  <image class="background_img" src="{{uploadRoot}}global/garden_bg@2x.png" />
+  <text style="position: fixed;top: 0;left: 0;">{{body_text}}</text>
+</view>
+<button class='share' type='primary' bindtap='share'>生成分享图</button>
+
+
+
+<view class="view_mask" bindtap='hide_canvas' wx:if="{{show_state}}"></view>
+<canvas canvas-id="shareImg" style="width:600px;height:900px"></canvas>
+<view class="show_canvas"  wx:if="{{show_state}}">
+  <image class="canvas_image" src='{{img_url}}' bindtap='hide_canvas'></image>
+</view>
+
+

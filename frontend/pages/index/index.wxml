@@ -1,0 +1,24 @@
+<import src="../profile/template/get_userinfo.wxml"></import>
+<import src="template/map/template_map.wxml"></import>
+<import src="template/table_view/template_table.wxml"></import>
+<view class="container">
+  <view class='index_top_view'>
+    <cover-image bindtap="on_click_news" class="news-image" src="../../image/inf@2x.png"></cover-image>
+    <cover-view class="news-new-count" wx:if="{{newscount!=0}}">{{newscount}}</cover-view>
+    <cover-view bindtap="on_click_global_city" class="global-city-box">
+      <cover-view class="inner-box">{{currentCityName}}</cover-view>
+      <cover-image class="city-icon" src="../../image/pull_down01@2x.png"></cover-image>
+    </cover-view>
+    <cover-view bindtap="on_click_search" class="search-box">
+      <cover-view class="inner-box">请输入商家名或活动类型</cover-view>
+    </cover-view>
+    <cover-image class="search-icon" src="../../image/search@2x.png"></cover-image>
+    <cover-image bindtap="on_click_viewstyle" class="style_image" src="{{select_able_type}}"></cover-image>
+  </view>  
+
+  <view bindtap="go_claim" class="index_mechant" wx-if="{{view_type==0 && !isAuthorized}}">商家入驻</view>
+
+  <template is="table-template" data="{{filter_places,uploadUrl,event_type,favorite_pictures,starparam,select_menu_state,select_order_menu_state,select_filter_menu_state,select_style_menu_state,color_array,menu_btn_array,menu_order_array,menu_filter_array,menu_order_index,menu_filter_index,menu_style_index,rooturl}}" wx:if="{{!view_type}}"></template>
+  <template is="map-template" data="{{show_array:show_array,circles:circles,current_latitude:current_latitude,current_longitude:current_longitude,markers:markers,newscount:newscount,currentkind:currentkind,select_kind:select_kind,currentid:currentid}}" wx:if="{{view_type}}"></template>
+  <template is="get-user-template" wx:if="{{getUserInfoDisabled == true}}"></template>
+</view>

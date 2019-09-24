@@ -1,0 +1,75 @@
+<view class="container">
+    <view style="background: #e6b53c;padding: 40rpx;">
+        <view class="user_info">
+            <view class="edit_btn" bindtap='on_clicked_edit_info'>
+                <image class="img_edit" src="../../image/edit@2x.png" />
+            </view>
+            <button class="share_btn"  bindtap='on_clicked_share_info' open-type="share">
+                <image class="img_share" src="../../image/share@2x.png" />
+            </button>
+            <view class="user_info_basic">
+                <image class="img_profile" src="{{userInfo.avatar}}" />
+                <view class="user_name">{{userInfo.name}}</view>
+                <view class="user_age" wx:if="{{userInfo.age!=0}}">
+                    <image class="img_sex" src="{{sex_images[userInfo.gender]}}" />
+                    <view class="age_text">{{userInfo.age}}岁</view>
+                </view>
+                <view class="user_phone" bindtap="phone_call" data-id="{{userInfo.phone}}">{{userInfo.phone}}</view>            
+            </view>
+            <view class="user_detail">{{userInfo.person_sign}}</view>
+            <view style="overflow-x:auto;" scroll-x class="type_content">                
+                <view class="type_detail">
+                    <view class="type">运动项目</view>
+                    <view class="counts">运动次数</view>
+                </view>
+                <view class="type_detail" wx:for="{{type_array}}" wx:key="{{index}}">
+                    <view class="type">{{event_types[item.type]}}</view>
+                    <view class="counts">{{item.count}}次</view>
+                </view>                
+            </view>
+        </view>
+    </view>
+
+    <view class="list">
+        <view id="my_activity" bindtap='whichpress' class="list_item">
+            <image class="img_item" src="../../image/my_flag@2x.png" />
+            <view>我的蜂约</view>
+        </view>
+        <view id="my_event" class="list_item" bindtap='whichpress'>
+            <image class="img_item" src="../../image/my_sspx@2x.png" />
+            <view>我的活动专区</view>
+        </view>
+        <view id="my_booking" class="list_item" bindtap='whichpress'>
+            <image class="img_item" src="../../image/my_yd@2x.png" />
+            <view>我的订单</view>
+        </view>
+        <view id="my_purse" class="list_item" bindtap='whichpress'>
+            <image class="img_item" src="../../image/my_wallet@2x.png" />
+            <view>我的钱包</view>
+        </view>
+        <view id="delivery_address" class="list_item" bindtap='whichpress'>
+            <image class="img_item" src="../../image/my_address@2x.png" />
+            <view>收货地址管理</view>
+        </view>
+        <view id="my_membership" class="list_item" bindtap='whichpress'>
+            <image class="img_item" src="../../image/my_vip@2x.png" />
+            <view>我的会员</view>
+        </view>
+        <view id="my_focus" class="list_item" bindtap='whichpress'>
+            <image class="img_item" src="../../image/my_attention@2x.png" />
+            <view>我的关注</view>
+        </view>
+        <view id="auth_me" class="list_item" bindtap='whichpress'>
+            <image class="img_item" src="../../image/my_Document@2x.png" />
+            <view>身份认证</view>
+        </view>
+        <view wx:if="{{userInfo.role == 1 && userInfo.state==2}}" id="about_stadium" class="list_item" bindtap='whichpress'>
+            <image class="img_item" src="../../image/my_cgzlll@2x.png" />
+            <view>商家资料</view>
+        </view>
+        <view wx:if="{{userInfo.role == 1 && userInfo.state==2}}" id="stadium_work" class="list_item" bindtap='whichpress'>
+            <image class="img_item" src="../../image/my_sjyy@2x.png" />
+            <view>商家运营</view>
+        </view>
+    </view>
+</view>

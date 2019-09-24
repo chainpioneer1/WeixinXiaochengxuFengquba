@@ -1,0 +1,51 @@
+<!--pages/backyard/mainbeeshop/mainbeeshop.wxml-->
+<view class='container'>
+  <view class='current-total-honey'>
+    <image class='current-honey-image' src='../../../image/garden_sc_fm02@2x.png'></image>
+    <view class='current-honey-text'>
+      <text>蜂蜜量：</text>
+      <text style="font-weight: bold;">{{total_honey}}ml</text>
+    </view>
+  </view>
+  
+  <view class='product-header-text'>
+    <text style="font-weight: bold;">我的收藏</text>
+  </view>
+  <block wx:for="{{product_array}}" wx:key="{{item.name}}">
+    <view class='product-list-view' wx:if="{{item.isFav==1}}">
+      <view id="{{item.id}}" bindtap="On_click_product">
+        <image class='product-list-image' src='{{upload_url + item.avatar}}'></image>
+        <text class='product-list-text' style="font-weight: bold;">{{item.name}}</text>
+        <view class='product-list-image-footer'>
+          <image class='prduct-list-honeyimage' src='../../../image/garden_sc_fm02@2x.png'></image>
+          <text class='product-list-honeytext'>{{item.cost}}ml兑换</text>          
+          <view class='product-list-counter' style="display:{{(item.end_time!=null && (item.hrs*1!=0 || item.mins*1!=0 || item.secs*1!=0))?'block':'none'}};">
+            <text style="color: red;background: transparent;">兑换倒计时:</text>
+            <text>{{item.hrs}}</text>:<text>{{item.mins}}</text>:<text>{{item.secs}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </block>
+
+  <view class='product-header-text'>
+    <text style="font-weight: bold;">精选商品</text>
+  </view>
+  <block wx:for="{{product_array}}" wx:key="{{item.name}}">
+    <view class='product-list-view' wx:if="{{item.isFav!=1}}">
+      <view id="{{item.id}}" bindtap="On_click_product">
+        <image class='product-list-image' src='{{upload_url + ((item.avatar!=null)?item.avatar:"global/")}}'></image>
+        <text class='product-list-text' style="font-weight: bold;">{{item.name}}</text>
+        <view class='product-list-image-footer'>
+          <image class='prduct-list-honeyimage' src='../../../image/garden_sc_fm02@2x.png'></image>
+          <text class='product-list-honeytext'>{{item.cost}}ml兑换</text>
+          <view class='product-list-counter' style="display:{{(item.end_time!=null && (item.hrs*1!=0 || item.mins*1!=0 || item.secs*1!=0))?'block':'none'}};">
+            <text style="color: red;background: transparent;">兑换倒计时:</text>
+            <text>{{item.hrs}}</text>:<text>{{item.mins}}</text>:<text>{{item.secs}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </block>
+
+</view>

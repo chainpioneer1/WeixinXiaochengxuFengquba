@@ -1,0 +1,58 @@
+.get-user-modal-bg {
+    position: fixed!important;
+    display: block!important;
+    width: calc(100vw)!important;
+    height: calc(100vh)!important;
+    left: 0!important;
+    top: 0!important;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1000000;
+    overflow: hidden;
+}
+
+.get-user-confirm-msg-modal {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    height: 25%;
+    left: 50%;
+    top: 45%;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 20rpx;
+    padding: 0rpx;
+    overflow: hidden;
+}
+
+.get-user-modal-content,
+.get-user-modal-btn {
+    position: relative;
+    width: 100%;
+    line-height: 1.2;
+    padding: 30rpx 0rpx 0rpx;
+    text-align: center;
+    font-size: 36rpx;
+    overflow: hidden;
+}
+
+.get-user-btn-ok,
+.get-user-btn-cancel {
+    position: relative;
+    display: inline-block;
+    width: 40%;
+    margin: 3%;
+    padding: 0;
+    border-radius: 15rpx;
+    color: #e6b53c;
+    border: 1px solid #e6b53c;
+    background: white;
+    font-size: 30rpx;
+    -webkit-border-radius: 15rpx;
+    -moz-border-radius: 15rpx;
+    -ms-border-radius: 15rpx;
+    -o-border-radius: 15rpx;
+}
+
+.get-user-btn-ok {
+    color: white;
+    background: #e6b53c;
+}

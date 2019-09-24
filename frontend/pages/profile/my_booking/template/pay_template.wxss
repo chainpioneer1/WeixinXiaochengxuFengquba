@@ -1,0 +1,142 @@
+view {
+    font-size: 26rpx;
+}
+
+.pay-bottom {
+    position: relative;
+    display: inline-block;
+    margin-top: 20rpx;
+    height: 180rpx;
+    width: 100%;
+    bottom: 0;
+}
+
+.honey-row,
+.wallet-row,
+.bottom-space {
+    position: relative;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    height: 90rpx;
+    line-height: 90rpx;
+    background: white;
+    margin-bottom: 2px;
+}
+
+.bottom-space {
+    background: transparent;
+}
+
+.wallet-row {
+    margin-bottom: 20rpx;
+}
+
+.info-label,
+.honey-info {
+    position: relative;
+    display: inline-block;
+    width: auto;
+    height: 40rpx;
+    margin-left: 30rpx;
+    line-height: 40rpx;
+}
+
+.honey-info {
+    background: #f0f0f0;
+    width: auto;
+    padding: 5rpx 10rpx;
+    font-size: 24rpx;
+    border-radius: 7rpx;
+    -webkit-border-radius: 7rpx;
+    -moz-border-radius: 7rpx;
+    -ms-border-radius: 7rpx;
+    -o-border-radius: 7rpx;
+    text-align: center;
+}
+
+.arrow-btn {
+    position: relative;
+    display: inline-block;
+    width: 15rpx;
+    height: 25rpx;
+    line-height: 40rpx;
+}
+
+.honey-price,
+.wallet-price {
+    float: right;
+    line-height: 90rpx;
+    text-align: right;
+    width: auto;
+}
+
+.pay-check-status {
+    display: inline-block;
+    width: 30rpx;
+    height: 30rpx;
+    margin: 0 30rpx;
+}
+
+.honey-select {
+    position: absolute;
+    background: #f0f0f0;
+    width: auto;
+    height: auto;
+    max-height: 200rpx;
+    left: 165rpx;
+    padding: 0 10rpx;
+    top: 23rpx;
+    z-index: 100;
+    border-radius: 7rpx;
+    -webkit-border-radius: 7rpx;
+    -moz-border-radius: 7rpx;
+    -ms-border-radius: 7rpx;
+    -o-border-radius: 7rpx;
+}
+
+.honey-item {
+    position: relative;
+    width: 130rpx;
+    height: 46rpx;
+    text-align: center;
+    border-bottom: 1px solid #d0d0d0;
+    line-height: 46rpx;
+}
+
+.bottom-btn-area {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 90rpx;
+    background: white;
+    margin: 0;
+    padding: 0;
+}
+
+.pay-info,
+.btn-pay {
+    position: absolute;
+    left: 0;
+    width: 50%;
+    height: 90rpx;
+    line-height: 90rpx;
+    font-size: 30rpx;
+    font-weight: 600;
+    padding: 0 30rpx;
+}
+
+.btn-pay {
+    left: 60%;
+    width: 40%;
+    background: #e6b53c;
+    color: white;
+    text-align: center;
+    padding: 0;
+    border-radius: 0;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    -ms-border-radius: 0;
+    -o-border-radius: 0;
+}

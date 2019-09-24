@@ -1,0 +1,265 @@
+/* pages/profile/auth/auth.wxss */
+
+.container {
+    position: fixed;
+    top: 0rpx;
+    bottom: 88rpx;
+    height: auto;
+    width: 100%;
+    background-color: white;
+}
+
+.registerstate {
+    width: 100%;
+    line-height: 98rpx;
+    font-family: PingFangSC-Semibold;
+    font-size: 32rpx;
+    letter-spacing: 1.54rpx;
+    text-align: center;
+    background-color: #f4f4f4;
+}
+
+.user-role {
+    width: 100%;
+    line-height: 85rpx;
+    border-bottom: solid 3rpx #f4f4f4;
+    font-family: PingFangSC-Regular;
+    font-size: 30rpx;
+    color: #333;
+    letter-spacing: 0.64rpx;
+}
+
+.user-role-text {
+    margin-left: 30rpx;
+    width: auto;
+}
+
+.user-role-select {
+    line-height: 95rpx;
+    margin-left: 30rpx;
+    width: 450rpx;
+    display: inline-block;
+    font-family: PingFangSC-Semibold;
+    overflow: visible;
+}
+
+.user-role-image {
+    float: right;
+    padding-top: 33rpx;
+    margin-right: 30rpx;
+    width: 15rpx;
+    height: 26rpx;
+}
+
+.select-role-view {
+    width: 100%;
+    height: 150rpx;
+    font-family: PingFangSC-Regular;
+    font-size: 30rpx;
+    color: #333;
+    letter-spacing: 0.64rpx;
+}
+
+.select-role-text {
+    margin-top: 20rpx;
+    margin-left: 20rpx;
+    display: inline-block;
+}
+
+.picker-role-text {
+    margin-top: 20rpx;
+    margin-left: 120rpx;
+}
+
+.select-role-picker {
+    width: calc(100%-199rpx);
+    height: 80rpx;
+    border-bottom: solid 3rpx #f4f4f4;
+    font-family: PingFangSC-Semibold;
+    font-size: 30rpx;
+    color: #333;
+    letter-spacing: 0.64rpx;
+}
+
+.picker-role-column {
+    line-height: 80rpx;
+    margin-left: 50rpx;
+    display: inline-block;
+}
+
+.picker-role-column radio {
+    transform: scale(0.6);
+}
+
+.input-info {
+    width: 100%;
+    height: 85rpx;
+    line-height: 85rpx;
+    border-bottom: solid 3rpx #f4f4f4;
+    font-family: PingFangSC-Regular;
+    font-size: 30rpx;
+    color: #333;
+    letter-spacing: 0.64rpx;
+}
+
+.input-info-name {
+    margin-left: 30rpx;
+    display: inline-block;
+    position: relative;
+}
+
+.input-info-input {
+    vertical-align: middle;
+    margin-left: 30rpx;
+    width: 450rpx;
+    margin-right: 5rpx;
+    display: inline-block;
+    position: relative;
+}
+
+.authnumber-btn {
+    float: right;
+    margin-top: 15rpx;
+    margin-right: 10rpx;
+    background: #e6b53c;
+    border-radius: 8rpx;
+    font-size: 26rpx;
+    color: #fff;
+    width: auto;
+    height: 55rpx;
+    line-height: 55rpx;
+    display: inline-block;
+    padding: 2rpx 20rpx;
+}
+
+.detailaddress-view {
+    width: auto;
+    margin-left: 10rpx;
+    height: 85rpx;
+    border-bottom: solid 3rpx #f4f4f4;
+    font-family: PingFangSC-Regular;
+    font-size: 30rpx;
+    color: #333;
+    letter-spacing: 0.64rpx;
+}
+
+.detailaddress-input {
+    width: calc(100% - 50rpx);
+    height: auto;
+    word-break: break-all;
+    min-height: 85rpx;
+    line-height: 85rpx;
+    margin-left: 30rpx;
+    margin-right: 20rpx;
+    display: inline-block;
+}
+
+.selectpos-view {
+    width: 100%;
+    line-height: 88rpx;
+    border-bottom: solid 3rpx #f4f4f4;
+    font-family: PingFangSC-Regular;
+    font-size: 30rpx;
+    color: #333;
+    letter-spacing: 0.64rpx;
+}
+
+.reigsterimage-view {
+    width: 100%;
+    height: 284rpx;
+    padding-top: 23rpx;
+    border-bottom: solid 3rpx #f4f4f4;
+    font-family: PingFangSC-Regular;
+    font-size: 30rpx;
+    color: #333;
+    letter-spacing: 0.64rpx;
+}
+
+.registerimage-text {
+    margin-left: 30rpx;
+}
+
+.registerimage-image {
+    margin-top: 20rpx;
+    margin-left: 30rpx;
+    width: 330rpx;
+    height: 207rpx;
+}
+
+.idcardimage-view {
+    width: 100%;
+    height: 284rpx;
+    padding-top: 23rpx;
+    border-bottom: solid 3rpx #f4f4f4;
+    font-family: PingFangSC-Regular;
+    font-size: 30rpx;
+    color: #333;
+    letter-spacing: 0.64rpx;
+}
+
+.idcardimage-text {
+    margin-left: 30rpx;
+    width: auto;
+}
+
+.idcardfront-image {
+    margin-top: 20rpx;
+    margin-left: 30rpx;
+    width: 330rpx;
+    height: 207rpx;
+}
+
+.idcardback-image {
+    margin-top: 20rpx;
+    margin-left: 30rpx;
+    width: 330rpx;
+    height: 207rpx;
+}
+
+.submit-btn {
+    position: fixed;
+    bottom: 0rpx;
+    width: 100%;
+    height: 88rpx;
+    line-height: 88rpx;
+    background-color: #e6b53c;
+    font-family: PingFangSC-Semibold;
+    font-size: 32rpx;
+    color: #fff;
+    letter-spacing: 1.54rpx;
+}
+
+.nickname-view {
+    width: 100%;
+    height: 62rpx;
+    padding-top: 23rpx;
+    border-bottom: solid 3rpx #f4f4f4;
+    font-family: PingFangSC-Regular;
+    font-size: 30rpx;
+    color: #333;
+    letter-spacing: 0.64rpx;
+}
+
+.nickname-text {
+    margin-left: 30rpx;
+}
+
+.nickname-text1 {
+    margin-left: 30rpx;
+}
+
+.user-role-select picker {
+    font-size: 30rpx;
+    vertical-align: middle;
+    line-height: 88rpx;
+    display: inline-block;
+    margin-right: 20rpx;
+}
+
+.address-pikcer-view {
+    font-size: 30rpx;
+    vertical-align: middle;
+    line-height: 88rpx;
+    display: inline-block;
+    margin-right: 20rpx;
+}

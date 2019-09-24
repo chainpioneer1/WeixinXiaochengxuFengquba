@@ -1,0 +1,99 @@
+<import src="../../profile/my_booking/template/pay_template.wxml" />
+<!-- <scroll-view scroll-y="true" class="container" style="height: auto;overflow-y:auto;"> -->
+<scroll-view scroll-y class="container" style="height: auto;">
+  <!-- <view class="userinfo">
+    <image class="userinfo-avatar" src="{{user_avatar}}"></image>
+    <view class="userinfo-nickname">
+      <label style="font-weight: bold;">{{nickname}}</label>
+    </view>
+  </view> -->
+  <view class='event-info-view' style="margin-top:0;padding-bottom: 20rpx;">
+    <view class='event-info-border-view'>
+      <text class='event-info-border-text' style="font-weight: bold;">{{train_type[is_train]}}信息</text>
+    </view>
+    <view style='line-height: 50rpx;padding-top:20rpx;padding-bottom:20rpx;font-size:32rpx;font-weight: bold;'>{{event.eventName}}</view>
+    <view>
+      <image class="info-icon" src="../../../image/clock@2x.png" />
+      {{event.start_time}} 到 {{event.end_time}}
+    </view>
+    <view>
+      <image class="info-icon" src="../../../image/icon_place@2x.png" style="width:28rpx; height:40rpx;" />
+      <text class='detail_address1' selectable='true'>{{event.detail_address}}</text>
+    </view>
+    <view wx:if="{{event.role*1 != 2}}">
+      <image class="info-icon" src="../../../image/my_bee_m@2x.png" />
+      报名费{{event.cost}}元/人
+    </view>    
+  </view>
+  <view class='add-info'>
+    <view class='add-info-title'>
+      <text class='add-info-text' style="font-weight: bold;">报名信息</text>
+    </view>
+    <view class='real-name-view'>
+      <text class='real-name-text'>*昵称:</text>
+      <input bindinput='on_Input_Realname' value="{{val_realname}}" class='real-name-input' placeholder='请输入您的昵称'></input>
+    </view>    
+     <block wx:for="{{field_opt}}" wx:key="id" wx:for-index="id" wx:if="{{id<4}}">
+      <view class='cost-view' wx:if="{{condition[id]!='-1'}}">
+        <text class='real-phone-text'>{{(condition[id]!='1'?'':'*')}}{{item}}:</text>
+        <input wx:if="{{id==1}}" type="number" bindinput='on_Input_option' data-type="{{id}}" value="{{val_opt[id]}}" class='real-phone-input' placeholder='请输入您的{{item}}'></input>
+        <input wx:if="{{id!=1}}" bindinput='on_Input_option' data-type="{{id}}" value="{{val_opt[id]}}" class='real-phone-input' placeholder='请输入您的{{item}}'></input>
+      </view>
+    </block>
+    <view class='mem-count-view'>
+      <text class='mem-count-text'>*人数:</text>
+      <image class="count-icon" data-type="minus" src="{{min_img}}" bindtap="change_mem_count"  />
+      <input type="number" value="{{val_memcount}}" bindinput='on_Input_Memcount' class='mem-count-input'></input>
+      <image class="count-icon" data-type="plus" src="{{plus_img}}" bindtap="change_mem_count" />
+    </view>
+    <view class='cost-view'>
+      <text class='cost-text'>金额：{{total_cost}}</text>
+      <input type="digit"class='cost-input'  placeholder='' disabled='true'></input>
+    </view>
+    <view class='cost-view'  wx:if="{{condition[4]!='-1'}}">
+      <text class='cost-way-text'>{{(condition[4]!='1'?'':'*')}}{{field_opt[4]}}: </text>
+      <radio-group bindchange="on_Input_option" data-type="4" class="gender-radio">
+      <block wx:if="{{gender==0}}">
+        <radio value='0' checked='true'></radio>男
+        <radio value='1'></radio>女
+        </block>
+      <block wx:else>
+        <radio value='0'></radio>男
+        <radio value='1' checked='true'></radio>女
+        </block>
+      </radio-group>
+    </view>
+    <block wx:for="{{field_opt}}" wx:key="id" wx:for-index="id" wx:if="{{id>4 && id<11}}">
+      <view class='cost-view' wx:if="{{condition[id]!='-1'}}">
+        <text class='real-phone-text'>{{(condition[id]!='1'?'':'*')}}{{item}}:</text>
+        <input bindinput='on_Input_option' data-type="{{id}}" value="{{val_opt[id]}}" class='real-phone-input' placeholder='请输入您的{{item}}'></input>
+      </view>
+    </block>
+    <view class='cost-view' wx:if="{{condition[11]!='-1'}}">
+      <text class='real-phone-text'>{{(condition[11]!='1'?'':'*')}}{{field_opt[11]}}:</text>
+      <text class='real-phone-text' style="padding-left: 20rpx;padding-right: 40rpx;">{{event.imgprompt?('('+event.imgprompt+')'):''}}</text>        
+      <image class='upload-image' src='{{uploadImg}}' mode="aspectFill" bindtap='On_click_uploadimage' style="border:{{val_opt[11]!=''?'none':'2px dashed #e0e0e0'}};"></image>
+    </view>
+  </view>
+  
+  <view class='cost-way-view'>
+    <text class='cost-way-text'>*支付方式</text>
+    <radio-group bindchange="on_click_payway" class="pay-way-radio" wx:if="{{event.pay_type==1}}">
+      线上支付<radio value='1' checked></radio>
+    </radio-group>
+    <radio-group bindchange="on_click_payway" class="pay-way-radio" wx:if="{{event.pay_type==0}}">
+      线下支付<radio value='0' checked></radio>
+    </radio-group>
+    <radio-group bindchange="on_click_payway" class="pay-way-radio" wx:if="{{event.pay_type==2}}">
+      线上支付<radio value='1' checked></radio>
+      线下支付<radio value='0'></radio>
+    </radio-group>
+  </view>
+  <template is="pay-template" data="{{pay_price, honey_list, honey_id, chk_imgs, wallet, book_type, book_id, select_honey, check_honey, check_wallet, pay_type, honey_price_unit}}" />
+
+</scroll-view>
+
+<form class="bottom-btn-area" name="pushMsgForm" report-submit bindsubmit="perform_pay" data-id="{{book_id}}" data-type="{{pay_type}}" data-price="{{pay_price}}" data-bookmode="{{book_type}}">
+  <view class="pay-info">总价:￥{{pay_price}}</view>
+  <button class="btn-pay" form-type="submit">确认支付</button>
+</form>

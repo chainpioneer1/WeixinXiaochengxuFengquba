@@ -1,0 +1,56 @@
+/* pages/canvas/canvas.wxss */
+
+.share {
+    position: absolute;
+    bottom: 100rpx;
+    width: 70%;
+    left: 15%;
+    height: 100rpx;
+    line-height: 100rpx;
+}
+
+.main_content {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.background_img {
+    width: 100%;
+    height: 100%;
+}
+
+canvas {
+    position: fixed;
+    top: 0;
+    left: 1030px;
+    z-index: 100;
+}
+
+.view_mask {
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+    background: rgba(0, 0, 0, .5);
+    position: absolute;
+    overflow: hidden;
+    top: 0;
+    left: 0;
+}
+
+.show_canvas {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    top: 50%;
+    width: 600rpx;
+    height: 900rpx;
+    line-height: 900rpx;
+    z-index: 100;
+}
+
+.canvas_image {
+    width: 100%;
+    height: 100%;
+    border-radius: 25rpx;
+}

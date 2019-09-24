@@ -1,0 +1,71 @@
+<view class="container" style="height: auto;overflow-y:auto;">
+  <view class='main-content'>
+    <view class="section title-part">
+      <view class="row-item">
+        <view>订单号:</view>
+        <view>
+          <text>{{info.id}}</text>
+        </view>
+        <view class="status-text">
+          <text>{{bookingState[info.state]}}</text>
+        </view>
+      </view>
+      <view class="row-item">
+        <view>商家:</view>
+        <view>
+          <text>{{info.site_name}}</text>
+        </view>
+      </view>
+      <view class="row-item">
+        <view>商品:</view>
+        <view>
+          <text>{{info.group_package}}</text>
+        </view>
+      </view>
+      <view class="row-item">
+        <view>有效期:</view>
+        <view>
+          <text>{{info.start_time}} 到 {{info.end_time}}</text>
+        </view>
+      </view>
+      <view class='row-item'>
+        <view>数量:</view>
+        <view>
+          <text>{{val_memcount}}</text>
+        </view>
+      </view>
+    </view>
+    <view class="section price-bar">
+      <view class='row-item'>
+        <text>小计</text>
+        <text>￥{{info.pay_cost}}</text>
+      </view>
+      <view class='row-item'>
+        <text>蜂蜜抵扣优惠</text>
+        <text>￥{{info.pay_honey}}</text>
+      </view>
+      <view class='row-item'>
+        <text>实付</text>
+        <text>￥{{info.pay_cost - info.pay_honey}}</text>
+      </view>
+    </view>
+    <view class='section'>
+      <text class='section-title'>团购人信息</text>
+      <view class='row-item' style="padding:0;padding-top: 10rpx;">
+        <text style="padding-right: 10rpx;vertical-align: middle;">昵称:</text>
+        <input type="text" class='mem-count-input' disabled value="{{info.name}}" data-type="username" bindinput='on_input_userinfo'></input>
+      </view>
+      <view class='row-item' style="padding:0;">
+        <text style="padding-right: 10rpx;vertical-align:middle;">电话:</text>
+        <input type="number" class='mem-count-input' disabled value="{{info.phone}}" data-type="phone" bindinput='on_input_userinfo'></input>
+      </view>
+    </view>
+    <view class='section'>
+      <text class='section-title'>团购规则</text>
+      <text class="row-item" style="padding:20rpx 0 0;">{{condStr[info.condition]}}</text>
+    </view>
+    <view class="section btn-part">
+      <view class="btn-submit" bindtap="go2Target" data-type="boss" data-id="{{info.boss_id}}">查看商家</view>
+    </view>
+  </view>
+</view>

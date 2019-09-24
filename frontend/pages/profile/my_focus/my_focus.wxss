@@ -1,0 +1,103 @@
+/**index.wxss**/
+
+.reg_cls_user_comment_info {
+    width: 100%;
+    height: auto;
+    border-bottom: 1px solid #f4f4f4;
+    padding: 10rpx 0 20rpx;
+    background: white;
+}
+
+.reg_cls_user_photo {
+    margin-top: 20rpx;
+    float: left;
+    margin-left: 30rpx;
+    width: 80rpx;
+    height: 80rpx;
+    border: solid 1rpx #f4f4f4;
+    border-radius: 50%;
+}
+
+.reg_cls_city_name {
+    margin-left: 130rpx;
+    width: 80%;
+    height: auto;
+    font-family: PingFangSC-Semibold;
+    font-size: 26rpx;
+    color: #333;
+    letter-spacing: 1.8rpx;
+}
+
+.reg_member_place {
+    margin-top: 10rpx;
+    margin-left: 130rpx;
+    width: 70%;
+    height: auto;
+    font-family: PingFangSC-Semibold;
+    font-size: 24rpx;
+    color: #333333;
+    letter-spacing: 0.5rpx;
+}
+
+.reg-member-txt {
+    width: auto;
+    vertical-align: top;
+    display: inline-block;
+}
+
+.reg-member-add {
+    width: 80%;
+    display: inline-block;
+    word-break: break-all;
+}
+
+.reg_member_detail {
+    margin-top: 0rpx;
+}
+
+.reg_cls_comment_number {
+    margin-top: 10rpx;
+    margin-left: 130rpx;
+    width: auto;
+    height: auto;
+    font-family: PingFangSC-Semibold;
+    font-size: 24rpx;
+    color: #333333;
+}
+
+.reg_cls_clear_btn {
+    float: right;
+    margin-right: 30rpx;
+    width: auto;
+    height: 46rpx;
+    transform: translate(0, -60rpx);
+    background-color: #e6b53c;
+    font-family: PingFangSC-Semibold;
+    font-size: 24rpx;
+    color: white;
+    letter-spacing: 1.8rpx;
+    line-height: 46rpx;
+    padding: 0 20rpx;
+    -webkit-transform: translate(0, -60rpx);
+    -moz-transform: translate(0, -60rpx);
+    -ms-transform: translate(0, -60rpx);
+    -o-transform: translate(0, -60rpx);
+}
+
+.no-focus-image {
+    position: absolute;
+    top: 168rpx;
+    right: 285rpx;
+    width: 180rpx;
+    height: 199rpx;
+}
+
+.no-focus-text {
+    position: absolute;
+    top: 430rpx;
+    left: 257rpx;
+    font-family: PingFangSC-Semibold;
+    font-size: 32rpx;
+    color: #333;
+    letter-spacing: 1.54rpx;
+}

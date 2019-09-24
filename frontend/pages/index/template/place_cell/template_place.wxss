@@ -1,0 +1,141 @@
+.place {
+    position: relative;
+    margin-top: 20rpx;
+    background-color: white;
+    width: 100%;
+    height: auto;
+    border-bottom: 2rpx solid #f4f4f4;
+    padding-bottom: 20rpx;
+}
+
+.place-detail {
+    height: auto;
+    padding-top: 25rpx;
+    padding-left: 30rpx;
+}
+
+.place-picture {
+    float: left;
+    width: 155rpx;
+    height: 86rpx;
+    padding-top: 10rpx;
+}
+
+.place-picture .swiper_box {
+    width: 100%;
+    height: 100%;
+}
+
+.place-picture .swiper_box .img-item {
+    width: 100%;
+    height: 100%;
+}
+
+.place-role {
+    margin-left: 0rpx;
+    display: block;
+}
+
+.place-name {
+    vertical-align: middle;
+    font-size: 32rpx;
+    word-break: break-all;
+}
+
+.place-status {
+    position: absolute;
+    width: 105rpx;
+    height: 48rpx;
+    right: 20rpx;
+    top: 27rpx;
+}
+
+.place-content {
+    height: 36rpx;
+    font-size: 26rpx;
+    margin-left: 170rpx;
+    margin-top: 8rpx;
+    font-family: "PingFangSC-Regular";
+}
+
+.place-content image {
+    margin-right: 10rpx;
+    vertical-align: bottom;
+}
+
+.place-type {
+    width: 32rpx;
+    height: 32rpx;
+}
+
+.place-type-text {
+    margin-left: 5rpx;
+}
+
+.place-rating {
+    display: inline;
+    padding-left: 15rpx;
+}
+
+.star-image {
+    transform: translateY(-15%);
+    margin-left: 0rpx;
+    margin-right: 4rpx!important;
+    width: 26rpx;
+    height: 26rpx
+}
+
+.rating-star-text {
+    padding-left: 5rpx;
+}
+
+.place-fav_count {
+    float: right;
+    margin-right: 20rpx;
+    font-size: 26rpx;
+    color: #bbbbbb;
+}
+
+.place-state {
+    height: 36rpx;
+    font-size: 26rpx;
+    margin-left: 170rpx;
+    margin-top: 13rpx;
+    font-family: "PingFangSC-Regular";
+}
+
+.place-state image,
+.place-status-text {
+    margin-right: 5rpx;
+    width: 80rpx;
+    height: 40rpx;
+}
+
+.place-distance {
+    float: right;
+    margin-right: 20rpx;
+    color: #666666;
+    font-size: 25rpx
+}
+
+.place-state .place-distance-img {
+    float: right;
+    margin-right: 8rpx;
+    width: 24rpx;
+    height: 30rpx;
+    padding-top: 2rpx;
+}
+
+.place-status-text {
+    color: #e6b53c;
+    border: 1px solid #e6b53c;
+    background: white;
+    padding: 0 8rpx;
+    margin: 0 4rpx;
+    border-radius: 10rpx;
+    -webkit-border-radius: 10rpx;
+    -moz-border-radius: 10rpx;
+    -ms-border-radius: 10rpx;
+    -o-border-radius: 10rpx;
+    font-size: 24rpx;
+}

@@ -1,0 +1,46 @@
+<!-- index.wxml -->
+<view class="container">
+  <view class='content-view'>
+    <image class='content-avatar-image' src='{{avatar}}'></image>
+    <text class='content-honey-text'>{{total}}ml</text>
+    <view class='all'>
+      <view class="bar">
+        <!-- 上一个月 -->
+        <view class="previous" bindtap="handleCalendar" data-handle="prev">
+          <image src='../../image/garden_calendar_left@2x.png'></image>
+        </view>
+        <!-- 显示年月 -->
+        <view class="date">{{cur_year || "--"}} 年 {{cur_month || "--"}} 月</view>
+        <!-- 下一个月 -->
+        <view class="next" bindtap="handleCalendar" data-handle="next">
+          <image src='../../image/garden_calendar_right@2x.png'></image>
+        </view>
+      </view>
+      <!-- 显示星期 -->
+      <view class="week">
+        <view wx:for="{{weeks_ch}}" wx:key="{{index}}" data-idx="{{index}}">{{item}}</view>
+      </view>
+      <view class='days'>
+        <!-- 列 -->
+        <view class="columns" wx:for="{{days.length/7}}" wx:for-index="i" wx:key="i">
+          <block wx:for="{{days}}" wx:for-index="j" wx:key="j">
+            <!-- 行 -->
+            <view class="rows" wx:if="{{j/7 == i}}">
+              <view class="rows" wx:for="{{7}}" wx:for-index="k" wx:key="k">
+                <!-- 当前日期已签到 - "isSigned", 未签到 - "" -->
+                <view bindtap="on_click_date" data-date="{{days[j+k].date}}" data-id="{{j+k}}" 
+                  class="cell {{days[j+k].isSign?'isSigned':''}} {{days[j+k].isDisabled?'isDisabled':''}}">
+                  <text>{{days[j+k].date}}</text>
+                  <image mode="scaleToFill" src="../../image/garden_calendar_yes@2x.png" wx:if="{{days[j+k].isSign && !days[j+k].isDisabled}}"></image>
+                </view>
+              </view>
+            </view>
+          </block>
+        </view>
+      </view>
+      <!-- 坚持打卡天数 -->
+    </view>
+  </view>
+  <view class="status-msg" wx:if="{{msgContent!=''}}">{{msgContent}}</view>
+  <view class="btn-confirm" bindtap="go2Back">确认</view>
+</view>

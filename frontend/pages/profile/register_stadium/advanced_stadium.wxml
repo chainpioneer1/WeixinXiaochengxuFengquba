@@ -1,0 +1,94 @@
+
+<view class='container'>
+  <view class="section">
+    <view class="row-item">
+      <view class="work-header {{main_menu==0?'selected':''}}" data-type="mainmenu" data-id="0" bindtap="on_click_category">设置已售</view>
+      <view class="work-header {{main_menu!=0?'selected':''}}" data-type="mainmenu" data-id="1" bindtap="on_click_category">修改价格</view>
+    </view>
+    <view  class='row-item weekday-picker' bindtap="selectDate" data-type="container">
+      <block wx:for="{{dateList}}" wx:key="index">
+      <view wx:if="{{item.istoday}}">
+        {{item.date}} {{item.weekday}}
+        <!-- <cover-image src="{{menu_btn_array[0]}}"></cover-image> -->
+      </view>
+      </block>
+    </view>
+  </view>
+  <scroll-view scroll-y class="section weekday-selector" wx:if="{{weekday_picker}}" data-type="back" bindtap="selectDate">
+  <!-- <view class="section weekday-selector" wx:if="{{weekday_picker}}" data-type="back" bindtap="selectDate"> -->
+    <view  class='row-item weekday-picker'>
+      <block wx:for="{{dateList}}" wx:key="index">
+        <view class="weekday-item" data-type="picker" id="date-{{item.dateIndex}}" bindtap="selectDate" style="{{item.istoday?'color:#e6b53c;':''}}">
+          {{item.date}} {{item.weekday}}
+          <!-- <cover-image wx:if="{{item.istoday}}" class="image-check" src="../../../image/check@2x.png"></cover-image> -->
+        </view>
+      </block>
+    </view>
+  </scroll-view>
+  
+  <scroll-view class="booking-scroll" scroll-y="{{true}}">
+    <view class="time-container">
+      <block wx:for="{{timeList}}" wx:key="index">
+        <view class="tr time header-cell" wx:if="{{index==0}}"><view>{{item}}</view></view>
+        <view class="tr time" wx:else><view>{{item}}</view></view>
+      </block>
+    </view>
+    <scroll-view class="room-container" scroll-x="{{true}}">
+      <view class="table">
+        <view class="tr header-cell">
+          <block wx:for="{{roomList}}" wx:key="index">
+            <view class="th"><text>{{item}}</text></view>
+          </block>
+        </view>
+        <block wx:for="{{bookList}}" wx:for-item="row" wx:key="rowid" wx:for-index="rowid" wx:if="{{main_menu==0}}">
+          <view class="tr">
+            <block wx:for="{{row}}" wx:key="timeid" wx:for-index="timeid">
+              <view class="td disabled" wx:if="{{item.status==stStr.disabled && item.user_id==stStr.mine}}" bindtap="bookRoom" id="{{rowid}}-{{timeid}}">{{'线下已售'}}</view>
+              <view class="td disabled" wx:elif="{{item.status==stStr.disabled}}" bindtap="bookRoom" id="{{rowid}}-{{timeid}}">{{'已售'}}</view>
+              <view class="td booked" wx:elif="{{item.status==stStr.booked}}" bindtap="bookRoom" id="{{rowid}}-{{timeid}}">{{'￥' + item.cost}}</view>
+              <view class="td booked" wx:elif="{{item.status == stStr.selected}}" bindtap="bookRoom" id="{{rowid}}-{{timeid}}">{{'线下已售'}}</view>
+              <view class="td disabled" wx:elif="{{item.status==stStr.activated}}" bindtap="bookRoom" id="{{rowid}}-{{timeid}}">{{'已售'}}</view>
+              <view class="td enabled" wx:elif="{{item.status==stStr.enabled}}" bindtap="bookRoom" id="{{rowid}}-{{timeid}}">{{'￥' + item.cost}}</view>
+            </block>
+          </view>
+        </block>
+        <block wx:for="{{priceList}}" wx:for-item="row" wx:key="rowid" wx:for-index="rowid" wx:if="{{main_menu!=0}}">
+          <view class="tr">
+            <block wx:for="{{row}}" wx:key="timeid" wx:for-index="timeid">
+              <view class="td updated" wx:if="{{item.status==stStr.disabled}}" bindtap="bookRoom" id="{{rowid}}-{{timeid}}">{{('￥' + item.cost)}}</view>
+              <view class="td booked" wx:elif="{{item.status==stStr.booked}}" bindtap="bookRoom" id="{{rowid}}-{{timeid}}">{{('￥' + item.cost)}}</view>
+              <view class="td booked" wx:elif="{{item.status==stStr.selected}}" bindtap="bookRoom" id="{{rowid}}-{{timeid}}">{{('￥' + item.cost)}}</view>
+              <view class="td enabled" wx:else bindtap="bookRoom" id="{{rowid}}-{{timeid}}">{{('￥' + item.cost)}}</view>
+            </block>
+          </view>
+        </block>
+      </view>
+    </scroll-view>
+  </scroll-view>
+  <view class="bottom-tools">
+    <view class="booked-info" wx:if="{{main_menu==0}}">
+      已售有效期: 未来 
+      <picker mode="selector" class='futureweek-input' value="{{futureWeek-1}}" bindchange="changeFutureWeek" range="{{futureWeekArr}}">        
+          {{futureWeekArr[futureWeek-1]}}      
+          <cover-image src="{{menu_btn_array[0]}}"></cover-image>            
+      </picker> 周
+    </view>
+    <view class="booked-info" wx:if="{{main_menu!=0}}">
+      修改价格: <input type="digit" class="futureweek-input" style="width: 150rpx;text-align: center;" value="{{priceInput}}" bindinput="on_input_price"></input>
+    </view>
+    <view class="section btn-part">
+      <view class="row-item">
+        <!-- <view class="btn-submit" data-type="update" bindtap="on_submit">更新</view> -->
+        <view class="btn-submit" data-type="confirm" bindtap="on_submit">确定</view>
+        <!-- <form class="btn-submit" name="pushMsgForm" report-submit bindsubmit="pushMsg">
+          <button form-type="submit">确定</button>
+        </form> -->
+      </view>
+      <view class="row-item">
+        <view wx:if="{{main_menu==0}}">提示: 设置为已售, 立即生效</view>
+        <view wx:if="{{main_menu!=0}}">提示: 价格修改, 7天后生效</view>
+      </view>
+    </view>
+  </view>
+  <view class="room-info-box" wx:if="{{main_menu==0 && room_info_notify!=''}}">备注: {{room_info_notify}}</view>
+</view>

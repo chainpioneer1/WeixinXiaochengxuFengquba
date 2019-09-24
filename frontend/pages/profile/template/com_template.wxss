@@ -1,0 +1,78 @@
+  /**index.wxss**/
+
+.cls_title {
+  width: 100%;
+  height: 88rpx;
+  padding-top: 23rpx;
+}
+
+.cls_all_comments {
+  margin-left: 30rpx;
+  border-left: 6rpx solid #E6B53C;
+  padding-left: 12rpx;
+  font-family: PingFangSC-Semibold;
+  font-size: 30rpx;
+  color: #333;
+  letter-spacing: 0.64px;
+}
+
+.cls_user_comment_info {
+  line-height: 20rpx;
+  width: 100%;
+  padding-bottom: 32rpx;
+  border-bottom: solid 3rpx #f4f4f4;
+}
+
+.cls_user_photo {
+  float: left;
+  margin-left: 30rpx;
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+}
+
+.cls_user_name {
+  margin-left: 20rpx;
+  width: auto;
+  height: auto;
+  font-family: PingFangSC-Semibold;
+  font-size: 26rpx;
+  color: #333;
+  letter-spacing: 1.8px;
+}
+.stars{
+  float: right;
+  right: 30rpx;
+}
+.cls_user_comment_star
+{
+  margin-right: 20rpx;
+}
+.cls_comment_date {
+  margin-top: 18rpx;
+  display: block;
+  margin-left: 130rpx;
+  width: auto;
+  height: auto;
+  font-family: PingFangSC-Regular;
+  font-size: 24rpx;
+  color: #888888;
+}
+
+.cls_comment_content {
+  margin-top: 10rpx;
+  line-height: 40rpx;
+  display: block;
+  margin-left: 130rpx;
+  width: auto;
+  height: auto;
+  font-family: PingFangSC-Regular;
+  font-size: 24rpx;
+  color: #333333;
+  letter-spacing: 1.8px;
+}
+
+.cls_user_comment_star {
+  width: 26rpx;
+  height: 26rpx;
+}

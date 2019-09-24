@@ -1,0 +1,7 @@
+<!--pages/backyard/ordercomplete/ordercomplete.wxml-->
+<view class='container'>
+<image class="com_image" src='{{imgURL}}'></image>
+<text class='com-text' style="font-weight: bold;">兑换成功，请耐心等待工作人员发货</text>
+<button class='com-cancel-btn' bindtap='on_click_shop' style="font-weight: bold;">继续兑换</button>
+<button class='com-submit-btn' bindtap='on_click_map' style="font-weight: bold;">返回首页</button>
+</view>

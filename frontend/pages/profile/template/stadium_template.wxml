@@ -1,0 +1,35 @@
+<template name="stadium-template">
+  <view id="{{item.id}}" class="activity" bindtap="click_detail_event">
+    <view class="activity-detail">
+      <view class="activity-picture">
+          <swiper class="swiper_box" autoplay="true" interval="3000" duration="300">
+              <block wx:for="{{item.picture}}" wx:key="index">
+                  <swiper-item>
+                      <image class="img-item" mode="aspectFill" src="{{uploadURL + item}}"></image>
+                  </swiper-item>
+              </block>
+          </swiper>
+      </view>
+      <view class='activity-role'>
+        <text class='activity-name' style="font-weight: bold;">{{item.name}}</text>
+        <!-- <text class="activity-role-text">{{item.role==1?'商家':'个人'}}</text> -->
+        <text class="event-status" style="font-weight: bold;">{{eventState[item.state]}}</text>
+      </view>
+      <view class="activity-content">
+        <image class="activity-type" src="../../../image/my_bee_category@2x.png"></image>
+        <text class="activity-type-text">{{eventType[item.type]}}</text>
+        <image class="activity-limit" src="../../../image/my_bee_number@2x.png"></image>
+        <text class="activity-limit-text">{{(item.current_member==null)?0:item.current_member}}人</text>
+        <block wx:if="{{item.role==1}}">
+          <image class="activity-cost" src="../../../image/my_bee_m@2x.png"></image>
+          <text class="activity-cost-text">{{item.cost}}元/人</text>
+        </block>
+      </view>
+      <view class="activity-time">时间 | {{item.start_time}} - {{item.end_time}}</view>
+      <view class="activity-address">地址 | </view>
+      <view class="activity-address1">{{item.detail_address}}</view>
+          <text class='activity-favourite-text'>{{item.favor}}</text>
+          <image id="{{item.phonenumber}}" class='activity-favourite-image' src='{{image_favs[item.is_favor]}}'></image>
+    </view>
+  </view>
+</template>

@@ -1,0 +1,258 @@
+/**index.wxss**/
+
+view {
+    display: block;
+    font-size: 28rpx;
+}
+
+button::after {
+    border: none;
+}
+
+.user_info {
+    background: white;
+    border-radius: 20rpx;
+    text-align: center;
+}
+
+.edit_btn {
+    float: left;
+    padding-top: 30rpx;
+    padding-left: 30rpx;
+}
+
+.img_edit {
+    width: 50rpx;
+    height: 50rpx;
+}
+
+.share_btn {
+    position: absolute;
+    left: 640rpx;
+    top: 25rpx;
+    background: transparent;
+    padding: 10rpx;
+    z-index: 10000;
+}
+
+.img_share {
+    width: 37rpx;
+    height: 35rpx;
+}
+
+.user_info_basic {
+    text-align: center;
+    position: relative;
+    padding-top: 30rpx;
+    width: 300rpx;
+    display: inline-block;
+}
+
+.img_profile {
+    width: 100rpx;
+    height: 100rpx;
+    border-radius: 50rpx;
+}
+
+.img_sex {
+    width: 20rpx;
+    height: 20rpx;
+    display: inline-block;
+}
+
+.age_text {
+    display: inline-block;
+    font-size: 27rpx;
+    padding: 5px;
+}
+
+.user_phone {
+    font-size: 30rpx;
+    color: #e6b53c;
+    text-decoration: underline;
+}
+
+.user_name {
+    font-size: 30rpx;
+    font-weight: bold;
+}
+
+.user_detail {
+    font-size: 26rpx;
+    padding: 20rpx;
+    color: #aaa;
+}
+
+.type_content {
+    text-align: center;
+    width: 75%;
+    display: inline-block;
+    height: 150rpx;
+    white-space: nowrap;
+    line-height: 1.3rem;
+    margin: 40rpx 0 20rpx;
+}
+
+.type_detail {
+    font-size: 30rpx;
+    display: inline-block;
+    padding-left: 15rpx;
+    padding-right: 15rpx;
+}
+
+.type {
+    padding-bottom: 4px;
+    padding-top: 5rpx;
+    font-size: 28rpx;
+}
+
+.friend-top-bar {
+    position: relative;
+    height: 90rpx;
+    background: white;
+    margin-top: 20rpx;
+}
+
+.friend-top-bar view,
+.friend-top-bar image {
+    position: absolute;
+    transform: translateY(-50%);
+    top: 50%;
+}
+
+.top-title {
+    left: 5%;
+    width: auto;
+    font-size: 28rpx;
+}
+
+.friend-notify {
+    right: 8%;
+    width: auto;
+    height: 30rpx;
+    background: transparent;
+    color: grey;
+    font-size: 25rpx;
+    border-radius: 50%;
+    padding: 0 9rpx;
+    line-height: 30rpx;
+}
+
+.apply-friend {
+    right: 3%;
+    width: 2%;
+    height: 30%;
+}
+
+.friend-add-btn,
+.friend-apply-btn,
+.friend-apply-msg,
+.friend-remove-btn {
+    position: absolute;
+    width: 240rpx;
+    height: 70rpx;
+    line-height: 65rpx;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    top: 80%;
+    text-align: center;
+    color: #e6b53c;
+    background: #F4F4F4;
+    font-size: 30rpx;
+    font-weight: 600;
+    border-radius: 23rpx;
+    border: 1px solid #e6b53c;
+}
+
+.friend-remove-btn {
+    color: red;
+    border-color: red;
+}
+
+.friend-apply-msg {
+    font-size: 35rpx;
+    font-weight: 400;
+    width: 100%;
+    color: grey;
+    border: none;
+    background: transparent;
+}
+
+.modal-bg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.confirm-msg-modal {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    height: 25%;
+    left: 50%;
+    top: 45%;
+    background: white;
+    border-radius: 20rpx;
+    padding: 0rpx;
+}
+
+.modal-content,
+.modal-btn {
+    position: relative;
+    width: 100%;
+    line-height: 1.5rem;
+    padding: 50rpx 0rpx 0rpx;
+    text-align: center;
+}
+
+.btn-ok,
+.btn-cancel {
+    position: relative;
+    display: inline-block;
+    width: 30%;
+    height: 50rpx;
+    line-height: 65rpx;
+    margin: 3%;
+    border-radius: 15rpx;
+    color: #e6b53c;
+    border: 1px solid #e6b53c;
+    background: white;
+    font-size: 26rpx;
+    -webkit-border-radius: 15rpx;
+    -moz-border-radius: 15rpx;
+    -ms-border-radius: 15rpx;
+    -o-border-radius: 15rpx;
+}
+
+.btn-ok {
+    color: white;
+    background: #e6b53c;
+}
+
+.modal-msg {
+    position: absolute;
+    left: 50%;
+    top: 70%;
+    width: auto;
+    height: 1.5rem;
+    line-height: 1.5rem;
+    padding: 0 10rpx;
+    text-align: center;
+    border-radius: 8rpx;
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    -webkit-border-radius: 8rpx;
+    -moz-border-radius: 8rpx;
+    -ms-border-radius: 8rpx;
+    -o-border-radius: 8rpx;
+}
+
+@import "../profile/template/get_userinfo.wxss";

@@ -1,0 +1,18 @@
+<!--pages/profile/my_member_ship/my_member_ship.wxml-->
+<view class='user-info'>
+  <image class='user-info-bkimage' src='{{uploadRoot}}global/card@2x.png'></image>
+  <image class='user-info-image' src="{{userInfo.avatar}}"></image>
+  <image class="touxiang-image" src="../../../image/card_touxiang@2x.png" />
+  <image wx:if="{{state==1}}" class='user-is-vip' src='../../../image/card_vip@2x.png'></image>
+  <text wx:if="{{state==1}}" class='user-info-term'>{{expire_time}}到期</text>
+  <text class='user-info-cost'>会员资费：{{cost}}元/月</text>
+  <text class='user-info-ok' bindtap='pay'>{{btn_text[state]}}</text>
+</view>
+<view class="member-treatment">
+  <view class='alert-text' style="font-weight: bold;">会员权益：</view>
+  <view>1、发起活动，都可以选择公开或者隐私创建，无需花费蜂蜜。会员发起的活动，在地图上产生的蜂蜜加倍。</view>
+  <!-- <view style="margin-top: 0rpx; margin-bottom: 0rpx;">蜜即可在活动结束后在地图上显示。</view> -->
+  <view>2、会员使用蜂蜜抵扣支付时为普通用户的2倍。举例：普通用户最多使用10000ml抵扣1元，则会员最多可以使用20000ml抵扣2元。此情况只在预定商家以及活动专区时有效。</view>
+  <view>3、报名蜂约活动每周可使用蜂蜜抵扣优惠一次，最大可使用蜂蜜20000ml抵扣2元。举例：报名参加用户发起的蜂约，总额为10元，会员可使用蜂蜜20000ml抵扣优惠2元，只需支付8元，普通用户无此优惠。</view>
+  <view>4、会员头像显示皇冠。</view>
+</view>

@@ -1,0 +1,39 @@
+<import src="../../../wxParse/wxParse.wxml" />
+<import src="../../profile/template/get_userinfo.wxml"></import>
+
+<view style="overflow-y:auto;" class='container'>
+    <image class="product-image" src='{{product.pic}}'></image>
+    <view class='product-list-counter' style="display:{{(product.end_time==null || (product.hrs*1==0 && product.mins*1==0 && product.secs*1==0))?'none':'block'}};">
+      <text style="padding-right: 10rpx;">开始兑换倒计时 :</text>
+      <text>{{product.hrs}}</text>:<text>{{product.mins}}</text>:<text>{{product.secs}}</text>
+    </view>
+    <view class='product-detail'>
+      <view class='product-name'>
+        <text style="font-weight: bold;">{{product.name}}</text>
+      </view>
+      <view class='prodcut-cost'>
+        <image class="product-cost-image" src='../../../image/garden_sc_fm02@2x.png'></image>
+        <view class='product-cost-text'>
+          <text>{{product.cost}}ml兑换</text>
+        </view>
+      </view>
+      <form class='product-type'  name="pushMsgForm" report-submit bindsubmit="setFavorite" data-status="{{product.isFav}}">
+        <view style="width: auto;text-align: center;">库存{{product.amount}}</view>
+        <button class="favorite-status {{product.isFav==1?'active':''}}" form-type="submit">
+          {{product.isFav==1?'已收藏':'收藏'}}
+        </button>
+      </form>
+    </view>
+    <view class='product-explain'>
+      <view class='product-explain-header'>
+        <text style="font-weight: bold;">商品介绍</text>
+      </view>
+      <view class='product-explain-view'>
+      <template is="wxParse" data="{{wxParseData:comment.nodes}}" />
+      </view>
+    </view>
+</view>
+<button id="{{product.id}}" bindtap="On_click_order" disabled="{{disable}}" class='btn_submit'>{{btn_text}}</button>
+
+
+<template is="get-user-template" wx:if="{{getUserInfoDisabled == true}}"></template>

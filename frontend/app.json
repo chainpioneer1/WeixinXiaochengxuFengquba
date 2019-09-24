@@ -1,0 +1,128 @@
+{
+    "pages": [
+
+        "pages/index/index",
+        "pages/index/close",
+        "pages/index/cities/cities",
+        "pages/index/detail_event/detail_event",
+        "pages/index/detail_new_event/detail_new_event",
+        "pages/index/detail_new_event/view_map",
+        "pages/index/personal_input/personal_input",
+        "pages/index/new_event_input/new_event_input",
+        "pages/index/detail_gym/detail_gym",
+        "pages/index/search/search",
+        "pages/index/news/news",
+        "pages/index/detail_bossgroup/detail_bossgroup",
+        "pages/index/bossgroup_input/bossgroup_input",
+        "pages/index/detail_bossgroup/bossgroup_success",
+        "pages/index/detail_bossgroup/mybossgroup",
+        "pages/index/detail_bossgroup/mybossgroup_mine",
+        "pages/index/detail_bossgroup/bossgroup_codeview",
+        "pages/logs/logs",
+        "pages/profile/profile",
+        "pages/profile/profile_friend",
+        "pages/profile/my_event/my_event",
+        "pages/profile/my_event/event_detail",
+        "pages/profile/my_booking/booking",
+        "pages/profile/my_booking/book_evaluation",
+        "pages/profile/my_booking/booking_detail",
+        "pages/profile/my_booking/booking_user_detail",
+        "pages/profile/my_booking/booking_final",
+        "pages/profile/my_booking/booking_cancel",
+        "pages/profile/final_cancel/final_cancel",
+        "pages/activity/activity",
+        "pages/profile/my_activity/my_activity",
+        "pages/profile/my_activity/booking_detail",
+        "pages/profile/my_purse/my_purse",
+        "pages/profile/my_purse/my_withdraw",
+        "pages/profile/my_purse/trans_detail/withdraw_history",
+        "pages/profile/my_purse/trans_detail/trans_detail",
+        "pages/profile/my_purse/add_New_Account/add_New_Account",
+        "pages/profile/my_membership/my_membership",
+        "pages/profile/my_focus/my_focus",
+        "pages/profile/auth/auth",
+        "pages/profile/auth/auth-text/auth_text",
+        "pages/profile/my_info/my_info",
+        "pages/profile/delivery/delivery",
+        "pages/profile/delivery/editdelivery",
+        "pages/profile/register_stadium/advanced_stadium",
+        "pages/profile/register_stadium/register_stadium",
+        "pages/profile/stadium_work/stadium_work",
+        "pages/backyard/backyard",
+        "pages/backyard/backyard_friend",
+        "pages/backyard/calendar",
+        "pages/backyard/mainbeeshop/mainbeeshop",
+        "pages/backyard/product_detail/product_detail",
+        "pages/backyard/product_order/product_order",
+        "pages/backyard/transaction/transaction",
+        "pages/backyard/transaction_detail/transaction_detail",
+        "pages/backyard/ordercomplete/ordercomplete",
+        "pages/backyard/help/help",
+        "pages/backyard/my_friend/friends",
+        "pages/backyard/my_friend/nfriends",
+        "pages/other/evaluation/evaluation",
+        "pages/other/comment/comment",
+        "pages/other/create_event/create_event",
+        "pages/other/create_event/createfirst",
+        "pages/index/detail_event/detail_event1",
+        "pages/index/detail_event/view_map",
+        "pages/index/room_booking/room_booking",
+        "pages/test/index"
+    ],
+    "window": {
+        "backgroundTextStyle": "light",
+        "navigationBarBackgroundColor": "#e6b53c",
+        "navigationBarTitleText": "蜂去吧",
+        "navigationBarTextStyle": "black"
+    },
+    "tabBar": {
+        "backgroundColor": "#FBFBFB",
+        "borderStyle": "white",
+        "color": "#888888",
+        "selectedColor": "#472e00",
+        "list": [{
+                "pagePath": "pages/index/index",
+                "text": "蜂巢",
+                "iconPath": "image/Home_n@2x.png",
+                "selectedIconPath": "image/Home_s@2x.png"
+            },
+            {
+                "pagePath": "pages/activity/activity",
+                "text": "活动",
+                "iconPath": "image/activity_n@2x.png",
+                "selectedIconPath": "image/activity_s@2x.png"
+            },
+            {
+                "pagePath": "pages/other/create_event/createfirst",
+                "text": "发布",
+                "iconPath": "image/add@2x.png",
+                "selectedIconPath": "image/add@2x.png"
+            },
+            {
+                "pagePath": "pages/backyard/backyard",
+                "text": "后花园",
+                "iconPath": "image/garden_n@2x.png",
+                "selectedIconPath": "image/garden_s@2x.png"
+            },
+            {
+                "pagePath": "pages/profile/profile",
+                "text": "我的",
+                "iconPath": "image/my_n@2x.png",
+                "selectedIconPath": "image/my_s@2x.png"
+            }
+        ]
+    },
+    "networkTimeout": {
+        "request": 20000,
+        "connectSocket": 20000,
+        "uploadFile": 20000,
+        "downloadFile": 20000
+    },
+    "permission": {
+        "scope.userLocation": {
+            "desc": "要正常使用此小程序，您需要允许用户位置获取权限"
+        }
+    },
+    "navigateToMiniProgramAppIdList": ["wx772b3b3ff5817bdc"],
+    "sitemapLocation": "sitemap.json"
+}

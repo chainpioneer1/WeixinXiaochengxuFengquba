@@ -1,0 +1,335 @@
+.container {
+    height: auto;
+}
+
+.swiper_box {
+    width: 100vw;
+    height: 380rpx;
+}
+
+.slide-image {
+    width: 100%;
+    height: 100%;
+}
+
+.focus-event-info {
+    width: 100%;
+    height: auto;
+    line-height: 60rpx;
+    min-height: 250rpx;
+    background-color: white;
+}
+
+.focus-event-place-info {
+    width: 75%;
+    height: 50rpx;
+    padding-top: 26rpx;
+    display: inline-block;
+    padding-left: 30rpx;
+}
+
+.focus-event-place {
+    padding-left: 0rpx;
+    font-family: PingFangSC-Semibold;
+    font-size: 32rpx;
+    color: #333;
+    letter-spacing: 0.68rpx;
+    width: auto;
+}
+
+.focus-event-rating {
+    padding-left: 22rpx;
+    margin-top: 10rpx;
+    width: auto;
+    display: inline-block;
+}
+
+.focus-event-favor-btn {
+    float: none;
+    width: 200rpx;
+    position: absolute;
+    top: 405rpx;
+    right: 0;
+}
+
+.rating-star-text {
+    margin-left: 20rpx;
+    font-family: PingFangSC-Regular;
+    font-size: 26rpx;
+    color: #333;
+    letter-spacing: 0.56rpx;
+}
+
+.focus-count-comment {
+    float: right;
+    margin-right: 20rpx;
+    font-size: 26rpx;
+    color: #e6b53c;
+}
+
+.focus-event-date {
+    margin-left: 30rpx;
+    font-size: 26rpx;
+    font-family: PingFangSC-Regular;
+    font-style: normal;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.focus-event-place-detail {
+    display: inline-block;
+    width: 90%;
+    height: auto;
+    margin-top: 0rpx;
+    margin-left: 30rpx;
+    font-size: 26rpx;
+    color: #333;
+    word-break: break-all;
+    overflow: visible;
+}
+
+.comment-gym {
+    margin-top: 20rpx;
+    padding-bottom: 30rpx;
+    width: 100%;
+    height: auto;
+    padding-top: 20rpx;
+    background-color: white;
+}
+
+.comment-gym-label {
+    margin-left: 30rpx;
+    border-left: solid 8rpx #e6b53c;
+    padding-left: 20rpx;
+    font-family: PingFangSC-Semibold;
+    font-size: 30rpx;
+    color: #333;
+    letter-spacing: 0.64rpx;
+}
+
+.comment-gym-text {
+    padding-top: 20rpx;
+    padding-right: 40rpx;
+    word-break: break-all;
+    font-family: PingFangSC-Regular;
+    font-size: 26rpx;
+    color: #333;
+    letter-spacing: 1.04rpx;
+    line-height: 50rpx;
+}
+
+.comment-service {
+    margin-top: 20rpx;
+    padding-bottom: 30rpx;
+    width: 100%;
+    height: auto;
+    padding-top: 20rpx;
+    background-color: white;
+}
+
+.comment-service-label {
+    margin-left: 30rpx;
+    border-left: solid 8rpx #e6b53c;
+    padding-left: 20rpx;
+    font-family: PingFangSC-Semibold;
+    font-size: 30rpx;
+    color: #333;
+    letter-spacing: 0.64rpx;
+}
+
+.comment-service-text {
+    margin-top: 20rpx;
+    margin-right: 40rpx;
+    word-break: break-all;
+    font-family: PingFangSC-Regular;
+    font-size: 26rpx;
+    color: #333;
+    letter-spacing: 1.04rpx;
+    line-height: 50rpx;
+}
+
+.gym_events {
+    margin-top: 20rpx;
+    width: 100%;
+    height: auto;
+    padding-top: 20rpx;
+    padding-bottom: 20rpx;
+    background-color: white;
+}
+
+.gym-events-label {
+    margin-left: 30rpx;
+    border-left: solid 8rpx #e6b53c;
+    padding-left: 20rpx;
+    font-family: PingFangSC-Semibold;
+    font-size: 30rpx;
+    color: #333;
+    letter-spacing: 0.64rpx;
+}
+
+.focus-event-favor {
+    float: right;
+    margin-top: 10rpx;
+    width: 105rpx;
+    height: 50rpx;
+    margin-right: 30rpx;
+}
+
+.detail-addr {
+    display: inline-block;
+    margin-left: 10rpx;
+    text-decoration: underline;
+    width: 85%;
+}
+
+.copy-comment {
+    height: 300rpx;
+    padding-left: 30rpx;
+    word-break: break-all;
+    font-family: PingFangSC-Regular;
+    font-size: 30rpx;
+    color: #333;
+    letter-spacing: 1.04rpx;
+    line-height: 50rpx;
+}
+
+.place-type {
+    width: 32rpx;
+    height: 32rpx;
+    margin-left: 30rpx;
+    margin-right: 10rpx;
+    vertical-align: middle;
+}
+
+.place-type-text {
+    margin-left: 5rpx;
+    font-size: 26rpx;
+    font-family: "PingFangSC-Regular";
+    vertical-align: middle;
+}
+
+.place-favorite-text {
+    float: right;
+    margin-right: 30rpx;
+    color: #a0a0a0;
+    font-size: 23rpx;
+    font-family: "PingFangSC-Regular";
+    padding-top: 15rpx;
+}
+
+.booking-btn {
+    width: 80%;
+    text-align: center;
+    height: 72rpx;
+    line-height: 72rpx;
+    background: #e6b53c;
+    color: white;
+    padding: 0;
+    margin-top: 65rpx;
+    font-size: 33rpx;
+    display: inline-block;
+}
+
+.btn_submit {
+    width: 30%;
+    height: 70rpx;
+    line-height: 70rpx;
+    padding: 0;
+    margin: 50rpx 40rpx;
+    background-color: transparent;
+    border: 1px solid #e6b53c;
+    border-radius: 20rpx;
+    font-family: PingFangSC-Semibold;
+    font-size: 32rpx;
+    color: #e6b53c;
+    letter-spacing: 1.54rpx;
+    display: inline-block;
+    overflow: hidden;
+    -webkit-border-radius: 20rpx;
+    -moz-border-radius: 20rpx;
+    -ms-border-radius: 20rpx;
+    -o-border-radius: 20rpx;
+}
+
+.gym-claim {
+    width: 100%;
+    margin: 0;
+    position: fixed;
+    bottom: 0;
+    background: red;
+    border: none;
+    color: white;
+    text-align: center;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+}
+
+@import "../../profile/template/stadium_template.wxss";
+@import "../../profile/template/get_userinfo.wxss";
+.gym_events.bossgroup .activity-picture {
+    width: 150rpx;
+    height: 150rpx;
+}
+
+.gym_events.bossgroup .activity-role,
+.gym_events.bossgroup .activity-content {
+    margin-left: 170rpx;
+    display: block;
+    width: 530rpx;
+}
+
+.gym_events.bossgroup .activity-content {
+    margin-left: 170rpx;
+    position: relative;
+    height: 90rpx;
+}
+
+.gym_events.bossgroup .activity-type-text {
+    font-size: 32rpx;
+    color: red;
+    vertical-align: middle;
+    font-weight: 600;
+    padding-right: 20rpx;
+}
+
+.gym_events.bossgroup .activity-limit-text {
+    text-decoration: line-through;
+    font-size: 24rpx;
+    vertical-align: middle;
+}
+
+.gym_events.bossgroup .group-pay-btn {
+    float: right;
+    width: 150rpx;
+    height: 55rpx;
+    text-align: center;
+    line-height: 55rpx;
+    margin-right: 10rpx;
+    color: white;
+    background: #e6b53c;
+    border-radius: 10rpx;
+    -webkit-border-radius: 10rpx;
+    -moz-border-radius: 10rpx;
+    -ms-border-radius: 10rpx;
+    -o-border-radius: 10rpx;
+}
+
+.gym_events.bossgroup .activity-favourite-text {
+    position: absolute;
+    float: none;
+    display: block;
+    color: #888;
+    font-size: 20rpx;
+    left: 85%;
+    top: 60%;
+    width: 150rpx;
+    text-align: center;
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
+}

@@ -1,0 +1,29 @@
+<view class='container'>
+  <view class='auth-state' style='color: #e6b53c;'>认证中</view>
+  <view>
+    <view class='auth-text'>*角色类型：商家</view>
+    <view class='auth-text'>*商家名称：北京大学体育馆</view>
+    <view class='auth-text'>*商家姓名：赵红</view>
+    <view class='auth-text'>*联系方式：13868686886</view>
+    <view class='auth-text-auto'>
+      <view class='text-auto1'>*商家地址：</view>
+      <view class='text-auto2'>北京市海淀区这儿的街道那儿的楼九单元4栋1024</view>
+    </view>
+    <view class='auth-image-view'>
+      <view class='auth-image-text'>*营业执照照片：</view>
+      <image class='auth-image' src='../../../image/sfz@3x.png'></image>
+    </view>
+    <view class='auth-text'>*身份证号：请输入身份证号</view>
+    <view class='auth-image-view' style='height: auto'>
+      <view class='auth-image-text'>*身份证照片：</view>
+      <image class='auth-image' style="margin-right: 28rpx;" src='../../../image/sfz@3x.png'></image>
+      <image class='auth-image' src='../../../image/sfz@3x.png'></image>
+    </view>
+  </view>
+  <view>
+    <view class='auth-text'>*角色类型：个人</view>
+    <view class='auth-text'>*昵称：王小二</view>
+    <view class='auth-text'>*真实姓名：请输入真实姓名</view>
+    <view class='auth-text'>*联系方式：请输入手机号</view>
+  </view>
+</view>

@@ -1,0 +1,125 @@
+/**index.wxss**/
+
+.user_info {
+    background: white;
+    border-radius: 20rpx;
+    text-align: center;
+}
+
+.edit_btn {
+    position: absolute;
+    left: 40rpx;
+    padding-top: 30rpx;
+    padding-left: 30rpx;
+}
+
+.img_edit {
+    width: 38rpx;
+    height: 33rpx;
+}
+
+.share_btn {
+    position: absolute;
+    right: 40rpx;
+    padding-top: 5rpx;
+    padding-right: 30rpx;
+    background: transparent;
+    border: none;
+    outline: none;
+}
+
+.img_share {
+    width: 38rpx;
+    height: 34rpx;
+}
+
+.user_info_basic {
+    text-align: center;
+    position: relative;
+    padding-top: 30rpx;
+    width: 300rpx;
+    display: inline-block;
+}
+
+.img_profile {
+    width: 100rpx;
+    height: 100rpx;
+    border-radius: 50rpx;
+}
+
+.img_sex {
+    width: 20rpx;
+    height: 20rpx;
+    display: inline-block;
+}
+
+.age_text {
+    display: inline-block;
+    font-size: 30rpx;
+    padding-left: 10rpx
+}
+
+.user_phone {
+    font-size: 30rpx;
+    color: #e6b53c;
+    text-decoration: underline;
+}
+
+.user_name {
+    font-size: 30rpx;
+    font-weight: bold;
+}
+
+.user_detail {
+    font-size: 26rpx;
+    padding: 25rpx;
+    color: #aaa;
+}
+
+.type_content {
+    text-align: center;
+    width: 75%;
+    display: inline-block;
+    height: 150rpx;
+    white-space: nowrap;
+}
+
+.type_detail {
+    font-size: 30rpx;
+    display: inline-block;
+    padding-left: 15rpx;
+    padding-right: 15rpx;
+}
+
+.type {
+    padding-bottom: 4px;
+    padding-top: 5rpx;
+}
+
+.list {
+    position: relative;
+    font-size: 27rpx;
+    margin-top: 20rpx;
+    background: white;
+    padding-bottom: 10rpx;
+    padding-left: 20rpx;
+}
+
+.list_item {
+    display: inline-block;
+    width: 180rpx;
+    vertical-align: middle;
+    padding-top: 30rpx;
+    padding-bottom: 10px;
+    text-align: center;
+}
+
+.img_item {
+    width: 45rpx;
+    height: 45rpx;
+    padding-bottom: 15rpx;
+}
+
+button::after {
+    border: none;
+}

@@ -1,0 +1,273 @@
+<view wx:if="{{true}}" class="container">
+  <view class='create-event-container'>
+    <view class='stadium-images-view' style="background: url({{uploadURL}}global/picture05@2x.png);">
+      <view class="stadium-images-bg" id="{{selected}}" bindtap="on_click_image"></view>
+      <view class='stadium-images-text'>点击上传活动封面</view>
+      <image class='stadium-images-image' id="0" mode="aspectFill" src='{{(image_path[0]=="")?"../../../image/shop_license.png":image_path[0]}}' wx:if="{{image_path[0]!=''}}"></image>
+      <image class='stadium-images-delete' id="0" mode="aspectFill" src="../../../image/del02@2x.png" style="{{display[select[1]]}}" bindtap="on_click_delete"></image>
+      <image class='stadium-images-image' id="1" mode="aspectFill" src='{{(image_path[1]=="")?"../../../image/shop_license.png":image_path[1]}}' wx:if="{{image_path[1]!=''}}" bindtap='on_click_image'></image>
+      <image class='stadium-images-delete' id="1" mode="aspectFill" src="../../../image/del02@2x.png" style='{{display[select[2]]}}' bindtap="on_click_delete"></image>
+      <image class='stadium-images-image' id="2" mode="aspectFill" src='{{(image_path[2]=="")?"../../../image/shop_license.png":image_path[2]}}' wx:if="{{image_path[2]!=''}}" bindtap='on_click_image'></image>
+      <image wx:if="{{selected==3}}" class='stadium-images-delete' id="2" mode="aspectFill" src="../../../image/del02@2x.png" bindtap="on_click_delete"></image>
+    </view>
+    <view class='event-view'>
+      <text>活动名称:</text>
+      <input class='event-input' value="{{event.name}}" style="width: 70vw" placeholder='请输入活动名称' bindinput='on_event_name' focus="{{focus_name}}" ></input>
+    </view>
+    <view class='event-view' bindtap="showitem">
+      <text>活动类型:</text>
+      <input class='event-input' disabled placeholder='请选择' value="{{eventType[event.kind]}}" focus="{{focus_type}}"></input>
+      <image class='event-next-image' src='../../../image/next@2x.png'></image>
+    </view>
+
+    <view class="event-view">
+      <text>活动时间:</text>
+      <picker mode="multiSelector" class='date-input' value="{{dateTime1}}" bindchange="changeDateTime1" bindcolumnchange="changeDateTimeColumn1" range="{{dateTimeArray1}}">
+        <view class="date-input">
+          {{dateTimeArray1[0][dateTime1[0]]}}-{{dateTimeArray1[1][dateTime1[1]]}}-{{dateTimeArray1[2][dateTime1[2]]}} {{dateTimeArray1[3][dateTime1[3]]}}:{{dateTimeArray1[4][dateTime1[4]]}}
+        </view>
+      </picker>      
+      <view style="display: inline-block">至</view>
+      <picker mode="multiSelector" class='date-input' value="{{dateTime}}" bindchange="changeDateTime" bindcolumnchange="changeDateTimeColumn" range="{{dateTimeArray1}}">
+        <view class="date-input">
+          {{dateTimeArray[0][dateTime[0]]}}-{{dateTimeArray[1][dateTime[1]]}}-{{dateTimeArray[2][dateTime[2]]}} {{dateTimeArray[3][dateTime[3]]}}:{{dateTimeArray[4][dateTime[4]]}}
+        </view>
+      </picker>      
+    </view>
+
+
+    <view class='event-view' bindtap='On_click_map'>
+      <text>活动地点:</text>
+      <input class='event-input' disabled placeholder='请选择'></input>
+      <image class='event-next-image' src='../../../image/next@2x.png'></image>
+    </view>
+    
+    <view class='event-view'>
+      <input class='event-input' value="{{detail_address}}" style='width:calc(100% - 20rpx); height:auto;margin-left:0rpx;' 
+            placeholder='请输入详细地址' bindinput='On_blur_detailaddress' focus="{{focus_address}}"></input>
+    </view>
+    <view class='event-view'>
+      <text>人数上限:</text>
+      <input type="number" class='event-input' value="{{event.limit}}" bindinput='on_blur_limit' focus="{{focus_limit}}"></input>
+      <text class='event-left-text'>人</text>
+    </view>
+    <view class='event-view'>
+      <text>每个用户最多可以报名人数:</text>
+      <input type="number" class='event-input' value="{{event.limit_perUser}}" style="width: 30%" bindinput='on_blur_limit_perUser' focus="{{focus_limit_person}}"></input>
+      <text class='event-left-text'>人</text>
+    </view>
+    <view class='event-view'>
+      <text>活动费用:</text>
+      <input type="digit" class='event-input' value="{{event.cost}}" bindinput='on_blur_cost' focus="{{focus_cost}}"></input>
+      <text class='event-left-text'>元/人</text>
+    </view> 
+    <view wx:if="{{!showModal2  && !showModal1}}" class='event-view'>
+      <text>支付方式:</text>
+      <radio-group class="event-payment-group" bindchange="payment_radioChange">
+        <radio value='1' checked></radio>线上支付
+        <radio value='0'></radio>线下支付
+        <radio value='2'></radio>不限制
+      </radio-group>
+    </view>
+    <view class='event-comment-view' wx:if="{{!showModal2  && !showModal1}}">
+      <text style="float:left">活动详情:</text>      
+      <view class = "comment_picker">
+        <image class='event-next-image' style="padding-top:12rpx;" src='../../../image/btn_updown@2x.png'></image>
+        <picker bindchange="bindtemplatechange" value="{{select_template}}" range="{{templates}}">
+          {{templates[select_template]}}
+        </picker>
+      </view>
+      <text style="float: right;padding-right: 15rpx;">插入模板</text>
+      <textarea class='event-comment-textarea' bindfocus="scroll2Down" wx:if="{{!is_disabled}}" focus="{{focus_comment}}" 
+      maxlength='500' value="{{textareastr}}" bindinput='on_blur_comment' bindblur='on_blur_scroll'></textarea>        
+    </view>
+    
+    <view wx:if="{{!showModal2  && !showModal1}}" class='event-option'>
+      <text>报名者是否可退:</text>
+      <view>
+        <text bindtap="radioChange" data-type="isCancel">报名后{{isCancel==0?'不':''}}可以取消报名</text>
+        <image src="{{switch_img[1-isCancel]}}" bindtap="radioChange" data-type="isCancel"></image> 
+      </view>
+    </view>
+    <view wx:if="{{!showModal2  && !showModal1}}" class='event-option'>
+      <text>报名者是否填写电话:</text>
+      <view>
+        <text bindtap="radioChange" data-type="isPhone">报名者{{isPhone==0?'不':''}}需填写电话</text>
+        <image src="{{switch_img[1-isPhone]}}" bindtap="radioChange" data-type="isPhone"></image>  
+      </view>
+    </view>
+    <view wx:if="{{!showModal2  && !showModal1}}" class='event-option'>
+      <text>报名链接是否公开:</text>
+      <view>
+        <text bindtap="radioChange" data-type="isPublic">{{isPublic==0?'不':''}}显示在蜂约列表中</text>
+        <image src="{{switch_img[1-isPublic]}}" bindtap="radioChange" data-type="isPublic"></image>  
+      </view>
+    </view>
+    <view class='event-view'>
+      <text>发起人: </text>
+      <input class='event-input' style="width: 70vw" value="{{val_username}}" placeholder='请输入发起人' 
+              bindinput='on_agent_name' focus="{{focus_agent_name}}"></input>
+    </view>
+    <view class='event-view'>
+      <text>电话:</text>
+      <input type="number" class='event-input' style="width: 70vw;" value="{{val_phone}}" 
+      placeholder='请输入联系方式' bindinput='on_agent_phone' focus="{{focus_phone}}"></input>
+    </view>
+    <block wx:if="{{false && !showModal2 && role==2 && isPublic==1 && !showModal1}}">
+      <view class='event-view'>
+        <text>活动结束后是否在地图上生成能量:</text>
+        <radio-group class="event-add-radiogroup" bindchange="radioChange1">
+          <block wx:if="{{member_state==0}}">
+            <radio value='1' checked></radio>是<text>(需花费{{honey}}ml蜂蜜)</text>
+          </block>
+          <block wx:else>
+            <radio value='1' checked></radio>是<text>(会员不需要花费蜂蜜)</text>
+          </block>
+          <radio value='0'></radio>否</radio-group>
+      </view>
+    </block>
+  </view>  
+  <button wx:if="{{!showModal2 && !showModal1}}" class='btn_submit' bindtap="on_submit">创建活动</button>
+  <view wx:if="{{focus_comment}}" style="height:400rpx;position:relative;display:inline-block;"></view>
+</view>
+<!-- </scroll-view> -->
+
+<view class="modal-mask1" bindtap="hideModal" wx:if="{{showModal1}}"></view>
+<view class="modal-dialog1" wx:if="{{showModal1}}">
+
+  <view style="overflow-y: auto;" scroll-y class='main-text'>
+    <view>蜂去吧是哈尔滨蜂体网络科技有限公司（以下简称本公司）的开发产品，本公司通过用户使用蜂去吧的相关功能向用户提供服务，您在使用相关服务之前，需要仔细阅读本协议，并通过在线形式签署，您选择【同意】，即表示协议生效。本协议由哈尔滨蜂体网络科技有限公司与您签订。</view>
+    <view>本协议版本信息</view>
+    <view>版本更新日期:2018年5月2日</view>
+    <view>版本生效日期:2018年5月2日</view>
+    <view>一、定义及解释 </view>
+    <view>　1. 蜂去吧：蜂去吧是为个人或运动场馆提供发布活动、活动管理、参与活动功能的第三方平台，是哈尔滨蜂体网络科技有限公司拥有所有权与经营权的产品，包括“蜂去吧”微信小程序以及后续开发的其他产品。</view>
+    <view>2. 蜂去吧账户（或本文中所称谓的“该账户”）：是本公司向您提供的蜂去吧平台上的唯一身份。您通过微信登录后可以使用蜂去吧的各项功能、查询或计量您的活动记录。</view>
+    <view>3. 发布活动：本文中的活动指活动主办方通过使用蜂去吧发活动功能发布的信息，活动的形式包括各种运动、体育活动、体育赛事、运动装备售卖、运动公益等合法形式，活动分为付费活动和免费活动：A、付费活动为活动主办方向活动参与者收取费用而举办的活动；B、免费活动为活动主办方举办活动不向活动参与者收取费用的活动。</view>
+    <view>4. 场馆主：通过上传营业执照信息和场馆相关资料证明，经由蜂去吧后台审核通过的场馆方运营负责人，可以以场馆的名义发布活动。</view>
+    <view> 5. 蜂蜜：通过蜂去吧获得的虚拟货币，可用于发布活动时在地图上显示活动，可用于在商城兑换商品。</view>
+    <view>6. 本服务：是指用户使用蜂去吧相关功能的全部或部分的过程。</view>
+    <view>二、声明和承诺</view>
+    <view>7. 您完全理解并确认，在实际使用本服务前，您已充分阅读、理解并接受本协议的全部内容，同意遵循本协议之所有约定。</view>
+    <view>8. 您完全理解并同意，本公司有权随时对本协议内容进行单方面的变更，并以在本网站公告的方式予以公布，无需另行单独通知您；若您在本协议内容公告变更后继续使用本服务的，表示您已充分阅读、理解并接受修改后的协议内容，也将遵循修改后的协议内容使用本服务；若您不同意修改后的协议内容，您应停止使用本服务。</view>
+    <view>9. 您完全理解并保证，在使用本服务时，您应确保自身拥有完全民事行为能力，在中国大陆地区具有合法开展组织活动或其他业务的法人身份或其他组织或个人；若您在国外，本协议内容不受您所属国家或地区法律的排斥。不具备前述条件的，您应立即停止使用本服务。</view>
+    <view>三、服务条款</view>
+    <view>注册</view>
+    <view>10. 在您注册蜂去吧账户时，应具备的基本条件有：</view>
+    <view>1) 自行负担个人上网所支付的与此服务有关的电话费用、网络费用。</view>
+    <view>2) 自行配备上网的所需设备，包括个人电脑、调制解调器或其他必备上网装置；</view>
+    <view>11. 您应该根据蜂去吧的认证要求填写必要的注册信息和账户信息，并保证信息的合法性、真实性、及时性和有效性。注册成功后，如果您所填写的信息发生改变，您应当及时登录蜂去吧小程序变更相关内容。</view>
+    <view>12. 如果蜂去吧发现您填写的注册信息和账户信息存在违法、不真实或无效的可能性，有权删除相关信息或注销您的账户。</view>
+    <view>13. 您不得将在本站注册获得的账户借给他人使用，否则用户应承担由此产生的全部责任，并与实际使用人承担连带责任。为保证交易安全，您应当妥善保管用户名和密码，如果因为您的疏忽或管理不善，造成用户名和密码外泄、被盗等后果的，您应当自行承担由此所引发的一切损失。</view>
+    <view>发布</view>
+    <view>14. 审核：您在蜂去吧发布的所有信息及评论均提交由蜂去吧进行内容审核。</view>
+    <view>15. 信息规范：您在使用本服务时所发布的内容应符合网络道德，遵守中华人民共和国的相关法律法规。您在蜂去吧平台上不得发布以下信息：</view>
+    <view>1) 反对宪法所确定的基本原则的；</view>
+    <view>2) 危害国家安全，泄露国家秘密，颠覆国家政权，破坏国家统一的；</view>
+    <view>3) 损害国家荣誉和利益的；</view>
+    <view>4) 煽动民族仇恨、民族歧视，破坏民族团结的；</view>
+    <view>5) 破坏国家宗教政策，宣扬邪教和封建迷信的；</view>
+    <view>6) 散布谣言，扰乱社会秩序，破坏社会稳定的；</view>
+    <view>7) 散布淫秽、色情、赌博、暴力、凶杀、恐怖或者教唆犯罪的；</view>
+    <view>8) 侮辱或者诽谤他人，侵害他人合法权益的；</view>
+    <view>9) 含有法律、行政法规禁止的其他内容的。</view>
+    <view>16. 您在蜂去吧发布的不符合本协议的内容，本公司有权对信息进行屏蔽、删除处理，同时对账户采取警告、封号等措施，同时本公司有权将相关事项提交司法机关依法处理。</view>
+    <view>17. 您发布任何活动，您必须取得举办该活动的资质或资格，您独立承担因没有相应的资质或资格而带来的风险和责任，并承担因此给本公司带来的损失。</view>
+    <view>18. 场馆方发布任何收费活动，必须拥有相应的收费许可、资质或资格，场馆方独立承担因没有相应的收费许可、资质或资格而带来的风险和责任，并承担因此给本公司带来的损失；同时，您在发布任何收费活动时应就关于活动退款事宜，按照本公司、本协议以及蜂去吧平台的要求，作出明确选择。</view>
+    <view>19. 您发布任何活动，您必须保证在活动或聚会举办期间所有参与者的安全，包括但不限于人身安全、财产安全等，如蜂去吧用户在参与您举办的活动安全受到损害，您必须按照相关法律法规赔偿参与者，并承担因此给本公司带来的损失。</view>
+    <view>代收</view>
+    <view>20. 代收款：您在蜂去吧上发生的所有交易，不可撤消地授权由本公司为您代收交易款项，活动参与者报名完成后，报名费用将进入蜂去吧交易保障体系作为活动实际举办的担保资金；同时本公司有权从蜂去吧获取您的相关信息（包括但不限于活动信息，报名参与者信息，活动举办情况，账户相关信息等）。</view>
+    <view>21. 账户认证：您在使用蜂去吧提供的代收服务时，需要向蜂去吧提供您的收款账户信息以及个人信息，以便蜂去吧对您的身份和提现资格认证，认证通过后您方可将账户中的资金提现。包括但不限于：</view>
+    <view>1) 您的微信账户；</view>
+    <view>2) 您的银行卡卡号及开户行信息；</view>
+    <view>3) 您的身份证正、反面照片；</view>
+    <view>4) 企业的公司名称、营业执照副本。</view>
+    <view>22. 申请提现：在符合本协议规则且您的账户通过蜂去吧审核的情况下，您可以申请本公司将您蜂去吧账户中的资金提取到您微信钱包内。</view>
+    <view>23. 活动提现审核：在您申请一笔提现时，蜂去吧将对您的账户近期发布的活动进行审核及核对，审核结果包括但不限于下列情况：</view>
+    <view>1) 审核成功：活动真实可信且该账户不存在尚未处理的投诉，3个工作日内通过审核。</view>
+    <view>2) 审核失败：活动并未举行或活动现场与描述不符合，或该账户存在尚未处理的投诉，3个工作日内审核失败。</view>
+    <view>3) 无法审核：由于活动信息不明或其他原因导致的无法完成审核，蜂去吧将在活动结束15个自然日内考察活动真实性，期间该账户不存在尚未处理的投诉或纠纷，蜂去吧将在15个自然日后通过审核并完成转账。如前述活动信息不明或者其他原因导致未能在上述规定日期内审核完毕，以审核需要的合理时间为准，本公司不另行作出通知。</view>
+    <view>24. 转账时间：除被冻结或限制款项外，本公司将于审核结果符合提现条件并收到提现指令后的3个工作日内，将相应款项存入微信钱包。此外，本公司对提现行为进行风险审查，因此可能导致提现延迟。</view>
+    <view>25. 拒绝提现：当您的提现申请或个人行为违反代收服务协议或行业规则时，本公司有权拒绝您的提现申请，并告知您拒绝原因。</view>
+    <view>26. 退款：当活动参与者取消报名，或者活动发生变化，可以退款。</view>
+    <view>参与</view>
+    <view>27. 在您使用蜂去吧时，您的昵称中不得含有诱导性广告内容，如利用奖励机制诱导关注公众号、诱导加好友等。</view>
+    <view>28. 您在蜂去吧平台中发表的评论应符合网络道德，遵守中华人民共和国的相关法律法规。评论内容中不得含有诱导性广告内容，如利用奖励机制诱导关注公众号、诱导加好友等；不得发表危害他人利益以及恶意诋毁、损害他人形象的言论。</view>
+    <view>四、第三方服务</view>
+    <view>29. 蜂去吧平台上的服务可能包含第三方提供的服务。当您使用第三方提供的服务时，可能会另有相关的协议或规则，您应当认真阅读并遵守。</view>
+    <view>30. 您理解并同意：为了向您提供更好的用户体验，您在使用第三方服务时，第三方可能会接触、使用到您的蜂去吧账户信息以及在第三方服务中的相关操作信息等。</view>
+    <view>31. 如您在使用第三方服务时发生任何纠纷的，请您与第三方直接联系，蜂去吧不承担任何责任，但根据需要会依法提供必要的协助。</view>
+    <view>五、增值服务</view>
+    <view>32. 本公司的互联网增值服务是以收费的方式提供的，如您使用增值服务，请遵守相关协议。</view>
+    <view>33. 您理解并同意：本公司可能根据实际需求对增值服务的收费标准、方式进行修改和变更。本公司也可能会对部分免费的服务开始收费。前述修改、变更或开始收费前，蜂去吧将在相应页面进行通知或告知。如您不同意上述修改、变更或付费内容，则应停止使用该服务。</view>
+    <view>六、隐私政策</view>
+    <view>34. 蜂去吧非常重视您的个人信息及隐私权的保护，您在使用蜂去吧服务时，蜂去吧可能会收集和使用您的相关信息。本隐私政策与您使用蜂去吧服务息息相关，如果您不同意本隐私政策的任何内容，您应立即停止使用蜂去吧的服务。</view>
+    <view>35. 为了向您提供更好、更个性化服务，您同意蜂去吧收集以下信息：</view>
+    <view>您向蜂去吧提供的信息</view>
+    <view>1) 您使用帐号时可能向蜂去吧提供微信登陆。</view>
+    <view>2) 您使用蜂去吧服务时，为满足向您提供服务之目的，在进行个人认证，您还可能需要进一步向蜂去吧提供您的真实姓名、手机号码、身份证号码等信息。 在进行场馆认证时，您需要提供营业执照、负责人身份信息等。</view>
+    <view>3) 蜂去吧还可能会记录您在使用蜂去吧的服务时提供、形成或留存的信息。</view>
+    <view>4) 您的微信运动数据。</view>
+    <view>七、收费标准</view>
+    <view>36. 蜂去吧对于发布免费活动的用户，继续完全免费的提供蜂去吧平台的基础服务。 参与活动时的费用由发布方定义。</view>
+    <view>37. 蜂去吧对于使用收款功能的场馆方收取年服务费，在蜂去吧平台内产生的付费活动报名订单，蜂去吧平台将不收取任何支付手续费。主办方仅需承担微信“支付通道商”收取的0.6% 的交易费率。</view>
+    <view>八、通知和公告</view>
+    <view>38. 蜂去吧将在用户界面的明显位置发布通知和公告。</view>
+    <view>39. 蜂去吧将不会另行通知您公告内容，在本平台发布的通知和公告，视为您已阅读并同意。</view>
+    <view>40. 蜂去吧对于已发布的通知和公告有单方面解释权。</view>
+    <view>九、使用限制与责任</view>
+    <view>41. 您在使用本服务时应遵守中华人民共和国相关法律法规、您所在国家或地区之法令及相关国际惯例，不将本服务用于任何非法目的（包括用于禁止或限制交易物品的交易），也不以任何非法方式使用本服务。</view>
+    <view>42. 您必须保证您发布的活动真实、合法且不侵犯第三方的合法权益，否则应承担所有相关法律责任。</view>
+    <view>43. 您不得利用本服务从事侵害他人合法权益之行为，否则应承担所有相关法律责任，因此导致本公司或本公司雇员受损的，您应承担赔偿责任。</view>
+    <view>44. 上述行为包括但不限于：</view>
+    <view>1) 侵害他人名誉权、隐私权、商业秘密、商标权、著作权、专利权等合法权益。</view>
+    <view>2) 违反依法定或约定之保密义务。</view>
+    <view>3) 冒用他人名义使用本服务。</view>
+    <view>4) 从事非法交易行为，如洗钱、传销、发布反动信息、倒卖毒品、禁药、组织淫秽活动等本公司认为不得使用本服务进行发布的活动等。</view>
+    <view>5) 提供赌博资讯或以任何方式引诱他人参与赌博。</view>
+    <view>6) 非法使用他人银行账户（包括信用卡账户）或无效银行帐号（包括信用卡账户）交易。</view>
+    <view>7) 违反《银行卡业务管理办法》使用银行卡，或利用信用卡套取现金（以下简称套现）。</view>
+    <view>8) 进行与您或活动参与者对方宣称的交易内容不符的交易，或不真实的交易。</view>
+    <view>9) 从事任何可能含有电脑病毒或是可能侵害本服务系统、资料之行为。</view>
+    <view>10) 其他本公司有正当理由认为不适当之行为。</view>
+    <view>11) 其他违反法律法规的行为</view>
+    <view>45. 您应妥善保管您的帐号密码，由于您自己的原因造成的密码遗失或者泄露，您应承担由此造成的一切损失及所有责任。</view>
+    <view>十、免责条款</view>
+    <view>46. 本公司不对因下述任一情况导致的任何损害赔偿承担责任，包括但不限于利润、商誉、使用、数据等方面的损失或其他无形损失的损害赔偿。</view>
+    <view>1) 本公司有权基于单方判断，包含但不限于本公司认为您已经违反本协议的明文规定及精神，暂停、中断或终止向您提供本服务或其任何部分，并移除您的资料。</view>
+    <view>2) 本公司在发现异常交易或有疑义或有违反法律规定或本协议约定之虞时，有权不经通知先行暂停或终止该账户的使用（包括但不限于对该账户名下的款项和在途交易采取取消交易、调账等限制措施），并拒绝您使用本服务之部分或全部功能。</view>
+    <view>3) 在必要时，本公司无需事先通知即可终止提供本服务，并暂停、关闭或删除该账户及您帐号中所有相关资料及档案，并将您滞留在该账户的全部合法资金退回到您的银行账户。</view>
+    <view>47. 系统因下列状况无法正常运作，使您无法使用各项服务时，本公司不承担任何损害赔偿责任，该状况包括但不限于：</view>
+    <view>1) 本公司在蜂去吧客户端公告之系统停机维护期间。</view>
+    <view>2) 电信设备出现故障不能进行数据传输的。</view>
+    <view>3) 因台风、地震、海啸、洪水、停电、战争、恐怖袭击等不可抗力之因素，造成本公司系统障碍不能执行业务的。</view>
+    <view>4) 由于黑客攻击、电信部门技术调整或故障、网站升级、银行、第三方支付工具方面的问题等原因而造成的服务中断或者延迟。</view>
+    <view>48. 因您的过错导致的任何损失由您自行承担，本公司不承担任何损害赔偿责任，该过错包括但不限于：遗忘或泄漏密码，密码被他人破解，您使用的手机或其他终端被他人侵入等。</view>
+    <view>十一、法律适用管辖</view>
+    <view>49. 本协议之效力、解释、变更、执行与争议解决均适用中华人民共和国法律，没有相关法律规定的，参照通用国际商业惯例和（或）行业惯例。本协议部分内容被有管辖权的法院认定为违法的，不因此影响其他内容的效力。</view>
+    <view>50. 因本协议产生之争议，均应依照中华人民共和国法律予以处理，并由哈尔滨市南岗区人民法院管辖。</view>
+  </view>
+
+  <view class='modal-footer1'>
+    <view bindtap="onCancel1" class='modal-cancel1'>
+      <view style='margin-top:20rpx'>取消</view>
+    </view>
+    <view bindtap="onConfirm1" class='modal-confirm1'>
+      <view style='margin-top:20rpx'>我知道了</view>
+    </view>
+  </view>
+</view>
+
+<view class="modal-mask1" bindtap="preventTouchMove" wx:if="{{showModal2}}"></view>
+<view class="modal-dialog1" wx:if="{{showModal2}}">
+
+  <view style="overflow-y: auto;" scroll-y class='main-text1'>
+    <view wx:for="{{eventType}}" wx:key="index">
+      <view class='display_show' id="{{index}}" bindtap="on_click_type">{{item}}</view>
+    </view>
+  </view>
+</view>
+<view style="position:fixed:left:0;top:0;width:calc(100vw);height:calc(100vh);background:transparent;z-index:10000;" wx:if="{{isProcessing}}"></view>
+
+
+<!-- <scroll-view>   -->

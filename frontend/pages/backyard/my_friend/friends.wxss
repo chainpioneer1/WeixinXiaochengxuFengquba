@@ -1,0 +1,125 @@
+view {
+    font-size: 28rpx;
+}
+
+.friend-list-view {
+    position: fixed;
+    background: #f0f0f0;
+    width: calc(100vw);
+    height: calc(100vh);
+    top: 0;
+    left: 0;
+    margin: 0;
+    padding: 0;
+}
+
+.friend-top-bar {
+    position: relative;
+    height: 90rpx;
+    background: white;
+    margin-bottom: 20rpx;
+}
+
+.friend-top-bar view,
+.friend-top-bar image {
+    position: absolute;
+    transform: translateY(-50%);
+    top: 50%;
+}
+
+.top-title {
+    left: 5%;
+    width: auto;
+}
+
+.friend-notify {
+    right: 8%;
+    width: auto;
+    height: 30rpx;
+    background: red;
+    color: white;
+    font-size: 25rpx;
+    border-radius: 50%;
+    padding: 0 9rpx;
+    line-height: 30rpx;
+}
+
+.apply-friend {
+    right: 3%;
+    width: 2%;
+    height: 30%;
+}
+
+.friend-list-container {
+    position: relative;
+    width: 100%;
+    height: calc(100vh - 100rpx);
+}
+
+.friend-item {
+    position: relative;
+    height: 135rpx;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    background: white;
+    margin-bottom: 2px;
+}
+
+.friend-item view,
+.friend-item image {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.friend-avatar {
+    left: 5%;
+    width: 80rpx;
+    height: 80rpx;
+    border-radius: 50%;
+}
+
+.friend-info {
+    left: 20%;
+}
+
+.friend-info view {
+    position: relative;
+    width: auto;
+    height: auto;
+    white-space: nowrap;
+    transform: none;
+    margin: 10rpx 0;
+}
+
+.friend-name {
+    font-weight: 600;
+}
+
+.friend-type {
+    color: #888;
+}
+
+.friend-navigator {
+    position: absolute;
+    right: 10rpx;
+    transform: translateY(-50%);
+    height: 75%;
+    width: 50rpx;
+    background: #ddd;
+    color: #333;
+    border-radius: 30rpx;
+    top: 52%;
+    padding: 10rpx 0;
+}
+
+.nav-item {
+    position: relative;
+    display: inline-block;
+    height: 1.8rem;
+    line-height: 1.9rem;
+    text-align: center;
+    width: 100%;
+    font-size: 34rpx;
+}

@@ -1,0 +1,25 @@
+<view class="list-view">
+  <view class="top-bar" bindtap="go2NewFriendPage" data-cnt="{{newCount}}">
+    <view class="top-title">
+      当前城市:
+      <view>{{currentName}}</view>
+    </view>
+  </view>
+  <scroll-view class="list-container" scroll-y="{{true}}" scroll-into-view="list-{{filterItem}}" scroll-with-animation="{{true}}">
+    <block wx:for="{{allList}}" wx:key="index">
+      <view class="list-item" wx-if="{{(item.filter_character!='')}}" id="{{(item.filter_character!=''?('list-'+item.filter_character):'')}}" style="background: #f0f0f0;color: grey;">
+        <view class="list-info" style="left: 5%;">{{item.filter_character}}</view>
+      </view>
+      <view class="list-item" bindtap="selectCityItem" data-id="{{item.id}}">
+        <view class="list-info">
+          <view class="list-name">{{item.city}}</view>
+        </view>
+      </view>
+    </block>
+  </scroll-view>
+  <scroll-view class="list-navigator" scroll-y="{{true}}">
+    <view class="nav-item" wx:for="{{filterList}}" wx:key="{{index}}" bindtap="go2Filtered" data-id="{{item}}">
+      {{item}}
+    </view>
+  </scroll-view>
+</view>

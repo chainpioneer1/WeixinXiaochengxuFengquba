@@ -1,0 +1,431 @@
+/**index.wxss**/
+
+.cls_my_wallet_title,
+.cls_my_withdraw_title {
+    position: relative;
+    left: 0rpx;
+    top: 0rpx;
+    width: 100%;
+    height: 251rpx;
+    background-color: #e6b53c;
+}
+
+.cls_my_withdraw_title {
+    margin-top: 230rpx;
+}
+
+.cls_my_wallet_title_txt,
+.cls_my_withdraw_title_txt {
+    position: absolute;
+    top: 63rpx;
+    left: 0rpx;
+    width: 100%;
+    height: auto;
+    text-align: center;
+    font-family: PingFangSC-Regular;
+    font-size: 28rpx;
+    color: #fff;
+    letter-spacing: 0.33rpx;
+}
+
+.cls_my_account_balance,
+.cls_my_withdraw_balance {
+    position: absolute;
+    left: 0;
+    top: 103rpx;
+    width: 100%;
+    text-align: center;
+    height: auto;
+    font-family: PingFangSC-Semibold;
+    font-size: 60rpx;
+    color: #fff;
+    letter-spacing: 0.71rpx;
+}
+
+.cls_my_wallet_title_txt {
+    top: 20rpx;
+}
+
+.cls_my_account_balance {
+    top: 60rpx;
+}
+
+.cls_my_withdraw_title {
+    height: 300rpx;
+}
+
+.cls_my_withdraw_title_txt {
+    top: 50rpx;
+    font-size: 24rpx;
+}
+
+.cls_my_withdraw_balance {
+    top: 120rpx;
+    font-size: 75rpx;
+    width: 90%;
+    height: 125rpx;
+    left: 50%;
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
+    border-bottom: 1px solid lightgray;
+}
+
+.cls_my_withdraw_title,
+.cls_my_withdraw_title_txt,
+.cls_my_withdraw_balance {
+    background: white;
+    color: black;
+}
+
+.cls_my_withdraw_balance view {
+    position: absolute;
+    right: 0;
+    font-size: 26rpx;
+    color: #e6b53c;
+    top: 30rpx;
+}
+
+.cls_my_withdraw_info {
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    left: 0;
+    top: 180rpx;
+    width: 100%;
+    height: auto;
+    background: transparent;
+    font-size: 24rpx;
+}
+
+.cls_my_withdraw_info .info-box {
+    position: relative;
+    left: 5%;
+    width: 90%;
+    height: auto;
+    background: white;
+    text-align: center;
+    box-shadow: 0px 3px 5px #ddd;
+    border-radius: 20rpx;
+    -webkit-border-radius: 20rpx;
+    -moz-border-radius: 20rpx;
+    -ms-border-radius: 20rpx;
+    -o-border-radius: 20rpx;
+}
+
+.cls_my_withdraw_info .info-desc {
+    position: relative;
+    left: 5%;
+    width: 90%;
+    height: auto;
+    text-align: center;
+    color: #999;
+    font-size: 22rpx;
+    margin-top: 34rpx;
+}
+
+.cls_my_withdraw_info .info-box .price-item {
+    position: relative;
+    display: inline-block;
+    margin: 36rpx 0;
+    width: 48%;
+}
+
+.cls_my_withdraw_info .info-box .price-item view:last-child {
+    margin: 20rpx 0 0;
+    font-size: 40rpx;
+    color: #66a500;
+}
+
+.cls_my_withdraw_amount {
+    width: 300rpx;
+    text-align: center;
+    height: auto;
+    font-family: PingFangSC-Semibold;
+    font-size: 75rpx;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.cls_my_withdrawal {
+    position: relative;
+    left: 0rpx;
+    width: calc(100vw - 80rpx);
+    height: 95rpx;
+    background: #e6b53c;
+    color: white;
+    margin: 55rpx 40rpx 35rpx;
+}
+
+.cls_my_withdrawal_text {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    height: 95rpx;
+    line-height: 95rpx;
+    font-family: PingFangSC-Regular;
+    font-size: 32rpx;
+    font-weight: 400;
+    vertical-align: middle;
+    color: white;
+    letter-spacing: -0.27rpx;
+}
+
+.cls_my_wallet_description {
+    width: 100%;
+    text-align: center;
+}
+
+.cls_my_wallet_description text {
+    display: inline-block;
+    width: 90%;
+    font-size: 23rpx;
+    text-align: left;
+    line-height: 40rpx;
+    color: grey;
+    letter-spacing: 1rpx;
+}
+
+.cls_my_transaction_details {
+    position: relative;
+    left: 0rpx;
+    width: 100%;
+    height: 100rpx;
+    text-align: center;
+}
+
+.cls_my_transaction_details_text {
+    position: relative;
+    display: inline-block;
+    left: 0;
+    top: 0;
+    height: 100rpx;
+    line-height: 100rpx;
+    text-align: center;
+    font-family: PingFangSC-Regular;
+    font-size: 26rpx;
+    color: #e6b53c;
+    letter-spacing: -0.27rpx;
+}
+
+.cls_my_withdrawal_next_img {
+    position: absolute;
+    right: 30rpx;
+    top: 32rpx;
+    width: 15rpx;
+    height: 26rpx;
+}
+
+.modal-mask {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: #000;
+    opacity: 0.2;
+    overflow: hidden;
+    z-index: 9000;
+    color: #fff;
+}
+
+.modal-dialog {
+    position: absolute;
+    left: 95rpx;
+    top: 228rpx;
+    width: 560rpx;
+    height: 623rpx;
+    overflow: hidden;
+    z-index: 9999;
+    background: white;
+    border-radius: 10rpx;
+    -webkit-border-radius: 10rpx;
+    -moz-border-radius: 10rpx;
+    -ms-border-radius: 10rpx;
+    -o-border-radius: 10rpx;
+}
+
+.modal-title {
+    width: 100%;
+    padding-top: 30rpx;
+    padding-left: 252rpx;
+    font-family: PingFangSC-Semibold;
+    font-size: 28rpx;
+    color: #666;
+    letter-spacing: 0.43rpx;
+}
+
+.modal-name {
+    width: calc(100%-37rpx);
+    padding-left: 37rpx;
+    padding-top: 40rpx;
+    font-family: PingFangSC-Regular;
+    font-size: 28rpx;
+    color: #666;
+    letter-spacing: 0.43rpx;
+}
+
+.modal-name-input {
+    float: right;
+    padding-right: 39rpx;
+}
+
+.modal-card {
+    width: calc(100%-37rpx);
+    padding-left: 37rpx;
+    padding-top: 40rpx;
+    font-family: PingFangSC-Regular;
+    font-size: 28rpx;
+    color: #666;
+    letter-spacing: 0.43rpx;
+}
+
+.modal-card-input {
+    float: right;
+    padding-right: 39rpx;
+}
+
+.modal-idcard {
+    width: calc(100%-37rpx);
+    padding-left: 37rpx;
+    padding-top: 40rpx;
+    font-family: PingFangSC-Regular;
+    font-size: 28rpx;
+    color: #666;
+    letter-spacing: 0.43rpx;
+}
+
+.modal-idcard-input {
+    float: right;
+    padding-right: 39rpx;
+}
+
+.input-cost {
+    margin-left: 37rpx;
+    margin-top: 30rpx;
+    width: 484rpx;
+    height: 80rpx;
+    border: 2rpx solid #666;
+    border-radius: 12rpx;
+    font-family: PingFangSC-Regular;
+    text-align: center;
+    font-size: 28rpx;
+    color: #888;
+    letter-spacing: 0.43rpx;
+}
+
+.modal-alert {
+    margin-left: 37rpx;
+    margin-top: 10rpx;
+    font-family: PingFangSC-Regular;
+    font-size: 24rpx;
+    color: #e65a3c;
+    letter-spacing: 0.37rpx;
+}
+
+.modal-footer {
+    width: calc(100%-37rpx);
+    padding-left: 37rpx;
+    padding-top: 50rpx;
+}
+
+.modal-cancel {
+    display: inline-block;
+    width: 220rpx;
+    height: 80rpx;
+    border: 3rpx solid #e6b53c;
+    border-radius: 12rpx;
+    font-family: PingFangSC-Semibold;
+    font-size: 28rpx;
+    color: #e6b53c;
+    text-align: center;
+    letter-spacing: 0.43rpx;
+}
+
+.modal-confirm {
+    display: inline-block;
+    margin-left: 44rpx;
+    width: 220rpx;
+    height: 80rpx;
+    background: #e6b53c;
+    border-radius: 12rpx;
+    font-family: PingFangSC-Semibold;
+    font-size: 28rpx;
+    color: #fff;
+    text-align: center;
+    letter-spacing: 0.43rpx;
+}
+
+.modal-mask1 {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: #000;
+    opacity: 0.2;
+    overflow: hidden;
+    z-index: 9000;
+    color: #fff;
+}
+
+.modal-dialog1 {
+    position: absolute;
+    left: 96rpx;
+    top: 405rpx;
+    width: 560rpx;
+    height: 333rpx;
+    overflow: hidden;
+    z-index: 9999;
+    background: white;
+    border-radius: 10rpx;
+    -webkit-border-radius: 10rpx;
+    -moz-border-radius: 10rpx;
+    -ms-border-radius: 10rpx;
+    -o-border-radius: 10rpx;
+}
+
+.modal-text1 {
+    margin-left: 84rpx;
+    margin-top: 47rpx;
+    width: 390rpx;
+    height: 110rpx;
+    font-family: PingFangSC-Regular;
+    font-size: 28rpx;
+    color: #333;
+    letter-spacing: 0.43rpx;
+    line-height: 55rpx;
+    text-align: center;
+}
+
+.modal-footer1 {
+    width: calc(100%-37rpx);
+    margin-top: 50rpx;
+    text-align: center;
+}
+
+.modal-confirm1,
+.modal-cancel1 {
+    display: inline-block;
+    width: 85%;
+    height: 78rpx;
+    top: 0;
+    line-height: 78rpx;
+    background: #e6b53c;
+    border-radius: 10rpx;
+    font-family: PingFangSC-Semibold;
+    font-size: 28rpx;
+    color: #fff;
+    text-align: center;
+    letter-spacing: 0.43rpx;
+    -webkit-border-radius: 10rpx;
+    -moz-border-radius: 10rpx;
+    -ms-border-radius: 10rpx;
+    -o-border-radius: 10rpx;
+}

@@ -1,0 +1,204 @@
+<view scroll-y="true" class="container" style="height: auto;overflow-y:auto;">
+  <view class='main-content'>
+    <view class="section code-scan">
+      <view class="row-item">
+        <image src="../../../image/code01@2x.png" bindtap="on_click_codebutton" data-type="scancode"></image>
+      </view>
+      <view class="row-item" style="{{(show_calendar || show_confirm)?'display:none;':''}}">
+        <input type="number" placeholder="请输入团购券码" value="{{scanCode}}" bindinput="on_input_code" bindchange="on_input_code"></input>
+      </view>
+      <view class="btn-confirm" bindtap="on_click_codebutton" data-type="confirmcode">确定核销</view>
+    </view>
+    <view class="section">
+      <view class="row-item">
+        <view class="work-header {{main_menu==0?'selected':''}}" data-type="mainmenu" data-id="0" bindtap="on_click_category">核销记录</view>
+        <view class="work-header {{main_menu!=0?'selected':''}}" data-type="mainmenu" data-id="1" bindtap="on_click_category">运营分析</view>
+      </view>
+    </view>
+    <view class="section history" wx:if="{{main_menu==0}}">
+      <view class="row-item">
+        <view class="history-header {{sub_menu==0?'selected':''}}" data-type="submenu" data-id="0" bindtap="on_click_category">已核销</view>
+        <view class="history-header {{sub_menu!=0?'selected':''}}" data-type="submenu" data-id="1" bindtap="on_click_category">待核销</view>
+      </view>
+      <picker mode="multiSelector" class='row-item title'  wx:if="{{sub_menu==0}}" style="border-bottom: 1px solid #f0f0f0;"
+          value="{{[historyMonth[0] - baseDate[0], historyMonth[1]-baseDate[1]]}}" data-id="{{index}}" 
+          data-type="history" bindchange="on_select_month" bindcolumnchange="changeMonthColumn" range="{{monthArray}}">
+        <view class="title-item" style="margin-left: 0rpx;">
+          {{(monthArray[0][historyMonth[0] - baseDate[0]]*1 == _today.year && monthArray[1][historyMonth[1] - baseDate[1]] *1 == _today.month)?'本月':''}} 
+          ({{monthArray[0][historyMonth[0] - baseDate[0]]}}-{{monthArray[1][historyMonth[1] - baseDate[1]]}})
+        </view>
+        <image class="title-icon" mode="scaleToFill" src="../../../image/calendar01@2x.png"></image>
+      </picker>
+      <!-- <view class="row-item title">
+        <view class="title-item">本月 (2019-1)</view>
+        
+      </view> -->
+      <scroll-view scroll-y style="padding:0;margin:0;height: calc(100vh - {{sub_menu==0?'670':'580'}}rpx);">
+        <view wx:for="{{historyBook}}" style="border-bottom: 1px solid #f0f0f0;" wx:key="index">
+          <view class="row-item title">
+            <view class="title-item">{{item.groupName}}</view>
+            <view class="title-item">￥{{item.groupPrice}}</view>
+          </view>
+          <view class="row-item group-content">
+            <view class="detail-info" style="font-weight: 600;">{{item.bookName}}</view>
+            <view class="detail-info">昵称: {{item.name}}</view>
+            <view class="detail-info">手机: {{item.phone}}</view>
+            <view class="detail-info">订单号: {{item.order_num}}</view>
+            <view class="detail-info">付款时间: {{item.paid_time}}</view>
+            <view class="detail-info">核销时间: {{item.used_time}}</view>
+            <image class="detail-info-sign" wx:if="{{sub_menu==0}}" mode="aspectFit" src="{{uploadRoot+'global/sjyy_yhx@2x.png'}}"></image>
+          </view>
+        </view>
+      </scroll-view>
+    </view>
+    <view class="section history analyse" wx:if="{{main_menu!=0}}">
+      <view class="subsection">
+        <view class="analyse-content" wx:for="{{[totalPrice]}}" wx:key="index">
+          <view class="analyse-title" style="font-weight: 600;">总收入: ￥{{item.total_price}}</view>
+          <view>
+            <view class="analyse-title">总成交团购: {{item.group_count}}</view>
+            <view class="analyse-title">团购收入: ￥{{item.group_price}}</view>
+          </view>
+          <view>
+            <view class="analyse-title">总成交订场: {{item.room_count}}</view>
+            <view class="analyse-title">订场收入: ￥{{item.room_price}}</view>
+          </view>
+        </view>
+      </view>
+      <view class="subsection">
+        <view class="row-item title" style="border-bottom: 1px solid #f0f0f0;">
+          <view class="title-item">
+          {{(cur_year*1 == _today.year && cur_month*1 == _today.month && cur_date*1 == _today.date)?'今日':''}}
+           ({{cur_year+'-'+cur_month+'-'+cur_date}})</view>
+          <image class="title-icon" bindtap="on_select_date" data-type="analyse-date" mode="scaleToFill" src="../../../image/calendar01@2x.png"></image>
+        </view>
+        <view class="analyse-content" wx:for="{{[curDayPrice]}}" wx:key="index">
+          <view class="analyse-title" style="font-weight: 600;">收入: ￥{{item.total_price}}</view>
+          <view>
+            <view class="analyse-title">总成交团购: {{item.group_count}}</view>
+            <view class="analyse-title">团购收入: ￥{{item.group_price}}</view>
+          </view>
+          <view>
+            <view class="analyse-title">总成交订场: {{item.room_count}}</view>
+            <view class="analyse-title">订场收入: ￥{{item.room_price}}</view>
+          </view>
+        </view>
+      </view>
+      <view class="subsection">
+        <view class="row-item title" style="border-bottom: 1px solid #f0f0f0;">
+          <view class="title-item" style="width: 100%;text-align: left;">近7日 ({{cur7DateStart}} 到 {{cur7DateEnd}})</view>
+          <!-- <view class="title-item"></view> -->
+        </view>
+        <view class="analyse-content" wx:for="{{[cur7DayPrice]}}" wx:key="index">
+          <view class="analyse-title" style="font-weight: 600;">收入: ￥{{item.total_price}}</view>
+          <view>
+            <view class="analyse-title">总成交团购: {{item.group_count}}</view>
+            <view class="analyse-title">团购收入: ￥{{item.group_price}}</view>
+          </view>
+          <view>
+            <view class="analyse-title">总成交订场: {{item.room_count}}</view>
+            <view class="analyse-title">订场收入: ￥{{item.room_price}}</view>
+          </view>
+        </view>
+      </view>
+      <view class="subsection">        
+        <picker mode="multiSelector" class='row-item title' style="border-bottom: 1px solid #f0f0f0;"
+            value="{{[analyseMonth[0] - baseDate[0], analyseMonth[1]-baseDate[1]]}}" data-id="{{index}}" 
+            data-type="analyse-month" bindchange="on_select_month" bindcolumnchange="changeMonthColumn" range="{{monthArray}}">
+          <view class="title-item" style="margin-left: 0rpx;">
+            {{(monthArray[0][analyseMonth[0] - baseDate[0]]*1 == _today.year && monthArray[1][analyseMonth[1] - baseDate[1]]*1 == _today.month)?'本月':''}}
+            ({{monthArray[0][analyseMonth[0] - baseDate[0]]}}-{{monthArray[1][analyseMonth[1] - baseDate[1]]}})
+          </view>
+          <image class="title-icon" mode="scaleToFill" src="../../../image/calendar01@2x.png"></image>
+        </picker>
+        <view class="analyse-content" wx:for="{{[curMonthPrice]}}" wx:key="index">
+          <view class="analyse-title" style="font-weight: 600;">收入: ￥{{item.total_price}}</view>
+          <view>
+            <view class="analyse-title">总成交团购: {{item.group_count}}</view>
+            <view class="analyse-title">团购收入: ￥{{item.group_price}}</view>
+          </view>
+          <view>
+            <view class="analyse-title">总成交订场: {{item.room_count}}</view>
+            <view class="analyse-title">订场收入: ￥{{item.room_price}}</view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+<view class="calendar-container" wx:if="{{show_calendar}}">
+  <view class="content-view">
+    <view class='all'>
+      <view class="header-bar" style="border-bottom: 1px solid #f0f0f0;">
+        <!-- 上一个月 -->
+        <view class="previous" bindtap="handleCalendar" data-handle="cancel">取消</view>
+        <!-- 显示年月 -->
+        <view class="date">{{cur_year || ""}}-{{cur_month || ""}}-{{cur_date || ""}}</view>
+        <!-- 下一个月 -->
+        <view class="next"></view>
+      </view>
+      <view class="bar">
+        <!-- 上一个月 -->
+        <view class="previous" bindtap="handleCalendar" data-handle="prev">
+          <image src='../../../image/garden_calendar_left@2x.png'></image>
+        </view>
+        <!-- 显示年月 -->
+        <view class="date">{{cur_year || "--"}} 年 {{cur_month || "--"}} 月</view>
+        <!-- 下一个月 -->
+        <view class="next" bindtap="handleCalendar" data-handle="next">
+          <image src='../../../image/garden_calendar_right@2x.png'></image>
+        </view>
+      </view>
+      <!-- 显示星期 -->
+      <view class="week">
+        <view wx:for="{{weeks_ch}}" wx:key="{{index}}" data-idx="{{index}}">{{item}}</view>
+      </view>
+      <view class='days'>
+        <!-- 列 -->
+        <view class="columns" wx:for="{{days.length/7}}" wx:for-index="i" wx:key="i">
+          <block wx:for="{{days}}" wx:for-index="j" wx:key="j">
+            <!-- 行 -->
+            <view class="rows" wx:if="{{j/7 == i}}">
+              <view class="rows" wx:for="{{7}}" wx:for-index="k" wx:key="k">
+                <!-- 当前日期已签到 - "isSigned", 未签到 - "" -->
+                <view bindtap="on_click_date" data-date="{{days[j+k].date}}" data-id="{{j+k}}" class="cell {{days[j+k].isSign?'isSigned':''}} {{days[j+k].isDisabled?'isDisabled':''}}">
+                  <text>{{days[j+k].date}}</text>
+                </view>
+              </view>
+            </view>
+          </block>
+        </view>
+      </view>
+      <!-- 坚持打卡天数 -->
+      <view class="header-bar" style="border-top: 1px solid #f0f0f0;">
+        <view class="btn-confirm" bindtap="handleCalendar" data-handle="confirm">确定</view>
+      </view>
+    </view>
+  </view>  
+</view>
+<view class="confirm-container" wx:if="{{show_confirm}}">
+  <view class="content-view">
+    <view class='all'>
+      <view class="header-bar" style="border-bottom: 1px solid #f0f0f0;">
+        <view class="date">确定核销?</view>
+      </view>
+        <view class="content-bar" wx:for="{{checkedCode}}" style="border-bottom: 1px solid #f0f0f0;" wx:key="index">
+          <view class="row-item title">
+            <view class="title-item">{{item.groupName}}</view>
+            <view class="title-item">￥{{item.groupPrice}}</view>
+          </view>
+          <view class="row-item group-content">
+            <view class="detail-info" style="font-weight: 600;">{{item.bookName}}</view>
+            <view class="detail-info">昵称: {{item.name}}</view>
+            <view class="detail-info">手机: {{item.phone}}</view>
+            <view class="detail-info">订单号: {{item.order_num}}</view>
+            <view class="detail-info">付款时间: {{item.paid_time}}</view>
+          </view>
+        </view>
+      <view class="header-bar" style="border-top: 1px solid #f0f0f0;">
+        <view class="btn-confirm" bindtap="on_click_codebutton" data-type="cancelcode" style="background: white;color:#e6b53c">取消</view>
+        <view class="btn-confirm" bindtap="on_click_codebutton" data-type="applycode">确定核销</view>
+      </view>
+    </view>
+  </view>  
+</view>

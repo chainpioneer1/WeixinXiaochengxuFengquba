@@ -1,0 +1,226 @@
+.content-view {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+}
+
+.content-background-image {
+    width: 100%;
+    height: 100%;
+}
+
+.content-avatar-image {
+    position: absolute;
+    top: 40rpx;
+    left: 30rpx;
+    width: 90rpx;
+    height: 90rpx;
+    border: 2rpx solid #472E00;
+    border-radius: 50%;
+    z-index: 5;
+}
+
+.content-honey-text {
+    position: absolute;
+    top: 40rpx;
+    left: 85rpx;
+    width: auto;
+    height: 90rpx;
+    line-height: 45rpx;
+    font-size: 25rpx;
+    font-weight: 600;
+    padding-left: 42rpx;
+    padding-right: 10rpx;
+    text-align: center;
+    background-color: #e6b53c;
+    border: 2rpx solid #472e00;
+    border-radius: 6rpx;
+    font-family: PingFangSC-Semibold;
+    color: #472e00;
+    letter-spacing: 0.58rpx;
+    z-index: 1;
+}
+
+.content-shop-imagebtn {
+    position: absolute;
+    width: 90rpx;
+    height: 96rpx;
+    top: 40rpx;
+    left: 375rpx;
+}
+
+.content-list-imagebtn {
+    position: absolute;
+    width: 98rpx;
+    height: 96rpx;
+    top: 40rpx;
+    left: 502rpx;
+}
+
+.content-explain-imagebtn {
+    position: absolute;
+    width: 90rpx;
+    height: 96rpx;
+    top: 40rpx;
+    left: 630rpx;
+}
+
+.content-bee-view {
+    position: absolute;
+    top: 150rpx;
+    left: 0rpx;
+    width: 100%;
+    height: calc(100%- 250rpx);
+}
+
+.content-profile-imagebtn {
+    position: absolute;
+    top: 5%;
+    left: 68%;
+    width: 25%;
+    height: 60rpx;
+    line-height: 60rpx;
+    background: #e6b53c;
+    color: black;
+    border: 1px solid black;
+    border-radius: 50rpx;
+    text-align: center;
+    font-size: 26rpx;
+    font-weight: 600;
+}
+
+.content-friend-imagebtn {
+    position: absolute;
+    top: 27%;
+    left: 4%;
+    width: 100rpx;
+    height: 97rpx;
+}
+
+.friend-notify {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: auto;
+    height: 30rpx;
+    background: red;
+    color: white;
+    font-size: 25rpx;
+    border-radius: 50%;
+    padding: 0 9rpx;
+    line-height: 30rpx;
+}
+
+.leader-view-container {
+    position: absolute;
+    top: 54%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 470rpx;
+    height: 760rpx;
+    background: white;
+    border: 1px solid black;
+    border-radius: 10rpx;
+}
+
+.leader-title {
+    transform: translate(-100%, -50%);
+    top: 0;
+    left: 50%;
+    position: absolute;
+    width: 33%;
+    height: 60rpx;
+    line-height: 60rpx;
+    background: white;
+    color: black;
+    border: 1px solid black;
+    border-top-left-radius: 50rpx;
+    border-bottom-left-radius: 50rpx;
+    text-align: center;
+    font-size: 26rpx;
+    font-weight: 600;
+}
+
+.leader-title.total {
+    transform: translate(0, -50%);
+    border-radius: 0;
+    border-top-right-radius: 50rpx;
+    border-bottom-right-radius: 50rpx;
+    border-left: none;
+}
+
+.leader-title.cur {
+    background: #e6b53c;
+}
+
+.leader-close {
+    position: absolute;
+    transform: translate(-70%, -50%);
+    left: 100%;
+    top: 0;
+    width: 45rpx;
+    height: 45rpx;
+}
+
+.leader-list {
+    width: 100%;
+    height: 95%;
+    position: absolute;
+    top: 5%;
+    left: 0;
+}
+
+.leader-item {
+    position: relative;
+    width: 100%;
+    height: auto;
+    display: block;
+    text-align: center;
+    border-bottom: 1px solid #eee;
+}
+
+.leader-icon,
+.leader-avatar,
+.leader-name,
+.leader-honey,
+.leader-honey-icon {
+    position: relative;
+    height: 80rpx;
+    line-height: 80rpx;
+    width: 80rpx;
+    display: inline-block;
+    font-size: 25rpx;
+    vertical-align: middle;
+    text-align: center;
+    padding: 5rpx;
+}
+
+.leader-icon,
+.leader-honey-icon {
+    width: 35rpx;
+    height: 35rpx;
+}
+
+.leader-avatar {
+    width: 65rpx;
+    height: 65rpx;
+    border-radius: 50%;
+}
+
+.leader-honey-icon {
+    width: 30rpx;
+}
+
+.leader-name,
+.leader-honey {
+    width: 130rpx;
+    text-align: left;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    -ms-text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;
+}
+
+.leader-honey {
+    text-align: right;
+}

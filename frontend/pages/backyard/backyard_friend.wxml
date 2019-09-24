@@ -1,0 +1,45 @@
+<!-- index.wxml -->
+<import src="honeybox/honeybox.wxml" />
+<view class="container">
+  <view class='content-view'>
+    <image class='content-background-image' src='{{uploadRoot}}global/garden_bg@2x.png'></image>
+    <image class='content-avatar-image' src='{{userInfo.avatar}}'></image>
+    <view class='content-honey-text'>
+    <view>{{userInfo.name}}</view>
+    <view>{{userInfo.honey}}ml</view>
+    </view>    
+    <view bindtap="go2FriendProfile" class="content-profile-imagebtn" data-id ="{{userInfo.no}}" wx:if="{{show_leader!=1}}">查看他的名片</view>
+    <view class="content-bee-view">
+      <template is="honeybox" wx:for="{{honeybox_array}}" wx:key="{{item.start_time}}" data="{{item}}" />
+    </view>
+    <view class="leader-view-container" wx:if="{{show_leader==1}}">
+      <view style="overflow-y:auto;" class="leader-list" scroll-y="{{true}}" scroll-x="{{false}}">
+        <view class="leader-item">
+          <image class="leader-icon" src="../../image/leader-1st@2x.png"></image>
+          <image class="leader-avatar" src="../../image/tableview_icon.png"></image>
+          <view class="leader-name">阿斯蒂芬</view>
+          <view class="leader-honey">100000ml</view>
+          <image class="leader-honey-icon" src="../../image/garden_sc_fm02@2x.png"></image>
+        </view>
+        <view class="leader-item">
+          <image class="leader-icon" src="../../image/leader-1st@2x.png"></image>
+          <image class="leader-avatar" src="../../image/tableview_icon.png"></image>
+          <view class="leader-name">阿斯蒂芬</view>
+          <view class="leader-honey">100000ml</view>
+          <image class="leader-honey-icon" src="../../image/garden_sc_fm02@2x.png"></image>
+        </view>
+        <view class="leader-item">
+          <image class="leader-icon" src="../../image/leader-1st@2x.png"></image>
+          <image class="leader-avatar" src="../../image/tableview_icon.png"></image>
+          <view class="leader-name">阿斯蒂芬</view>
+          <view class="leader-honey">100000ml</view>
+          <image class="leader-honey-icon" src="../../image/garden_sc_fm02@2x.png"></image>
+        </view>
+      </view>
+      <view class="leader-title fav {{isSelectedFav}}" bindtap="leaderFavSelected">好友榜</view>
+      <view class="leader-title total {{isSelectedTotal}}" bindtap="leaderTotalSelected">总榜</view>
+      <image class="leader-close" bindtap="closeLeaderView" src="../../image/close@2x.png"></image>
+    </view>
+    
+  </view>
+</view>

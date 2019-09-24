@@ -1,0 +1,160 @@
+<view class="container" style="height: auto;overflow-y:auto;">
+  <view class='main-content' wx:if="{{info.state !=1}}">
+    <view class="section title-part">
+      <view class="row-item">
+        <view>订单号:</view>
+        <view>
+          <text>{{info.id}}</text>
+        </view>
+        <view class="status-text">
+          <text>{{bookingState[info.state]}}</text>
+        </view>
+      </view>
+      <view class="row-item">
+        <view>商家:</view>
+        <view>
+          <text>{{info.site_name}}</text>
+        </view>
+      </view>
+      <view class="row-item">
+        <view>商品:</view>
+        <view>
+          <text>{{info.group_package}}</text>
+        </view>
+      </view>
+      <view class="row-item">
+        <view>有效期:</view>
+        <view>
+          <text>{{info.start_time}} 到 {{info.end_time}}</text>
+        </view>
+      </view>
+      <view class='row-item'>
+        <view>数量:</view>
+        <view>
+          <text>{{val_memcount}}</text>
+        </view>
+      </view>
+    </view>
+    <view class="section price-bar">
+      <view class='row-item'>
+        <text>小计</text>
+        <text>￥{{info.pay_cost}}</text>
+      </view>
+      <view class='row-item'>
+        <text>蜂蜜抵扣优惠</text>
+        <text>￥{{info.pay_honey}}</text>
+      </view>
+      <view class='row-item'>
+        <text>实付</text>
+        <text>￥{{info.pay_cost - info.pay_honey}}</text>
+      </view>
+    </view>
+    <view class="section code-bar">
+      <view class='row-item' wx:for="{{info.book_info}}" wx:key="id" wx:for-index="id">
+        <text>团购券{{(id<9?'0':'')+(id+1)}}</text>
+        <text wx:if="{{info.state==2}}" style="text-decoration: line-through;">{{item.view_order_code}}</text>
+        <text wx:else>{{item.view_order_code}}</text>
+      </view>
+      <view class='row-item' style="border-top: 1px solid #f0f0f0;padding-top: 20rpx;margin-top:10rpx;" wx:if="{{info.state==3 && !(info.pay_honey==0 && info.pay_online==0 && info.pay_wallet==0)}}">
+        <text></text>
+        <text style="color: #6cab3b">退款成功</text>
+      </view>
+    </view>
+    <view class='section'>
+      <text class='section-title'>团购人信息</text>
+      <view class='row-item' style="padding:0;padding-top: 10rpx;">
+        <text style="padding-right: 10rpx;vertical-align: middle;">昵称:</text>
+        <input type="text" class='mem-count-input' disabled value="{{info.name}}" data-type="username" bindinput='on_input_userinfo'></input>
+      </view>
+      <view class='row-item' style="padding:0;">
+        <text style="padding-right: 10rpx;vertical-align:middle;">电话:</text>
+        <input type="number" class='mem-count-input' disabled value="{{info.phone}}" data-type="phone" bindinput='on_input_userinfo'></input>
+      </view>
+    </view>
+    <view class='section'>
+      <text class='section-title'>团购规则</text>
+      <text class="row-item" style="padding:20rpx 0 0;">{{condStr[info.condition]}}</text>
+    </view>
+    <view class="section btn-part">
+      <view class="btn-submit {{info.state==2?'completed':''}}" bindtap="go2Target" data-type="boss" data-id="{{info.boss_id}}">查看商家</view>
+      <!-- <button wx:if="{{true}}" class="btn-submit" open-type="share">
+        <image class="img_share" src="../../../image/WeChat@2x.png" />
+        分享到微信
+      </button> -->
+      <view class="btn-submit completed" wx:if="{{info.state==2}}" bindtap="go2Target" data-type="feedback" data-id="{{info.id}}">去评价</view>
+      <view class="btn-submit" wx:if="{{info.state==5 && info.condition==1}}" bindtap="go2Target" data-type="cancel" data-id="{{info.id}}" style="color:red;border-color:red;">取消订单</view>
+    </view>
+  </view>
+  
+  <view class='main-content' wx:if="{{info.state ==1}}">
+    <view class='section'>
+      <view id="{{info.no}}" class="activity" bindtap="click_detail_bossgroup" data-type="bossgroup">
+        <view class="activity-detail">
+          <view class="activity-picture">
+              <swiper class="swiper_box" autoplay="true" interval="3000" duration="300">
+                  <block wx:for="{{picture}}" wx:key="index">
+                      <swiper-item>
+                          <image class="img-item" mode="aspectFill" src="{{uploadURL + item.picture}}"></image>
+                      </swiper-item>
+                  </block>
+              </swiper>
+          </view>
+          <view class='activity-role'>
+            <text class='activity-name' style="font-weight: bold;">{{info.group_package}}</text>
+          </view>
+          <view class="activity-content">
+            <text class="activity-type-text">￥{{info.group_price}}</text>
+            <text class="activity-limit-text">门市价:￥{{info.group_inprice}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class='section'>
+      <text class='section-title'>团购规则</text>
+      <text class="row-item" style="padding:20rpx 0 0;">{{condStr[info.condition]}}</text>
+    </view>
+    <view class="section code-bar">
+      <text class='section-title'>团购券</text>
+      <view class="row-item" style="border-bottom:1px solid #f0f0f0;margin-bottom:10rpx;padding-bottom:20rpx;">
+        <text style="width: 100%;">有效期: {{info.start_time}} 到 {{info.end_time}}</text> 
+      </view>
+      <view class='row-item' wx:for="{{info.book_info}}" wx:key="id" wx:for-index="id" style="display: flex;">
+        <text>团购券{{(id<9?'0':'')+(id+1)}}</text>
+        <text style="{{item.is_used!=0?'text-decoration: line-through;':''}}">{{item.view_order_code}}</text>
+        <text style="{{item.is_used!=0?'color:#888':''}}">{{(item.is_used!=0?'已':'未')}}消费</text>
+        <text style="color:#e6b53c;" bindtap="go2Codeview" data-id="{{info.id}}">{{item.is_used==0?'查看券码':''}}</text>
+      </view>
+    </view>
+    <view class="section">
+      <text class='section-title'>订单信息</text>
+      <view class="row-item">
+        <text>订单号: {{info.id}}</text> 
+      </view>
+      <view class='row-item'>
+        <text>数量: {{val_memcount}}</text> 
+      </view>
+      <view class="row-item">
+        <text>付款时间: {{info.submit_time}}</text>
+      </view>
+      <view class="row-item">
+        <text>购买手机号: {{(info.user_info)?info.user_info.phone:info.phone}}</text>
+      </view>
+    </view>
+    <view class='section'>
+      <text class='section-title'>团购人信息</text>
+      <view class='row-item' style="padding:0;padding-top: 10rpx;">
+        <text style="padding-right: 10rpx;vertical-align: middle;">昵称:</text>
+        <input type="text" class='mem-count-input' disabled value="{{info.name}}" data-type="username" bindinput='on_input_userinfo'></input>
+      </view>
+      <view class='row-item' style="padding:0;">
+        <text style="padding-right: 10rpx;vertical-align:middle;">电话:</text>
+        <input type="number" class='mem-count-input' disabled value="{{info.phone}}" data-type="phone" bindinput='on_input_userinfo'></input>
+      </view>
+    </view>
+    <view class="section btn-part">
+      <view class="btn-submit {{info.state==2?'completed':''}}" bindtap="go2Target" data-type="boss" data-id="{{info.boss_id}}">查看商家</view>
+      <view class="btn-submit completed" wx:if="{{info.state==2}}" bindtap="go2Target" data-type="feedback" data-id="{{info.id}}">去评价</view>
+      <view class="btn-submit" wx:if="{{!isUsed && info.condition==1}}" bindtap="go2Target" data-type="cancel" data-id="{{info.id}}" style="color:red;border-color:red;">取消订单</view>
+    </view>
+  </view>
+</view>

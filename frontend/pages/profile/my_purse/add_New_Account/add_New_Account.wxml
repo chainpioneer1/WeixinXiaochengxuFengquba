@@ -1,0 +1,30 @@
+<!--index.wxml-->
+
+<view>
+  <view class="cls_cardholder_name">
+    <text class="cls_cardholder_name_txt">持卡人姓名 : </text>
+    <input bindinput="input_Realname" class="cls_cardholder_name_input" placeholder="请填写姓名" auto-focus/>
+  </view> 
+  <view class="cls_bank_card_number">
+    <text class="cls_bank_card_number_txt">银行卡号 : </text>
+    <input type="digit" bindinput="input_Bankcardnumber" class="cls_bank_card_number_input" placeholder="请填写正确卡号" />
+  </view> 
+  <view class="cls_id_card_number">
+    <text class="cls_id_card_number_txt">身份证号 : </text>
+    <input bindinput="input_Idcardnumber" class="cls_id_card_number_input"  placeholder="请填写正确身份证号" />
+  </view> 
+  <view class="cls_phone_number">
+    <text class="cls_phone_number_txt">手机号 : </text>
+    <input type="number" bindinput="input_Phonenumber" class="cls_phone_number_input" placeholder="请填写银行预留手机号" />
+  </view> 
+  <view class="cls_bank_name">
+    <text class="cls_bank_name_txt">开户行名称 : </text>
+    <input type="text" bindinput="input_Bankname" class="cls_bank_name_input" placeholder="请填写开户行" />
+  </view>   
+  <view class="cls_note_title">
+    <image class="cls_note_title_image" src="{{img_note_src}}" mode="aspectFill"/>
+    <text class="cls_note_title_txt">银行卡只支持一次绑定, 绑定成功后不能修改, 请注意填写正确信息!</text>
+  </view> 
+  
+  <button bindtap="on_Clicked_OK" class="cls_ok_button">完成</button> 
+</view>

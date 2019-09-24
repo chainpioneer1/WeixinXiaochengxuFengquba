@@ -1,0 +1,321 @@
+.product-order-number {
+  width: calc(100%-30rpx);
+  padding-left: 30rpx;
+  height: 73rpx;
+  font-size: 26rpx;
+  font-family: "PingFangSC-Semibold";
+  line-height: 70rpx;
+  vertical-align: middle;
+  background-color: white;
+}
+
+.accept-time {
+  width: 100%;
+  line-height: 98rpx;
+  color: #87e63c;
+  text-align: center;
+  font-size: 30rpx;
+  font-family: "PingFangSC-Semibold";
+}
+.scroll-data
+{
+  position: fixed;
+  top: 98rpx;
+  bottom: 98rpx;
+  width: 100%;
+  height: auto;
+}
+.product-order-status {
+  float: right;
+  padding-right: 30rpx;
+}
+
+.postman-data-view {
+  width: 100%;
+  height: 186rpx;
+  margin-top: 20rpx;
+  background-color: white;
+}
+
+.postman-address-view {
+  position: absolute;
+  left: 82rpx;
+  width: 587rpx;
+  height: 186rpx;
+  padding-top: 27rpx;
+}
+
+.postman-pos-image {
+  float: left;
+  margin-top: 60rpx;
+  margin-left: 30rpx;
+  width: 27rpx;
+  height: 42rpx;
+}
+
+.postman-name-text {
+  font-family: PingFangSC-Semibold;
+  font-size: 34rpx;
+  color: #333;
+  letter-spacing: 0.4rpx;
+}
+
+.postman-number-text {
+  float: right;
+  font-family: PingFangSC-Regular;
+  font-size: 34rpx;
+  color: #333;
+  letter-spacing: 0.4rpx;
+}
+
+.postman-address-text {
+  padding-top: 10rpx;
+  font-family: PingFangSC-Semibold;
+  font-size: 26rpx;
+  color: #333;
+  letter-spacing: 0.4rpx;
+  word-break: break-all;
+}
+
+.product {
+  border-top: solid 20rpx #f4f4f4;
+  background-color: white;
+  width: calc(100%-30rpx);
+  height: 399rpx;
+  border-bottom: 2rpx solid #f4f4f4;
+}
+
+.product-descript {
+  border-left: solid 12rpx #e6b53c;
+  padding-left: 12rpx;
+  font-family: PingFangSC-Semibold;
+  font-size: 30rpx;
+  color: #333;
+  letter-spacing: 0.64rpx;
+}
+
+.product-bar {
+  padding-left: 30rpx;
+  padding-top: 15rpx;
+  height: 73rpx;
+  font-size: 26rpx;
+  font-family: "PingFangSC-Semibold";
+  line-height: 70rpx;
+  vertical-align: middle;
+}
+
+.product-detail {
+  height: 196rpx;
+  border-bottom: solid 3rpx #f4f4f4;
+  padding-top: 20rpx;
+  padding-left: 30rpx;
+}
+
+.product-picture {
+  float: left;
+  width: 262rpx;
+  height: 164rpx;
+}
+
+.product-name-view {
+  margin-left: 20rpx;
+  display: inline-block;
+}
+
+.product-name-text {
+  font-family: PingFangSC-Semibold;
+  font-size: 30rpx;
+  color: #333;
+  letter-spacing: 0.46rpx;
+}
+
+.product-content {
+  height: 36rpx;
+}
+
+.product-content-text {
+  padding-left: 20rpx;
+  font-family: PingFangSC-Regular;
+  font-size: 30rpx;
+  color: #333;
+  letter-spacing: 0.46rpx;
+}
+
+.product-count {
+  float: right;
+  margin-top: 28rpx;
+  margin-right: 30rpx;
+  font-family: PingFangSC-Regular;
+  font-size: 30rpx;
+  color: #333;
+  letter-spacing: 0.46rpx;
+}
+
+.product-total-cost {
+  float: right;
+  margin-top: 17rpx;
+  margin-right: 30rpx;
+  display: block;
+  font-family: PingFangSC-Regular;
+  font-size: 30rpx;
+  color: #333;
+  letter-spacing: 0.35rpx;
+  line-height: 60rpx;
+}
+
+.product-total-cost text {
+  font-family: PingFangSC-Semibold;
+  font-size: 30rpx;
+  color: #e6b53c;
+  letter-spacing: 0.35rpx;
+  vertical-align: middle;
+}
+
+.product-comment-view {
+  width: calc(100%-30rpx);
+  height: auto;
+  padding-left: 30rpx;
+  padding-bottom: 25rpx;
+  margin-top: 20rpx;
+  background-color: white;
+}
+
+.product-comment-title {
+  padding-top: 23rpx;
+  font-family: PingFangSC-Semibold;
+  font-size: 30rpx;
+  color: #333;
+  letter-spacing: 0.64rpx;
+}
+
+.product-comment-text {
+  width: calc(100%-30rpx);
+  height: auto;
+  padding-right: 30rpx;
+  word-break: break-all;
+  font-family: PingFangSC-Regular;
+  font-size: 30rpx;
+  color: #333;
+  letter-spacing: 1.04rpx;
+  line-height: 50rpx;
+}
+
+.product-delivery-time {
+  width: calc(100% - 30rpx);
+  height: auto;
+  padding-left: 30rpx;
+  background-color: white;
+  margin-top: 20rpx;
+  line-height: 88rpx;
+}
+
+.product-delivery-time view {
+  width: 100%;
+  height: 88rpx;
+  font-family: PingFangSC-Regular;
+  font-size: 30rpx;
+  color: #333;
+  letter-spacing: 0.64rpx;
+}
+
+.product-delivery-data {
+  width: calc(100% - 30rpx);
+  height: auto;
+  padding-left: 30rpx;
+  background-color: white;
+  margin-top: 20rpx;
+  line-height: 88rpx;
+}
+
+.product-delivery-data view {
+  width: 100%;
+  height: 88rpx;
+  font-family: PingFangSC-Regular;
+  font-size: 30rpx;
+  color: #333;
+  letter-spacing: 0.64rpx;
+}
+
+.btn_submit {
+  position: fixed;
+  bottom: 0rpx;
+  width: 100%;
+  height: 98rpx;
+  background-color: #e6b53c;
+  font-family: PingFangSC-Semibold;
+  font-size: 32rpx;
+  color: #fff;
+  letter-spacing: 1.54rpx;
+  line-height: 98rpx;
+}
+
+.modal-mask1 {
+  width: 100%;
+  height: 200%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: #000;
+  opacity: 0.2;
+  overflow: hidden;
+  z-index: 9000;
+  color: #fff;
+}
+
+.modal-dialog1 {
+  position: absolute;
+  left: 96rpx;
+  top: 405rpx;
+  width: 560rpx;
+  height: 333rpx;
+  overflow: hidden;
+  z-index: 9999;
+  background: white;
+  border-radius: 36rpx;
+}
+
+.modal-text1 {
+  margin-left: 84rpx;
+  margin-top: 47rpx;
+  width: 390rpx;
+  height: 110rpx;
+  font-family: PingFangSC-Regular;
+  font-size: 28rpx;
+  color: #333;
+  letter-spacing: 0.43rpx;
+  line-height: 55rpx;
+  text-align: center;
+}
+
+.modal-footer1 {
+  width: calc(100%-37rpx);
+  padding-left: 37rpx;
+  padding-top: 50rpx;
+}
+
+.modal-cancel1 {
+  display: inline-block;
+  width: 220rpx;
+  height: 80rpx;
+  margin-left: 44rpx;
+  border: 3rpx solid #e6b53c;
+  border-radius: 12rpx;
+  font-family: PingFangSC-Semibold;
+  font-size: 28rpx;
+  color: #e6b53c;
+  text-align: center;
+  letter-spacing: 0.43rpx;
+}
+
+.modal-confirm1 {
+  display: inline-block;
+  width: 220rpx;
+  height: 80rpx;
+  background: #e6b53c;
+  border-radius: 12rpx;
+  font-family: PingFangSC-Semibold;
+  font-size: 28rpx;
+  color: #fff;
+  text-align: center;
+  letter-spacing: 0.43rpx;
+}

@@ -1,0 +1,69 @@
+<template name="table-template">
+<import src="../place_cell/template_place.wxml" />
+<!--filter menu  -->
+<view class='index_table_search_view'>
+    <view bindtap="on_click_ordermenu" class='index_table_search_item_view' style='left:0%;width:33%'>
+      <view class="filter_order" style='color:{{color_array[select_order_menu_state]}}'>{{menu_order_array[menu_order_index]}}</view>
+      <cover-image class="img_up_arrow" src="{{menu_btn_array[select_order_menu_state]}}"></cover-image> 
+    </view>
+
+    <view class='index_table_search_item_view' style='left:33%;width:0.5%;height:60%;top:20%;background:#cccccc'></view>
+
+    <view bindtap="on_click_filtermenu" class='index_table_search_item_view' style='left:33.5%;width:33%'>
+        <view class="filter_order" style='color:{{color_array[select_filter_menu_state]}}'>{{menu_filter_array[menu_filter_index].areaName}}</view>
+        <cover-image class="img_up_arrow" src="{{menu_btn_array[select_filter_menu_state]}}" style="left: 430rpx;"></cover-image>
+    </view>
+    
+    <view class='index_table_search_item_view' style='left:66.5%;width:0.5%;height:60%;top:20%;background:#cccccc'></view>
+    
+    <view bindtap="on_click_stylemenu" class='index_table_search_item_view' style='left:67%;width:33%'>        
+        <view class="filter_order" style='color:{{color_array[select_style_menu_state]}}; left: 40rpx;'>{{menu_style_index<33?event_type[menu_style_index]:menu_style_index<34?"全部":"活动类型"}}</view>
+        <cover-image class="img_up_arrow" style="left: 664rpx;" src="{{menu_btn_array[select_style_menu_state]}}"></cover-image>
+    </view>
+</view>
+
+<!--filtered content  -->
+<scroll-view scroll-y style="" class="places">
+  <view wx:for="{{filter_places}}" wx:key="index">
+    <template is="template_place" data="{{item, uploadUrl, favorite_pictures, event_type, starparam, rooturl}}"></template>
+  </view>    
+</scroll-view>
+
+
+<!--select menu content  -->
+<view class="modal-mask1" bindtap="ok_btn_clicked" wx:if="{{select_menu_state}}"></view>
+<!--order menu content  -->
+<view class="modal-dialog1" wx:if="{{select_order_menu_state}}">
+  <view  class='main-text1'>    
+    <view style = "position:relative;" wx:for="{{menu_order_array}}" wx:key="index">
+      <view class='display_show' bindtap="clicked_order_item" id="{{index}}" style="color:{{index==menu_order_index?color_array[1]:color_array[0]}}">{{item}}</view>
+      <image src="../../image/check@2x.png" class="img_check" wx:if="{{index==menu_order_index}}"/>
+    </view>    
+  </view>
+</view>
+<!-- filter menu content -->
+<view class="modal-dialog2"wx:if="{{select_filter_menu_state}}">
+  <view style="overflow-y:auto;" scroll-y class='main-text1'> 
+    <view style = "position:relative;" wx:for="{{menu_filter_array}}" wx:key="index">
+      <view class='display_show' bindtap="clicked_filter_item" id="{{index}}" style="color:{{index==menu_filter_index?color_array[1]:color_array[0]}}">{{item.areaName}}</view>
+      <image src="../../image/check@2x.png" class="img_check" wx:if="{{index==menu_filter_index}}"/>
+    </view>        
+  </view>
+</view>
+<!--style menu content  -->
+<view class="modal-dialog3" wx:if="{{select_style_menu_state}}">
+  <view class='main-type-content'>    
+    <view class='type_contain_each' wx:for="{{event_type}}" wx:key="index">
+      <view class='display_type' bindtap="clicked_style_item" id="{{index}}" style="color:{{index==menu_style_index?color_array[1]:color_array[0]}}">{{item}}</view>
+    </view>
+    <view class='type_contain_each'>
+      <view class='display_all_type' bindtap="clicked_style_all" style="color:{{menu_style_index==33?color_array[1]:color_array[0]}}">全部</view>
+    </view>      
+  </view>
+  <view class='main-type-buttons'>        
+      <view class="type-button-cancel" bindtap="cancel_btn_clicked">取消</view>
+      <view class="type-button-ok" bindtap="ok_btn_clicked">确定</view>
+  </view>
+</view>
+
+</template>

@@ -1,0 +1,16 @@
+ <template name="map-template">
+  <view class="map_container">
+        <map bindmarkertap="on_Click_maker" class="bee-map" id="mymap" latitude="{{current_latitude}}" longitude="{{current_longitude}}" markers="{{markers}}" circles="{{circles}}" scale="13" showLocation="false">            
+            <cover-image bindtap="on_click_select_menu" class="cur-sel-kind" src="{{currentkind}}" wx:if="{{!select_kind}}"></cover-image>
+        </map>
+  </view>
+
+  <cover-view class="sport-kind-bar" wx:if="{{select_kind}}">
+      <cover-image bindtap="on_selectkind" class="bar-item-sel" id="{{currentid}}" src="{{currentkind}}"></cover-image>
+      <cover-image bindtap="on_click_up" class="bar-updown" src="../../image/arrow-top.png"></cover-image>
+      <cover-view wx:for="{{show_array}}" wx:key="{{item.id}}">
+          <cover-image bindtap="on_selectkind" class="bar-item" id="{{item.id}}" src="{{item.src}}"></cover-image>
+      </cover-view>
+      <cover-image bindtap="on_click_down" class="bar-updown" src="../../image/arrow-bottom.png"></cover-image>
+  </cover-view>
+</template>

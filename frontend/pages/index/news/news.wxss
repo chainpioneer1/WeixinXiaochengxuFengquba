@@ -1,0 +1,44 @@
+/* pages/index/news/news.wxss */
+
+.news-item-view {
+  height: auto;
+  background-color: white;
+  padding-left: 30rpx;
+  padding-right: 30rpx;
+  padding-bottom: 10rpx;
+  border-bottom: 3rpx solid #d8d8d8;
+}
+
+.news-item-header {
+  width: 100%;
+  line-height: 65rpx;
+}
+
+.news-item-title {
+  width: 50%;
+  display: inline-block;
+  font-family: PingFangSC-Semibold;
+  font-size: 26rpx;
+  color: #333;
+  letter-spacing: 0.31rpx;
+}
+
+.news-item-date {
+  width: 50%;
+  display: inline-block;
+  text-align: right;
+  font-family: PingFangSC-Regular;
+  font-size: 24rpx;
+  color: #888;
+  letter-spacing: 0.28rpx;
+}
+
+.news-item-text {
+  width: calc(100% - 50rpx);
+  line-height: 40rpx;
+  word-break: break-all;
+  font-family: PingFangSC-Regular;
+  font-size: 26rpx;
+  color: #333;
+  letter-spacing: 0.31rpx;
+}

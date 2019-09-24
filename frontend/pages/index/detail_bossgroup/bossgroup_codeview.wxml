@@ -1,0 +1,17 @@
+
+<view class="container" style="height: auto;overflow-y:auto;">
+  <view class='main-content'>
+    <block wx:for="{{info.book_info}}" wx:key="id" wx:for-index="id">
+    <view class="section" wx:if="{{item.is_used==0}}">    
+      <view class='row-item'>
+        <text>团购券{{(id<9?'0':'')+(id+1)}}</text>
+        <text>{{item.view_order_code}}</text>
+        <image class="qrcanvas" src="{{item.qrFile}}" bindtap="previewImage" data-src="{{item.qrFile}}"></image>
+      </view>
+    </view>
+    </block>
+  </view>
+</view>
+<block wx:for="{{info.book_info}}" wx:key="id" wx:for-index="id" wx:if="{{item.is_used==0}}">
+  <canvas canvas-id="qrcanvas{{id}}" class="qrcanvas-draw" style="position: fixed;" wx:if="{{item.qrFile==''}}"></canvas>
+</block>

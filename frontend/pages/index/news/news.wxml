@@ -1,0 +1,36 @@
+<view wx:for="{{newsarray}}" wx:key="{{item.time}}">
+  <view class='news-item-view'>
+    <view class='news-item-header'>
+      <view class='news-item-title'style="font-weight: bold;">{{title[item.type]}}</view>
+      <view class='news-item-date'>{{item.submit_time}}</view>
+    </view>
+    <view class='news-item-text'>
+      <block wx:if="{{item.type==0}}">{{item.name}}给您进行了评价!</block>
+      <block wx:if="{{item.type==1}}">您申请的提现已经到账，请查看!</block>
+      <block wx:if="{{item.type==2}}">很遗憾，您提现失败，请您重新提交!</block>
+      <block wx:if="{{item.type==3}}">用户{{item.name}}报名了你发起的{{item.event_type}}蜂约!</block>
+      <block wx:if="{{item.type==4}}">用户{{item.name}}取消了{{item.event_type}}蜂约，请知晓!</block>
+      <block wx:if="{{item.type==5}}">您报名参加的活动已结束，请及时收取蜂蜜!</block>
+      <block wx:if="{{item.type==6}}">恭喜您认证成功!</block>
+      <block wx:if="{{item.type==7}}">很遗憾您的认证未通过审核，请重新提交!</block>
+      <block wx:if="{{item.type==8}}">您取消了{{item.event_type}}蜂约，退款已经到账，请您查收!</block>
+      <block wx:if="{{item.type==9}}">您报名参加了{{item.event_type}}蜂约!</block>
+      <block wx:if="{{item.type==10}}">您报名的{{item.event_type}}蜂约已经被发起人取消，请知晓!</block>
+      <block wx:if="{{item.type==11}}">您报名的{{item.event_type}}蜂约已经被发起人取消，退款已经到账，请查收!</block>
+      <block wx:if="{{item.type==12}}">用户{{item.name}}取消了{{item.event_type}}，请知晓!</block>
+      <block wx:if="{{item.type==13}}">您已经成功报名了{{item.event_type}}赛事，请按时参加!</block>
+      <block wx:if="{{item.type==14}}">您已经成功预订了{{item.event_type}}!</block>
+      <block wx:if="{{item.type==15}}">您已经成功报名了{{item.event_type}}活动，请按时参加!</block>
+      <block wx:if="{{item.type==16}}">用户{{item.name}}预订了您的{{item.event_type}}!</block>
+      <block wx:if="{{item.type==17}}">您退订了{{item.event_type}}，退款已经收到，请注意查收!</block>
+      <block wx:if="{{item.type==18}}">用户{{item.name}}退订了{{item.event_type}}，请知晓!</block>
+      <block wx:if="{{item.type==19}}">用户{{item.name}}解除了与您的蜂友关系，请知晓!</block>
+      <block wx:if="{{item.type==20}}">用户{{item.name}}请求添加您为蜂友，请前往后花园查看!</block>
+      <block wx:if="{{item.type==21}}">您已经成功购买了{{item.event_type}}!</block>
+      <block wx:if="{{item.type==22}}">用户{{item.name}}购买了您的{{item.event_type}}!</block>
+      <block wx:if="{{item.type==23}}">您取消了{{item.event_type}}!</block>
+      <block wx:if="{{item.type==24}}">用户{{item.name}}取消了您的{{item.event_type}}!</block>
+      <block wx:if="{{item.type==25}}">您退订了{{item.event_type}}，退款已经收到，请注意查收!</block>
+    </view>
+  </view>
+</view>

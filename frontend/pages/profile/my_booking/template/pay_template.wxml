@@ -1,0 +1,37 @@
+<!-- price, 
+  honey_list, honey_id: 0 - 10000 1 -20000
+  wallet, 
+  book_id, 
+  book_type - 0: activity booking, 1: event booking,  2:room booking 
+  pay_type - 0: offline payment, 1: online payment -->
+<template name="pay-template">
+  <view class="pay-bottom" wx:if="{{pay_type==1}}">
+    <view class="honey-row" wx:if="{{honey_list.length==0}}">
+      <view class="info-label" wx:if="{{is_member==true}}">使用蜂蜜 - 蜂蜜量不够，多去采集蜂蜜吧！</view>      
+      <view class="info-label" wx:else>使用蜂蜜 - 开通会员，就可以使用蜂蜜抵扣支付哦！</view>      
+    </view>
+    <view class="honey-row" wx:if="{{honey_list.length>0}}">
+      <view class="info-label">使用蜂蜜</view>
+      <view class="honey-info" bindtap="show_select_honey">
+        {{honey_list[honey_id]}}ml
+        <image class="arrow-btn" src="../../../image/btn_updown@2x.png" />
+      </view>
+      <view class="honey-price" bindtap="payment_check"  data-type="honey">
+        抵￥{{(honey_id * 1 + 1) * honey_price_unit}}
+        <image class="pay-check-status"src="{{chk_imgs[check_honey]}}"/>
+      </view>
+    </view>
+    <view style="overflow-y:auto;" class="honey-select" wx:if="{{select_honey==1}}" scroll-y="{{true}}">
+      <view class="honey-item" wx:for="{{honey_list}}" data-id="{{index}}" bindtap="select_honey_price">
+        {{honey_list[index]}}ml
+      </view>
+    </view>
+    <view class="wallet-row">
+      <view class="info-label">钱包余额(可用余额￥{{wallet}})</view>
+      <view class="wallet-price" bindtap="payment_check"  data-type="wallet">
+        <image class="pay-check-status"src="{{chk_imgs[check_wallet]}}" />
+      </view>
+    </view>
+    <view class="bottom-space"></view>
+  </view>
+</template>

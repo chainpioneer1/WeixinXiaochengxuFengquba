@@ -1,0 +1,28 @@
+<view class='container'>
+  <view wx:for="{{array}}" wx:key="{{item.no}}">
+    <view id="{{item.no}}" bindtap="onDetailState"class="product">
+      <view class="product-bar">
+        <text class="product-no">订单编号：</text>
+        <text>{{item.idshow}}</text>
+        <text class="product-status" style="font-weight: bold;">{{productState[item.state]}}</text>
+      </view>
+      <view class="product-detail">
+        <image class="product-picture" src="{{upload_url + item.avatar}}"></image>
+        <view class='product-name-view'>
+          <text class='product-name-text' style="font-weight: bold;">{{item.name}}</text>
+        </view>
+        <view class="product-content">
+          <text class='product-content-text'>{{item.cost}}ml蜂蜜</text>
+        </view>
+        <text class='product-count'>x1</text>
+      </view>
+      <view class="product-total-cost">共计1件商品，需
+        <text>{{item.cost}}ml</text>蜂蜜</view>
+    </view>
+  </view>
+
+  <view wx:if="{{array.length == 0}}">
+    <image class='no-focus-image' src='{{imgURL}}'></image>
+    <view class='no-focus-text' style="font-weight: bold;"> 暂无数据！</view>
+  </view>
+</view>

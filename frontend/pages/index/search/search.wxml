@@ -1,0 +1,66 @@
+<import src="../template/activity_cell/template_act.wxml" />
+<import src="../template/place_cell/template_place.wxml" />
+<view class='tcontainer'>
+  <view class='input-view'>
+    <input class='input-box' bindinput="on_input_text" placeholder='请输入商家名或活动类型' value='{{inputtext}}'></input>
+    <image class='input-icon' bindtap='on_click_search' src='../../../image/search_custom.png'></image>    
+  </view>
+  <!-- tab bar -->
+  <view class="tab">
+    <view class="tab-bar">
+      <view class="tab-item tab-item1 {{active1}}" bindtap='selectTab1'>
+        商家
+      </view>
+      <view class="tab-item tab-item2 {{active2}}" bindtap='selectTab2'>
+        活动
+      </view>
+    </view>
+  </view>  
+
+  <!-- special search view -->
+  <view style="overflow-y:auto;" scroll-x="{{false}}" scroll-y="{{true}}" class="search_view" wx:if="{{!show_content_state}}">
+    <!-- sport type search -->
+    
+    <view class='main-type-content'>    
+      <view class="type_title">大家都在搜</view>
+      <view class='type_contain_each' wx:for="{{sport_type_array}}" wx:key="{{index}}">
+        <view class='display_type' bindtap="clicked_sport_type" id="{{index}}">{{item}}</view>
+      </view>      
+    </view>
+    <view style="width:100%;height:20rpx;background:#eeeeee"></view>
+    <view class="empty_view"  wx:if="{{favorinput.length == 0}}">
+      <view class="empty_view-text">暂无搜索记录</view>
+    </view>
+    <!-- history search -->
+    <view class = "history_view" wx:if="{{favorinput.length > 0}}">
+      <view class='delete-view'>
+        <view class='delete-text' style="font-weight: bold;">搜索记录</view>
+        <image class='delete-icon' bindtap="on_click_all_delete"  src='../../../image/Emptied.png'></image>
+      </view> 
+
+      <!-- show each history item -->
+      <view class='delete-each-view' wx:for="{{favorinput}}" wx:key="{{index}}">
+        <view style="width: 600rpx;height: 90rpx;position: fixed;" bindtap="on_click_favor_item" id="{{index}}"></view>
+        <view class='delete-text' style="font-weight: bold;">{{item}}</view>
+        <image class='delete-each-icon' bindtap="on_click_delete" id="{{index}}" src='../../../image/close_btn@2x.png'></image>
+      </view> 
+    </view>    
+    
+  </view>
+
+<!-- place array -->
+  <view style="overflow-y:auto;" scroll-x="{{false}}" scroll-y="{{true}}" class="place_content" wx:if="{{show_place_state}}">    
+    <view  wx:for="{{filter_site_array}}" wx:key="{{index}}">
+      <template is="template_place" data="{{item, uploadUrl, favorite_pictures, event_type, starparam,rooturl}}" />
+    </view>
+    
+  </view>
+  <!-- activity array -->
+  <view style="overflow-y:auto;" scroll-x="{{false}}" scroll-y="{{true}}" class="active_content" wx:if="{{show_activity_state}}">
+    <view  wx:for="{{filter_events}}" wx:item="item" wx:key="{{index}}">
+      <template is="act-template" data="{{item, userRole, eventType, eventState,rooturl,image_favs}}" />
+    </view>    
+  </view>
+    
+  
+</view>

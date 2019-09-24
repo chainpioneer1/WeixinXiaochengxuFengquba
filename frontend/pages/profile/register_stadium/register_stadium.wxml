@@ -1,0 +1,246 @@
+<view class='container'>
+  <!-- select sport kind list -->
+  <view class="item_view">
+    <view class="text_area" bindtap='On_click_AddType'>*商家类别:</view>
+    <view class="sport_type" bindtap='On_click_AddType' style="position: absolute;"></view>
+    <view class="sport_type">
+      <view class="type_item" wx:for="{{selected_sport_type}}" wx:key="{{index}}">
+        <image id="{{index}}" src="../../../image/del02@2x.png" bindtap='On_click_deleteType' />
+        <view>{{item}}</view>
+      </view>
+    </view>
+    <image class="stadium-image-next" src="../../../image/next@2x.png" bindtap='On_click_AddType' />
+  </view>
+  <!-- site description -->
+  <view class='stadium-input-view'>
+    <view class='stadium-input-text'>*商家介绍：</view>
+    <textarea wx:if="{{!select_menu_state}}" class='stadium-input-textarea' maxlength='500' placeholder='请输入商家简介，不超过500字' bindinput='blur_on_introduction' value="{{bossInfo.site_introduction}}"></textarea>
+  </view>
+  <!-- service description -->
+  <view class='stadium-input-view' wx:if="{{!select_menu_state}}">
+    <view class='stadium-input-text'>*服务介绍：</view>
+    <textarea wx:if="{{!select_menu_state}}"  class='stadium-input-textarea' maxlength='500' placeholder='请输入商家简介，不超过500字' bindinput='blur_on_service' value="{{bossInfo.site_service}}"></textarea>
+  </view>
+  <!-- upload image part -->
+  <view class='stadium-images-view'>
+    <view class='stadium-images-text'>*商家图片(最多上传5张)：</view>
+    <image class='stadium-images-image' id="0" mode="aspectFill" src='{{(image_path[0]=="")?"../../../image/shop_license.png":image_path[0]}}' bindtap='on_click_image'></image>
+    <image class='stadium-images-delete' id="0" mode="aspectFill" src="../../../image/del02@2x.png" style="{{display[select[1]]}}" bindtap="on_click_delete"></image>
+    <image class='stadium-images-image' id="1" mode="aspectFill" src='{{(image_path[1]=="")?"../../../image/shop_license.png":image_path[1]}}' style="{{display[select[1]]}}" bindtap='on_click_image'></image>
+    <image class='stadium-images-delete' id="1" mode="aspectFill" src="../../../image/del02@2x.png" style='{{display[select[2]]}}' bindtap="on_click_delete"></image>
+    <image class='stadium-images-image' id="2" mode="aspectFill" src='{{(image_path[2]=="")?"../../../image/shop_license.png":image_path[2]}}' style="{{display[select[2]]}}" bindtap='on_click_image'></image>
+    <image class='stadium-images-delete' id="2" mode="aspectFill" src="../../../image/del02@2x.png" style='{{display[select[3]]}}' bindtap="on_click_delete"></image>
+    <image class='stadium-images-image' id="3" mode="aspectFill" src='{{(image_path[3]=="")?"../../../image/shop_license.png":image_path[3]}}' style="{{display[select[3]]}}" bindtap='on_click_image'></image>
+    <image class='stadium-images-delete' id="3" mode="aspectFill" src="../../../image/del02@2x.png" style='{{display[select[4]]}}' bindtap="on_click_delete"></image>
+    <image class='stadium-images-image' id="4" mode="aspectFill" src='{{(image_path[4]=="")?"../../../image/shop_license.png":image_path[4]}}' style="{{display[select[4]]}}" bindtap='on_click_image'></image>
+    <image wx:if="{{selected==5}}" class='stadium-images-delete1' id="4" mode="aspectFill" src="../../../image/del02@2x.png" bindtap="on_click_delete"></image>
+  </view>
+  <!-- booking part -->
+  <view class='stadium-booking-view' wx:if="{{edit_state==0}}">
+    <view class="modal-mask" wx:if="{{select_weekday_state}}"></view>
+    <!-- <view class="time_list" wx:if="{{select_weekday_state}}">
+        <view  wx:for="{{weekday_strs}}" wx:key="{{index}}">
+          <view class="time_item"  bindtap="clicked_weekday_item" 
+          id="{{index}}" style="color:{{color_array[weekday_array[index]]}}">{{item}}</view>
+        </view>
+        <view>
+          <view class="time_btn"  bindtap="hideTimeListView">确定</view>
+        </view>         
+    </view> -->
+    <view class="modal-mask" bindtap="preventTouchMove" catchtouchmove="preventTouchMove" wx:if="{{select_bookingUnit_state}}"></view>
+    <view class="unit_list" wx:if="{{select_bookingUnit_state}}">
+      <view wx:for="{{booking_units}}" wx:key="{{index}}">
+        <view class="unit_item" bindtap="clicked_bookingUnit_item" id="{{index}}" style="color:{{index==booking_unit_index?color_array[1]:color_array[0]}}">
+          {{item.name}}
+        </view>
+      </view>
+    </view>
+    <view class='stadium-input-text'>预定设置:</view>
+    <view class='stadium-time'>
+      <view class="stadium-input-text">营业时间(多选):</view>
+      <view class="select-weekday">
+        <view class="time_item" bindtap="clicked_weekday_item" id="{{index}}" style="background:{{color_array[weekday_array[index]]}}" wx:for="{{weekday_strs}}" wx:key="{{index}}">
+          {{item}}
+        </view>
+      </view>
+      <!-- <view class="select_time" bindtap="onclick_weekday">
+        <view class="select_text">{{weekday_one}}</view>
+        <image class="arrow_btn" src="../../../image/btn_updown@2x.png"/>        
+      </view> 
+      <view class="select_time_text"></view> -->
+    </view>
+    <view class='stadium-input-text'>
+      <view class="inline_text">营业时间:</view>
+      <picker mode="multiSelector" class='inline_value_text' value="{{time_start1}}" bindchange="changeStartTime1" bindcolumnchange="changeStartTimeColumn1" range="{{timeArray}}">
+        <view class="inline_value_text" style="margin-left: 0rpx;">
+          {{timeArray[0][time_start1[0]]}}:{{timeArray[1][time_start1[1]]}}
+        </view>
+      </picker>
+      <view class="inline_text">至</view>
+      <picker mode="multiSelector" class='inline_value_text' value="{{time_end1}}" bindchange="changeEndTime1" bindcolumnchange="changeEndTimeColumn1" range="{{timeArray}}">
+        <view class="inline_value_text" style="margin-left: 0rpx;">
+          {{timeArray[0][time_end1[0]]}}:{{timeArray[1][time_end1[1]]}}
+        </view>
+      </picker>
+    </view>
+    <!-- <view class='stadium-input-text'>
+      <view class="inline_text">下午: </view>
+      <picker mode="multiSelector" class='inline_value_text' value="{{time_start2}}" bindchange="changeStartTime2" bindcolumnchange="changeStartTimeColumn2" range="{{timeArray}}">
+        <view class="inline_value_text" style="margin-left: 0rpx;">
+          {{timeArray[0][time_start2[0]]}}:{{timeArray[1][time_start2[1]]}}
+        </view>
+      </picker>
+
+      <view class="inline_text">至</view>
+      <picker mode="multiSelector" class='inline_value_text' value="{{time_end2}}" bindchange="changeEndTime2" bindcolumnchange="changeEndTimeColumn2" range="{{timeArray}}">
+        <view class="inline_value_text" style="margin-left: 0rpx;">
+          {{timeArray[0][time_end2[0]]}}:{{timeArray[1][time_end2[1]]}}
+        </view>
+      </picker>
+    </view> -->
+    <view class='stadium-unit' bindtap="onclick_bookingUnit">
+      <view class="stadium-input-text">订场单位:</view>
+      <view class="select_unit">
+        <view class="select_text">{{booking_units[booking_unit_index].name}}</view>
+        <image class="arrow_btn" src="../../../image/btn_updown@2x.png" />
+      </view>
+    </view>
+    <view class='stadium-input-text' style="padding-top: 35rpx;">场地详情:</view>
+    <view class='room_info' wx:for="{{room_info_array}}" wx:key="{{index}}">
+      <view class="inline_text">名称:</view>
+      <input class="inline_value_text" placeholder="单行输入" id="{{index}}" bindinput="input_roomName" value="{{item.name}}"></input>
+      <view class="inline_text">单价:</view>
+      <input type="digit" class="inline_value_text" placeholder="单行输入" id="{{index}}" bindinput="input_roomCost" value="{{item.cost}}"></input>
+      <image class="img_del" bindtap="deleteRoomInfo" id="{{index}}" src="../../../image/room_del@2x.png" />
+    </view>
+    <view style="text-align:center;">
+      <image class="img_plus" src="../../../image/plus2x.png" bindtap="onClick_AddRoom" />
+    </view>
+    <view class="modal-mask" bindtap="preventTouchMove" catchtouchmove="preventTouchMove" wx:if="{{select_typeUnit_state}}"></view>
+    <view class='room_cancel_time'>
+      <view class="inline_text">退订详情:</view>
+      <view class="select_cancel_item" bindtap="onclick_typeUnit">
+        <view class="select_text">{{type_units[type_unit_index].name}}</view>
+        <image class="arrow_btn" src="../../../image/btn_updown@2x.png" />
+      </view>
+      <view class="cancel_type_list" wx:if="{{select_typeUnit_state}}">
+        <view wx:for="{{type_units}}" wx:key="{{index}}">
+          <view class="cancel_type" class="unit_item" bindtap="clicked_typeUnit_item" id="{{index}}" style="color:{{index==type_unit_index?color_array[1]:color_array[0]}}">
+            {{item.name}}
+          </view>
+        </view>
+      </view>
+    </view>
+    <button class='btn-advanced' bindtap="on_click_advanced">预览及高级设置</button>
+  </view>
+  <!-- product part -->
+  <view class='stadium-product-view' wx:if="{{edit_state==0}}">
+    <view class='stadium-input-text'>*团购设置:</view>
+    <view class="product-item" wx:for="{{group_info_array}}" wx:key="{{index}}">
+      <view class="product-title">
+        {{item.group_name}}
+        <image class="img_del" bindtap="onClick_ModifyGroup" data-type="remove" data-id="{{index}}" src="../../../image/room_del@2x.png" />
+      </view>
+      <view class='stadium-input-text'>
+        <view class="inline_text">套餐名称:</view>
+        <view class='stadium-input-textarea' wx:if="{{!item.editable}}" disabled maxlength='500'>{{item.group_package!=''?item.group_package:'多行输入(25个字以内)'}}</view>
+        <view class='stadium-input-textarea' wx:if="{{false && item.editable && !item.editting}}" data-id="{{index}}" data-type="group_package_edit" bindtap='input_group_data'>{{item.group_package!=''?item.group_package:'多行输入(25个字以内)'}}</view>
+        <textarea class='stadium-input-textarea' wx:if="{{item.editable && (true || item.editting)}}" maxlength='500' data-id="{{index}}" data-type="group_package" placeholder='多行输入(25个字以内)' bindinput='input_group_data' bindblur="blur_group_data" bindconfirm="blur_group_data" value="{{item.group_package}}"></textarea>
+      </view>
+      <view class='stadium-input-text'>
+        <view class="inline_text">团购价格:</view>
+        <input type="digit" class="inline_value_text" wx:if="{{!item.editable}}" disabled placeholder="单行输入" data-id="{{index}}" data-type="group_price" bindinput="input_group_data" value="{{item.group_price}}"></input>
+        <input type="digit" class="inline_value_text" wx:if="{{item.editable}}" placeholder="单行输入" data-id="{{index}}" data-type="group_price" bindinput="input_group_data" value="{{item.group_price}}"></input>
+        <view class="inline_text">门市价格:</view>
+        <input type="digit" class="inline_value_text" wx:if="{{!item.editable}}" disabled placeholder="单行输入" data-id="{{index}}" data-type="group_inprice" bindinput="input_group_data" value="{{item.group_inprice}}"></input>
+        <input type="digit" class="inline_value_text" wx:if="{{item.editable}}" placeholder="单行输入" data-id="{{index}}" data-type="group_inprice" bindinput="input_group_data" value="{{item.group_inprice}}"></input>
+      </view>
+      <view class='stadium-input-text'>
+        <view class="inline_text">有效期:</view>
+        <picker mode="multiSelector" class='inline_value_text' wx:if="{{!item.editable}}" disabled  value="{{[item.start[0] - baseDate[0], item.start[1]-baseDate[1], item.start[2]-baseDate[2]]}}" data-id="{{index}}" data-type="start" bindchange="input_group_data" bindcolumnchange="changeDateColumn" range="{{dateArray}}">
+          <view class="inline_value_text" style="margin-left: 0rpx;">
+            {{dateArray[0][item.start[0] - baseDate[0]]}}-{{dateArray[1][item.start[1] - baseDate[1]]}}-{{dateArray[2][item.start[2] - baseDate[2]]}}
+          </view>
+        </picker>
+        <picker mode="multiSelector" class='inline_value_text'wx:if="{{item.editable}}" value="{{[item.start[0] - baseDate[0], item.start[1]-baseDate[1], item.start[2]-baseDate[2]]}}" data-id="{{index}}" data-type="start" bindchange="input_group_data" bindcolumnchange="changeDateColumn" range="{{dateArray}}">
+          <view class="inline_value_text" style="margin-left: 0rpx;">
+            {{dateArray[0][item.start[0] - baseDate[0]]}}-{{dateArray[1][item.start[1] - baseDate[1]]}}-{{dateArray[2][item.start[2] - baseDate[2]]}}
+          </view>
+        </picker>
+        <view class="inline_text">至</view>
+        <picker mode="multiSelector" class='inline_value_text' wx:if="{{!item.editable}}" disabled value="{{[item.end[0] - baseDate[0], item.end[1]-baseDate[1], item.end[2]-baseDate[2]]}}" data-id="{{index}}" data-type="end" bindchange="input_group_data" bindcolumnchange="changeDateColumn" range="{{dateArray}}">
+          <view class="inline_value_text" style="margin-left: 0rpx;">
+            {{dateArray[0][item.end[0] - baseDate[0]]}}-{{dateArray[1][item.end[1] - baseDate[1]]}}-{{dateArray[2][item.end[2] - baseDate[2]]}}
+          </view>
+        </picker>
+        <picker mode="multiSelector" class='inline_value_text'wx:if="{{item.editable}}" value="{{[item.end[0] - baseDate[0], item.end[1]-baseDate[1], item.end[2]-baseDate[2]]}}" data-id="{{index}}" data-type="end" bindchange="input_group_data" bindcolumnchange="changeDateColumn" range="{{dateArray}}">
+          <view class="inline_value_text" style="margin-left: 0rpx;">
+            {{dateArray[0][item.end[0] - baseDate[0]]}}-{{dateArray[1][item.end[1] - baseDate[1]]}}-{{dateArray[2][item.end[2] - baseDate[2]]}}
+          </view>
+        </picker>
+      </view>
+      <view class='stadium-input-text'>
+        <view class="inline_text">数量限制:</view>
+        <view class="inline_text" style="margin-left: 10rpx;">每个用户最多可购买</view>
+        <input type="number" class="inline_value_text" wx:if="{{!item.editable}}" disabled placeholder="单行输入" data-id="{{index}}" data-type="group_limit" bindinput="input_group_data" value="{{item.limit}}"></input>
+        <input type="number" class="inline_value_text" wx:if="{{item.editable}}" placeholder="单行输入" data-id="{{index}}" data-type="group_limit" bindinput="input_group_data" value="{{item.limit}}"></input>
+      </view>
+      <!-- service description -->
+      <view class='stadium-input-text'>
+        <view class='inline_text' style="padding-bottom: 20rpx;">*购买须知:</view>
+        <view class="product-desc" wx:for="{{item.group_desc}}" wx:for-item="group_desc" wx:key="{{id}}" wx:for-index="id">
+          <view class='desc-item'>
+            <view class="desc-textarea" wx:if="{{!item.editable}}" style="line-height: 1rem;">{{group_desc.text!=''?group_desc.text:'点击输入内容'}}</view>
+            <view class="desc-textarea" wx:if="{{item.editable && false && !group_desc.editting}}" data-id="{{index}}" data-subid="{{id}}" data-type="group_desc_text_edit" bindtap='input_group_data'>{{group_desc.text!=''?group_desc.text:'点击输入内容'}}</view>
+            <textarea class="desc-textarea" wx:if="{{item.editable && (true || group_desc.editting)}}" maxlength="500" placeholder="点击输入内容" data-id="{{index}}" data-subid="{{id}}" data-type="group_desc_text" bindinput='input_group_data' bindblur="blur_group_data" bindlinechange="input_line_change" bindconfirm="blur_group_data" value="{{group_desc.text}}" auto-height></textarea>
+            <image class='stadium-images-image' bindtap='input_group_data' data-id="{{index}}" data-subid="{{id}}" 
+            data-type="group_desc_img" mode="aspectFill" src='{{group_desc.img==""?"../../../image/shop_license.png":group_desc.img}}'
+            style='{{group_desc.img!=""?"border:none;":""}}'></image>
+            <image class="stadium-images-remove" wx:if="{{group_desc.img!='' && item.editable}}" bindtap='input_group_data' data-id="{{index}}" data-subid="{{id}}" 
+            data-type="group_desc_img_remove" mode="aspectFill" src='../../../image/del02@2x.png'></image>
+            <image class="stadium-images-edit" wx:if="{{group_desc.img!='' && item.editable}}" bindtap='input_group_data' data-id="{{index}}" data-subid="{{id}}" 
+            data-type="group_desc_img_edit" mode="aspectFill" src='../../../image/change01@2x.png'></image>
+          </view>
+        </view>
+      </view>
+      <view class='stadium-input-text'>
+        <view class="inline_text">退订条件:</view>
+        <view class="inline-radio" wx:if="{{!item.editable}}" data-id="{{index}}" data-type="group_condition" bindchange="input_group_data">          
+          <radio value='0' disabled checked wx:if="{{item.condition=='0'}}"></radio>
+          <radio value='0' disabled wx:else></radio>
+          不可退
+          <radio value='1' disabled checked wx:if="{{item.condition=='1'}}"></radio>
+          <radio value='1' disabled wx:else></radio>
+          可随时退、过期退
+        </view>
+        <radio-group class="inline-radio" wx:if="{{item.editable}}" data-id="{{index}}" data-type="group_condition" bindchange="input_group_data">          
+          <radio value='0' checked wx:if="{{item.condition=='0'}}"></radio>
+          <radio value='0' wx:else></radio>
+          不可退
+          <radio value='1' checked wx:if="{{item.condition=='1'}}"></radio>
+          <radio value='1' wx:else></radio>
+          可随时退、过期退
+        </radio-group>
+      </view>
+    </view>
+    <view class="stadium-input-text">
+      <image class="inline-image" src="../../../image/plus2x.png" data-type="add" bindtap="onClick_ModifyGroup" />
+      <view class='inline_text' data-type="add" bindtap="onClick_ModifyGroup">增加团购</view>
+    </view>
+  </view>
+  <button class='btn-submit' bindtap="on_click_save">完成</button>
+</view>
+<view class="modal-mask" bindtap="preventTouchMove" catchtouchmove="preventTouchMove" wx:if="{{select_menu_state}}"></view>
+<view class="modal-dialog" catchtouchmove="preventTouchMove" wx:if="{{select_menu_state}}">
+  <view class='main-type-content'>
+    <view class='type_contain_each' wx:for="{{remain_array}}" wx:key="{{index}}">
+      <view class='display_type' bindtap="clicked_style_item" id="{{index}}" style="color:{{index==select_index?color_array[1]:color_array[0]}}">
+        {{item}}
+      </view>
+    </view>
+  </view>
+  <view class='main-type-buttons'>
+    <view class="type-button-cancel" bindtap="cancel_btn_clicked">取消</view>
+    <view class="type-button-ok" bindtap="ok_btn_clicked">确定</view>
+  </view>
+</view>

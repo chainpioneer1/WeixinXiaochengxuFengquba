@@ -1,0 +1,134 @@
+<!-- User Activity Detail Viewer -->
+<view class="container">
+  <view style="overflow-y:auto;" scroll-y class='postadd-view'>
+          
+    <swiper class="personal-img-wrapper" wx:if="{{pictures.length==1}}" autoplay="true" interval="3000" duration="300">
+      <block wx:for="{{pictures}}" wx:key="index">
+        <swiper-item>
+          <image class="personal-event-img" mode="aspectFill" src="{{item}}" id="{{index}}"/>
+        </swiper-item>
+      </block>
+    </swiper>
+    <swiper class="personal-img-wrapper" wx:if="{{pictures.length>1}}" indicator-dots="true" autoplay="true" interval="3000" duration="300">
+      <block wx:for="{{pictures}}" wx:key="index">
+        <swiper-item>
+          <image class="personal-event-img" mode="aspectFill" src="{{item}}" id="{{index}}"/>
+        </swiper-item>
+      </block>
+    </swiper>
+
+ <!-- Event Info -->   
+    <view class="event-info">
+      <view class="event-type-info">
+        <text class="event-type" style="font-weight: bold;">{{event.eventName}}</text>
+        <text class="event-status" style="font-weight: bold;">{{eventState[event.state]}}</text>
+      </view>
+      <view class='detail-info'>
+        <image src='../../../image/my_bee_category@2x.png'></image>
+        <text>{{eventType[event.type]}}</text>
+        <image src='../../../image/my_bee_number@2x.png'></image>
+        <text>{{register_amount}}/{{event.limit}}人</text>
+        <image src='../../../image/my_bee_m@2x.png'></image>
+        <text>{{event.cost}}元/人</text>
+      </view>     
+      <view class="act_date">
+        <view>时间 | {{event.start_time+'-'+event.end_time}}</view>
+      </view>
+      <view class="temp-fonts" bindtap="goto_mapView">
+        <view class='detail-add'>地址 |</view>
+        <view class='detail-add1' style="text-decoration: underline;"><text selectable='true'>{{event.detail_address}}</text></view>
+      </view>
+      <view class="fav_info">
+        <text class='favor_text'>{{rating}}</text>        
+        <image class="favor_star" src='{{fav_img_list[favourite_num]}}'></image>
+               
+        <text class='view_count_text'>{{event.read_count}}</text>        
+        <image class="view_count_img" src='../../../image/eye@2x.png'></image>        
+      </view>
+    </view>
+
+ <!-- Gym Info -->    
+    <view class='place-info'>
+      <image class="organizer_photo" mode="aspectFill" src="{{event.avatar}}"></image>
+      <view class="place_info_content">
+        <view wx:if="{{event.role != '2'}}" class='place-info-view'>
+          <text class='place-info-text' style="font-weight: bold;font-size: 30rpx; ">{{event.site_name}}</text>
+        </view>
+        <view class='place-info-view'>
+          <text wx:if="{{event.role == '1'}}" class='place-info-text'>商家姓名：{{event.name}}</text>
+          <text wx:if="{{event.role == '2'}}" class='place-info-text'>发起人：{{event.name}}</text>
+          <view class='place-info-text' bindtap="phone_call" data-id="{{event.agent_phone}}">联系方式：<text style='text-decoration: underline;'>{{event.agent_phone}}</text></view>
+        </view>                 
+      </view>        
+    </view>
+
+ <!-- Event limit info -->
+    <view class='limit_info'>
+      <view class='limit-payment'>
+        <text class='limit-title-text' style="font-weight: bold;">支付方式: </text>
+        <text class='limit-value-text'>{{pay_type_array[event.pay_type]}}</text>
+      </view> 
+      <view class='limit-num'>
+        <text class='limit-title-text' style="font-weight: bold;">报名限制: </text>
+        <text class='limit-value-text'>每个用户最多可报名{{event.person_limit}}人</text>
+      </view>     
+    </view>
+
+ <!-- Event introduce info -->
+    <view class='introduce'>
+      <view class='introduce-view'>
+        <text class='introduce-border' style="font-weight: bold;">活动简介</text>
+      </view>
+      <view style='width: 80%; padding-left: 30rpx;'>
+        <text class='introduce-detail' selectable='true'>{{event.comment}}</text>
+      </view>
+    </view>
+    <view class='applicant-view'>
+      <view class='applicant-title'>
+        <view class='applicant-title-text' style="font-weight: bold;">报名成员 ({{register_amount}}人)</view>       
+      </view>
+      
+      <view class="comment-view" wx:for="{{booking}}" wx:key="{{index}}">
+        <image class="comment_user_photo" mode="aspectFill" src="{{item.avatar}}" id="{{item.user_id}}" bindtap="onclick_viewUserInfo"></image>
+        <view class="comment_user_info">          
+          <view class="comment_name">{{item.nickname}}</view>
+          <view class="comment_phone">{{item.phone}}</view> 
+        </view>
+        <view class="comment_limit_info">          
+          <view class="comment_pay_type" style="color:{{color_array[item.pay_type]}}">{{pay_type_array[item.pay_type]}}</view>
+          <view class="comment_pay_amount">共{{item.reg_num}}人, 合计{{item.reg_num*event.cost}}元</view> 
+        </view>                   
+      </view>      
+         
+    </view>
+
+ <!-- feedback list -->
+    <view class="applicant-view">       
+      <view class="applicant-title">
+          <text class="applicant-title-text" style="font-weight: bold;">评论 (共{{feedbacks.length}}条)</text>                   
+      </view>        
+
+     <!-- feedback list -->
+        <view class="comment-view" wx:for="{{feedbacks}}" wx:key="{{index}}">
+          <view class="cls_user_comment_info"  id="{{item.user_id}}"  bindtap="onclick_viewUserInfo">
+            <image class="cls_user_photo" mode="aspectFill" src="{{item.avatar}}"></image>
+            <view class="cls_comment_date">{{item.nickname}}</view>
+            <text class="cls_comment_time">{{item.submit_time}}</text>              
+            <text class="cls_comment_content">{{item.comment}}</text>
+          </view>
+          <view class="cls_user_comment_rating">            
+            <view class="cls-score-star-view1" wx:for="{{[1, 2, 3, 4, 5]}}" wx:for-item="rating_item">
+              <view class="cls-score-star-view2" wx:if="{{rating_item <= item.point}}">
+                <image class="cls_score_star" src="{{img_yellow_start_src}}" />
+              </view>
+              <view class="cls-score-star-view2" wx:else>
+                <image class="cls_score_star" src="{{img_black_start_src}}" />
+              </view>
+            </view>            
+          </view>                   
+        </view>
+        
+    </view>
+  </view>
+
+</view>

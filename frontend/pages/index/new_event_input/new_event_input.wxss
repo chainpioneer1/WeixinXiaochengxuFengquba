@@ -1,0 +1,233 @@
+/* ****************** */
+
+@import "../../profile/my_booking/template/pay_template.wxss";
+.container {
+    position: fixed;
+    left: 0;
+    top: 0rpx;
+    width: 100vw;
+    bottom: 100rpx;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+.userinfo {
+    width: 100%;
+    height: 220rpx;
+    top: 0rpx;
+    left: 0rpx;
+    background-color: white;
+}
+
+.userinfo-avatar {
+    position: absolute;
+    width: 152rpx;
+    height: 152rpx;
+    top: 34rpx;
+    left: 29rpx;
+    border-radius: 50%;
+    border-width: 1rpx;
+}
+
+.userinfo-nickname {
+    position: absolute;
+    left: 200rpx;
+    top: 88rpx;
+    font-size: 32rpx;
+    color: #333;
+}
+
+.add-info {
+    margin-top: 20rpx;
+    padding-left: 30rpx;
+    width: calc(100%-30rpx);
+    height: auto;
+    background-color: white;
+}
+
+.add-info-title {
+    line-height: 88rpx;
+    width: 100%;
+}
+
+.add-info-text {
+    font-family: PingFangSC-Semibold;
+    font-size: 30rpx;
+    color: #333;
+    letter-spacing: 0.64rpx;
+    border-left: solid 8rpx #e6b53c;
+    padding-left: 12rpx;
+}
+
+.real-name-view,
+.real-phone-view,
+.cost-view,
+.mem-count-view {
+    width: 100%;
+    line-height: 88rpx;
+    font-family: PingFangSC-Regular;
+    font-size: 27rpx;
+    color: #333;
+    letter-spacing: 0.64rpx;
+}
+
+.real-name-text,
+.real-phone-text,
+.cost-text,
+.mem-count-text {
+    vertical-align: middle;
+}
+
+.real-name-input,
+.mem-count-input,
+.cost-input,
+.real-phone-input {
+    margin: 0;
+    padding: 0;
+    margin-left: 20rpx;
+    width: 60%;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.mem-count-input {
+    width: 50rpx;
+    margin: 0 10rpx;
+    padding: 0;
+    text-align-last: center;
+}
+
+.cost-way-view {
+    width: calc(100% - 30rpx);
+    line-height: 88rpx;
+    margin-top: 20rpx;
+    padding-left: 30rpx;
+    background-color: white;
+    font-size: 28rpx;
+}
+
+.pay-way-radio,
+.gender-radio {
+    display: inline-block;
+    line-height: 68rpx;
+    font-size: 28rpx;
+}
+
+.gender-radio radio {
+    transform: scale(0.6);
+    margin-left: 30rpx;
+}
+
+.pay-way-radio radio {
+    transform: scale(0.6);
+    margin-right: 30rpx;
+}
+
+.cost-way {
+    float: right;
+    margin-right: 40rpx;
+}
+
+.cost-way-text {
+    padding-top: 20rpx;
+    margin-right: 40rpx;
+}
+
+.event-info-view {
+    margin-top: 20rpx;
+    width: 100%;
+    height: auto;
+    background-color: white;
+}
+
+.event-info-view view {
+    padding-left: 30rpx;
+    display: block;
+    height: auto;
+    font-family: PingFangSC-Regular;
+    font-size: 27rpx;
+    color: #333;
+    letter-spacing: 0.64rpx;
+    line-height: 60rpx;
+}
+
+.event-info-border-view {
+    width: auto;
+    line-height: 50rpx;
+    padding-top: 20rpx;
+}
+
+.event-info-border-text {
+    font-family: PingFangSC-Semibold;
+    font-size: 30rpx;
+    color: #333;
+    height: auto;
+    letter-spacing: 0.64rpx;
+    border-left: solid 8rpx #e6b53c;
+    padding-left: 12rpx;
+}
+
+.btn-cost {
+    position: fixed;
+    bottom: 0rpx;
+    width: 100%;
+    line-height: 100rpx;
+    background-color: #e6b53c;
+    color: white;
+    font-family: PingFangSC-Semibold;
+    font-size: 32rpx;
+    letter-spacing: 1.54rpx;
+}
+
+.detail_address {
+    width: 20%;
+    display: inline-block;
+    float: left;
+}
+
+.detail_address1 {
+    width: calc(100vw - 100rpx);
+    display: inline-block;
+    vertical-align: top;
+    padding-left: 10rpx;
+}
+
+.info-icon,
+.count-icon {
+    position: relative;
+    display: inline-block;
+    width: 30rpx;
+    height: 30rpx;
+    margin: 0 5rpx;
+    vertical-align: middle;
+}
+
+.count-icon {
+    width: 30rpx;
+    height: 30rpx;
+    vertical-align: middle;
+    padding: 20rpx;
+}
+
+.desc_text {
+    position: relative;
+    display: inline-block;
+    height: 100rpx;
+    font-size: 25rpx;
+    width: 90%;
+    padding: 20rpx;
+    margin-bottom: 20rpx;
+    background: #f0f0f0;
+    border-radius: 10rpx;
+    -webkit-border-radius: 10rpx;
+    -moz-border-radius: 10rpx;
+    -ms-border-radius: 10rpx;
+    -o-border-radius: 10rpx;
+}
+
+.upload-image {
+    margin: 0 120rpx 0 20rpx;
+    width: 200rpx;
+    height: 200rpx;
+    display: inline-block;
+}

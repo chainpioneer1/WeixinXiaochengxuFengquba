@@ -1,0 +1,38 @@
+<import src="../template/booking_template.wxml" />
+<template name="booking_act-template">
+  
+  <view class="tab">
+    <view class="tab-bar">
+      <view id="btn1" class="tab-item tab-item1 {{book_active1}}" bindtap='selectTab1'>
+        进行中
+      </view>
+      <view id="btn2" class="tab-item tab-item2 {{book_active2}}" bindtap='selectTab1'>
+        已完成
+      </view>
+      <view id="btn3" class="tab-item tab-item3 {{book_active3}}" bindtap='selectTab1'>
+        已取消
+      </view>
+    </view>
+  </view>
+  <scroll-view scroll-y class="activities" wx:if="{{booking.length > 0}}">
+    <view wx:for="{{booking}}" wx:key="index">
+      <block wx:if="{{item.state==selectedtab}}">
+        <template is="act-template" data="{{ register_num, item,index, userRole, selectedtab, eventType, bookingState ,image_favs,eventState, uploadURL}}"></template>
+        <view wx:if="{{(selectedtab == 0 && item.isbtn) || ((selectedtab == 1) && (item.is_rating==0))}}" class="btn-view">
+          <form wx:if="{{selectedtab == 0}}" name="pushMsgForm" report-submit bindsubmit="btn_remove_booking1" id="{{index}}" >      
+            <button class="activity-button" form-type="submit">取消蜂约</button>
+          </form>          
+          <button wx:if="{{(selectedtab == 1) && (item.is_rating==0)}}" id="{{index}}" class="activity-button" bindtap='btn_write_comment'> 评价 </button>
+        </view>
+      </block>
+    </view>
+  </scroll-view>
+  <view class="empty_view" wx:if="{{booking.length == 0}}">
+    <image class="empty_image" src="../../../image/empty@2x.png" />
+    <view class="empty_text">你还没有参加任何活动哦</view>
+    <view class="go_activity" bindtap="onclick_go">去参加</view>
+  </view>
+ 
+</template>
+
+

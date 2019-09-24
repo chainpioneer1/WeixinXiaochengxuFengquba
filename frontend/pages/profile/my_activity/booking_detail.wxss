@@ -1,0 +1,251 @@
+/* pages/booking/booking.wxss */
+
+.activity {
+    width: 100%;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+.activity-bar {
+    width: 100%;
+    line-height: 80rpx;
+    background-color: white;
+}
+
+.activity-no {
+    padding-left: 30rpx;
+    font-size: 30rpx;
+    color: #333;
+}
+
+.activity-status {
+    float: right;
+    padding-right: 30rpx;
+    font-size: 30rpx;
+    font-family: "PingFangSC-Semibold";
+}
+
+.activity-detail {
+    margin-top: 20rpx;
+    width: 100%;
+    height: auto;
+    background-color: white;
+}
+
+.activity-picture {
+    float: left;
+    vertical-align: -60rpx;
+    margin-left: 30rpx;
+    margin-top: 20rpx;
+    width: 100rpx;
+    height: 100rpx;
+    display: inline-block;
+}
+
+.activity-name {
+    margin-left: 20rpx;
+    margin-top: 20rpx;
+    font-size: 32rpx;
+    font-family: "PingFangSC-Semibold";
+    color: #333;
+    letter-spacing: 0.68rpx;
+    display: inline-block;
+    min-width: 60%;
+}
+
+.activity-role-text {
+    margin-left: 15rpx;
+    width: auto;
+    height: auto;
+    border-radius: 10rpx;
+    border-color: #e6b53c;
+    border-style: solid;
+    border-width: 3rpx;
+    font-size: 24rpx;
+    font-family: "PingFangSC-Regular";
+    color: #e6b53c;
+}
+
+.activity-content {
+    margin-top: 10rpx;
+    display: inline-block;
+}
+
+.activity-content image {
+    margin-left: 20rpx;
+    width: 32rpx;
+    height: 32rpx;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.activity-content text {
+    margin-left: 10rpx;
+    width: 32rpx;
+    height: 32rpx;
+    font-family: PingFangSC-Regular;
+    font-size: 26rpx;
+    color: #333;
+    letter-spacing: 0.56rpx;
+}
+
+.activity-time {
+    padding-top: 20rpx;
+    width: calc(100% - 30rpx);
+    height: auto;
+    background-color: white;
+    padding-left: 30rpx;
+}
+
+.activity-time-label {
+    font-size: 30rpx;
+    font-family: "PingFangSC-Regular";
+}
+
+.activity-agent {
+    padding-top: 20rpx;
+    width: calc(100% - 30rpx);
+    height: auto;
+    background-color: white;
+    padding-left: 30rpx;
+}
+
+.activity-agent-label {
+    font-size: 30rpx;
+    font-family: "PingFangSC-Regular";
+    text-overflow: break-all;
+    overflow: visible;
+}
+
+.activity-phone {
+    padding-top: 20rpx;
+    width: calc(100% - 30rpx);
+    height: auto;
+    background-color: white;
+    padding-left: 30rpx;
+    font-size: 30rpx;
+    padding-bottom: 30rpx
+}
+
+.activity-phone-label {
+    font-size: 30rpx;
+    font-family: "PingFangSC-Regular";
+    text-overflow: break-all;
+    overflow: visible;
+}
+
+.activity-address {
+    padding-top: 20rpx;
+    width: calc(100% - 30rpx);
+    height: auto;
+    background-color: white;
+    padding-left: 30rpx;
+    font-size: 30rpx;
+    font-family: "PingFangSC-Regular";
+    text-overflow: break-all;
+    overflow: visible;
+}
+
+.detail-info {
+    margin-top: 20rpx;
+    background-color: white;
+}
+
+.detail-info view {
+    width: auto;
+    line-height: 70rpx;
+    height: auto;
+}
+
+.detail-info-label {
+    border-left: 7rpx solid #e6b53c;
+    padding-left: 12rpx;
+    font-size: 30rpx;
+    font-family: PingFangSC-Semibold;
+}
+
+.detail-info label {
+    padding-left: 12rpx;
+    font-size: 30rpx;
+    font-family: PingFangSC-Semi;
+}
+
+.cancel-button {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 98rpx;
+    line-height: 98rpx;
+    background-color: #e6b53c;
+    color: white;
+    text-align: center;
+    font-size: 32rpx;
+    font-family: PingFangSC-Semibold;
+}
+
+.introduce {
+    margin-top: 20rpx;
+    width: 100%;
+    height: auto;
+    background-color: white;
+}
+
+.introduce-view {
+    font-size: 30rpx;
+    padding-top: 23rpx;
+    height: 88rpx;
+    margin-left: 30rpx;
+}
+
+.introduce-border {
+    border-left: 7rpx solid #e6b53c;
+    padding-left: 12rpx;
+}
+
+.cls_score_title_bar {
+    width: 100%;
+    height: 88rpx;
+    background-color: white;
+}
+
+.cls_score_title {
+    font-size: 30rpx;
+    margin-left: 30rpx;
+}
+
+.cls-score-star-view1 {
+    display: inline;
+    margin-left: 10rpx;
+}
+
+.cls-score-star-view2 {
+    display: inline;
+    margin-left: 10rpx;
+}
+
+.cls_score_star {
+    width: 36rpx;
+    height: 36rpx;
+}
+
+.introduce-detail {
+    display: block;
+    background-color: white;
+    word-break: break-all;
+    font-family: PingFangSC-Regular;
+    font-size: 30rpx;
+    line-height: 50rpx;
+    color: #333;
+    letter-spacing: 0.64rpx;
+}
+
+.activity-picture .swiper_box {
+    width: 100%;
+    height: 100%;
+}
+
+.activity-picture .swiper_box .img-item {
+    width: 100%;
+    height: 100%;
+}

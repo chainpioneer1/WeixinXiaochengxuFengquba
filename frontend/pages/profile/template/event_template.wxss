@@ -1,0 +1,112 @@
+.event {
+    margin-top: 20rpx;
+    padding-bottom: 5rpx;
+    background-color: white;
+    width: 100%;
+    height: auto;
+    border-bottom: 3rpx solid #f4f4f4;
+  }
+  
+  .event-bar {
+    padding-left: 30rpx;
+    line-height: 60rpx;
+    font-size: 26rpx;
+    font-family: "PingFangSC-Semibold";
+  }
+  
+  .event-status {
+    float: right;
+    padding-right: 30rpx;
+    font-size:30rpx;
+
+  }
+  
+  .event-detail {
+    height: auto;
+    padding-top: 20rpx;
+    padding-left: 30rpx;
+  }
+  
+  .event-picture {
+    float: left;
+    width: 100rpx;
+    height: 100rpx;
+  }
+  .event-role{
+    margin-left: 120rpx;
+  }
+  .event-name {
+    font-size: 32rpx;
+    display: inline-block;
+    vertical-align: top;
+  }
+  
+  .event-content {
+    margin-top: 10rpx;
+    height: 36rpx;
+    font-size: 26rpx;
+    margin-left: 120rpx;
+    font-family: "PingFangSC-Regular";
+  }
+  
+  .event-content image {
+    vertical-align: bottom;
+    margin-right: 10rpx;
+  }
+  
+  .event-type {
+    width: 32rpx;
+    height: 32rpx;
+  }
+  
+  .event-limit {
+    width: 34rpx;
+    height: 34rpx;
+    padding-left: 30rpx;
+  }
+  
+  .event-cost {
+    width: 32rpx;
+    height: 36rpx;
+    padding-left: 30rpx;
+  }
+  
+  .event-time {
+    margin-top: 30rpx;
+    display: block;
+    font-size: 26rpx;
+    font-family: "PingFangSC-Regular";
+  }
+  
+  .event-address {
+    display: inline-block;
+    float: left;
+    width: 10%;
+    margin-top: 10rpx;
+    font-size: 26rpx;
+    font-family: "PingFangSC-Regular";
+  }
+  
+  .event-address1 {
+    vertical-align: top;
+    width: 70%;
+    display: inline-block;
+    margin-top: 10rpx;
+    font-size: 26rpx;
+    font-family: "PingFangSC-Regular";
+  }
+  .event-fav-text {
+    float: right;
+    margin-right: 30rpx;  
+    font-family: PingFangSC-Regular;
+    font-size: 22rpx;
+    color: #472e00;
+    letter-spacing: 0.47rpx;
+  }
+  
+  .event-fav-image {
+    float: right; 
+    margin-right: 10rpx;
+    width: 30rpx;
+    height: 30rpx;
+  }

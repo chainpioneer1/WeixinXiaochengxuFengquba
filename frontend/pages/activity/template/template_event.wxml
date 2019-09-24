@@ -1,0 +1,46 @@
+<template name="event-template">
+  <view class="event">
+    <view id="{{item.id}}" bindtap="click_detail_new_event">
+      <view class="event-detail">
+        <swiper style="height: 400rpx;" wx:if="{{item.pic_array.length==1}}" interval="3000" duration="300">
+            <block wx:for="{{item.pic_array}}" wx:key="index">
+                <swiper-item>
+                <image class="event-picture" mode="aspectFill" src="{{uploadUrl + item}}" id="{{index}}"/>
+                </swiper-item>
+            </block>
+        </swiper>  
+        <swiper style="height: 400rpx;" wx:if="{{item.pic_array.length >1}}"  indicator-dots="true" autoplay="true" interval="3000" duration="300">
+            <block wx:for="{{item.pic_array}}" wx:key="index">
+                <swiper-item>
+                <image class="event-picture" mode="aspectFill" src="{{uploadUrl + item}}" id="{{index}}"/>
+                </swiper-item>
+            </block>
+        </swiper>  
+        <view class='event-role'>
+          <text class='event-name' style="font-weight: bold;">{{item.name}}</text>
+          <block>
+            <text class="event-cost-text">{{item.cost}}元/人</text>
+            <image class="event-cost" src="../../image/my_bee_m@2x.png"></image>            
+          </block>
+        </view>
+
+        <view class='event-content'>
+          <text class="event-time">时间 | {{item.start_time}} ~ {{item.end_time}}</text>
+          <text style="padding:0 30rpx 0 0;font-size:24rpx;float:right;">{{eventType[item.type]}}</text>
+          <image class="event-type" src="../../image/my_bee_category@2x.png"></image>
+        </view>
+        <view class="event-endline">
+          <text>距报名截止还有 </text>
+          <!-- remained days -->
+          <view class='remain-date'>{{item.remain_day}}</view>
+          <text> 天 </text>
+          <!-- remained hours -->
+          <view class='remain-date'>{{item.remain_hour}}</view>
+          <text> 时</text>
+          <text class='event-distance-text'>{{item.area}}</text>
+          <image id="{{item.phonenumber}}" class='event-location-image' src='../../image/location1@2x.png'></image>
+        </view>
+      </view>
+    </view>
+  </view>
+</template>

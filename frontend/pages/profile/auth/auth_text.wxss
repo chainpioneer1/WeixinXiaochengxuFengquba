@@ -1,0 +1,71 @@
+/* pages/profile/auth/auth.wxss */
+
+.container {
+  background-color: white;
+}
+
+.auth-state {
+  width: 100%;
+  height: 98rpx;
+  line-height: 98rpx;
+  background-color: #f4f4f4;
+  font-family: PingFangSC-Semibold;
+  font-size: 32rpx;
+  letter-spacing: 1.54rpx;
+  text-align: center;
+}
+
+.auth-text {
+  width: calc(100%-33rpx); 
+  line-height: 88rpx;
+  padding-left: 30rpx;
+  font-family: PingFangSC-Regular;
+  font-size: 30rpx;
+  color: #333;
+  letter-spacing: 0.64rpx;
+  border-bottom: solid 3rpx #f4f4f4;
+}
+
+.auth-text-auto {
+  width: calc(100%-33rpx);
+  height: auto;
+  padding-left: 30rpx;
+  line-height: 60rpx;
+  font-family: PingFangSC-Regular;
+  font-size: 30rpx;
+  color: #333;
+  letter-spacing: 0.64rpx;
+  border-bottom: solid 3rpx #f4f4f4;
+}
+.text-auto1{
+  display: inline-block;
+  line-height: 100%;
+  vertical-align: 25rpx;
+  width: 170rpx;
+}
+.text-auto2{
+  vertical-align: top;
+  display: inline-block;
+  width: 500rpx;
+}
+.auth-image-view {
+  width: calc(100%-33rpx);
+  height: 310;
+  padding-left: 30rpx;
+  border-bottom: solid 3rpx #f4f4f4;
+}
+
+.auth-image-text {
+  margin-top: 20rpx;
+  font-family: PingFangSC-Regular;
+  font-size: 30rpx;
+  color: #333;
+  letter-spacing: 2.08rpx;
+}
+
+.auth-image
+{
+  width: 330rpx;
+  height: 207rpx;
+  margin-top: 20rpx;
+}

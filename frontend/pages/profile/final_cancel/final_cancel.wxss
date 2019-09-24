@@ -1,0 +1,98 @@
+/**index.wxss**/
+
+.clas_img_cancel_success{
+  position:absolute; 
+  left: 285rpx; 
+  top: 148rpx; 
+  width: 180rpx; 
+  height: 199rpx;
+}
+
+.cls_cancel_success_txt{
+  position:absolute; 
+  top: 430rpx; 
+  width: 100%;
+  text-align: center; 
+  height: 199rpx;
+  font-size: 32rpx;
+  color:#333333;
+}
+
+.cls_return_button{
+  position:fixed;
+  bottom: 7.3vh;
+  left: 34vw;
+  width:32vw;
+  height:5.5vh;
+  border: 4rpx solid #E6B53C;
+  border-radius:22rpx;
+  color:#E6B53C;
+  font-size: 32rpx;
+  text-align: center;
+  padding-top: 15rpx;
+ }
+
+
+
+
+.cls_reg_member_name {
+  position:absolute;
+  left:150rpx;
+  top: 20px;
+  width:auto;
+  height: auto;
+  font-family:  PingFangSC-Semibold;
+  font-size: 32rpx;
+  color:#333333;
+}
+
+.cls_reg_member_phone_number {
+  position:absolute;
+  left:150rpx;
+  top: 87rpx;
+  width:auto;
+  height: auto;
+  font-family:  PingFangSC-Regular;
+  font-size: 24rpx;
+  color:#333333;
+}
+
+.cls_reg_pay_method{
+  position:absolute;
+  right:33rpx;
+  top: 29rpx;
+  width:auto;
+  height:auto;
+  font-family:  PingFangSC-Regular;
+  font-size: 24rpx;
+ }
+
+.cls_reg_member_photo{
+  position:absolute;
+  left:30rpx; 
+  top:20rpx; 
+  width: 100rpx; 
+  height: 100rpx;
+  border-radius: 50%;
+}
+.cls_join_play_member {
+  position: absolute;
+  right: 33rpx;
+  top: 87rpx;
+  width: auto;
+  height: auto;
+  font-family:  PingFangSC-Regular;
+  font-size: 24rpx;
+  color:#333333;
+  }
+
+.cls_empty_line
+{
+  position:absolute;
+  width: 93.3%;
+  height: 2rpx;
+  margin-left:3.3%;
+  margin-right:3.3%;
+  margin-top:  229rpx;
+  background-color: #ECECEC;
+}

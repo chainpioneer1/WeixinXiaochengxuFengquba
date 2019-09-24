@@ -1,0 +1,59 @@
+/**index.wxss**/
+
+.cls_bind_bank_card_info{
+  width: 100%; 
+  height: 140rpx;
+  border-bottom: solid 1rpx #eaeaea;
+}
+.cls_cost_m{
+  height: auto;
+  padding-top: 20rpx;
+  width: 100%;
+}
+.cls_user_active_state_txt{
+   padding-left: 30rpx;
+  width: auto; 
+  height: auto;
+  font-family:PingFangSC-Regular;
+  text-indent: 30rpx;
+  font-weight: bold;
+  font-size: 30rpx;
+}
+
+.cls_user_active_pay_amount_txt{
+  float: right;
+  padding-top: 10rpx;
+  margin-right: 60rpx;
+  width: auto; 
+  height: auto;
+  font-family:PingFangSC-Regular;
+  font-weight: bold;
+  text-align: right;
+  font-size: 30rpx;
+  color:#39bd86;  /*#e66e3c*/
+}
+.cls_cost_detail{
+  height: auto;
+  width: 100%;
+  padding-top: 10rpx;
+}
+.cls_user_active_date_txt{
+  padding-left: 30rpx;
+  width: auto; 
+  height: auto;
+  font-family:PingFangSC-Regular;
+  text-indent: 30rpx;
+  font-size: 24rpx;
+}
+
+.cls_user_active_pay_state_txt{
+  float: right;
+  margin-top: 15rpx;
+  margin-right: 60rpx;
+  width: auto; 
+  height: auto;
+  font-family:PingFangSC-Regular;
+  font-weight: bold;
+  font-size: 24rpx;
+  color:#888888;
+}

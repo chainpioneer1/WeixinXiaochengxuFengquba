@@ -1,0 +1,36 @@
+<!--index.wxml-->
+<view>
+  <view class="site_detail">
+    <view class="site_name">{{siteInfo.site_name}}</view>
+    <view class="site_point">
+      <view style="display: inline;" wx:for="{{starparam.stars}}" wx:key="star" wx:for-item="star_place">
+          <image class="star-image" src="{{star_place-siteInfo.point+1<=0?starparam.srcImage_4:star_place-siteInfo.point+1>=1?starparam.srcImage_0:star_place-siteInfo.point+1<0.5?starparam.srcImage_3:star_place-siteInfo.point+1==0.5?starparam.srcImage_2:starparam.srcImage_1}}"></image>
+      </view>
+      <view class="point_text">{{siteInfo.point}}分</view>
+    </view>
+    <view class="site_type">
+      <image class="img_point" src="../../../image/my_bee_category@2x.png" />
+      <view class="type_text" wx:for="{{type_array}}">
+          {{item}}
+      </view>     
+      
+    </view>
+  </view>
+  
+  <view class="cls_score_title_bar">
+    <text class="cls_score_title">评分：</text>
+    <view wx:for="{{[1, 2, 3, 4, 5]}}">
+      <view wx:if="{{item <= count_yellowStar}}">
+        <image class="cls_score_star" src="{{img_yellow_start_src}}" mode="aspectFill" bindtap="subtractStar" style='left:{{star_img_position + index*50}}rpx' />
+      </view>
+      <view wx:else>
+        <image class="cls_score_star" src="{{img_black_start_src}}" mode="aspectFill" bindtap="additionStar" style='left:{{star_img_position + index*50}}rpx' />
+      </view>
+    </view>
+  </view>
+
+  <textarea bindinput="bindInputText" class="cls_score_text_area" placeholder="请输入你的评价…" maxlength='200' />
+
+  <text class="cls_text_count">{{text_count}}/200</text>
+  <button class="btn_add_comment" bindtap="btn_submit">确认</button>
+</view>

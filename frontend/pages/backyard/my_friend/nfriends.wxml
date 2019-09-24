@@ -1,0 +1,16 @@
+<view class="friend-list-view">
+  <scroll-view class="friend-list-container" scroll-y="{{true}}" scroll-into-view="list-{{filterItem}}" scroll-with-animation="{{true}}">
+    <view class="friend-item" wx:for="{{friendList}}" wx:key="index" wx:if="{{item.status==0}}"
+        id="{{(item.filter_character!=''?('list-'+item.filter_character):'')}}"
+        bindtap="go2FriendDetail" data-id="{{item.main_id}}">
+      <image class="friend-avatar" src="{{item.avatar}}"></image>
+      <view class="friend-info">
+        <view class="friend-name">{{item.name}}</view>        
+        <view class="friend-type">{{item.sport_name}}</view>
+      </view>
+    </view>
+  </scroll-view>
+  <scroll-view class="friend-navigator" scroll-y="{{true}}">
+    <view class="nav-item" wx:for="{{filterList}}" wx:key="{{index}}" bindtap="filterUser" data-id="{{index}}">{{item}}</view>
+  </scroll-view>
+</view>

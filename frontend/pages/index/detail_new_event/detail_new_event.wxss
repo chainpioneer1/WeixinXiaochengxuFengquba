@@ -1,0 +1,702 @@
+/* pages/profile/my_focus/detail_event.wxss */
+
+
+/**index.wxss**/
+
+.container {
+    height: auto;
+    margin-bottom: 98rpx;
+}
+
+.postadd-view {
+    position: fixed;
+    width: 100%;
+    top: 0rpx;
+    left: 0rpx;
+    bottom: 98rpx;
+    background-color: #F4F4F4;
+}
+
+.personal-img-wrapper {
+    width: 100%;
+    height: 380rpx;
+}
+
+.personal-event-img {
+    width: 100%;
+    height: 380rpx;
+}
+
+.event-info {
+    padding-bottom: 5rpx;
+    width: 100%;
+    height: auto;
+    background-color: white;
+}
+
+.event-type-info {
+    width: calc(100%-26rpx);
+    padding: 40rpx;
+    padding-bottom: 0;
+    padding-top: 20rpx;
+}
+
+.event-type {
+    font-size: 32rpx;
+    color: #333;
+    letter-spacing: 0.68rpx;
+}
+
+.detail-info {
+    margin-top: 15rpx;
+    width: 100%;
+    display: relative;
+}
+
+.detail-info-text {
+    padding-left: 15rpx;
+    font-size: 26rpx;
+    vertical-align: middle;
+    display: inline-block;
+    width: 640rpx;
+    height: 40rpx;
+    line-height: 40rpx;
+}
+
+.cost_img {
+    width: 30rpx;
+    height: 32rpx;
+    vertical-align: middle;
+    display: inline-block;
+    padding-left: 20rpx;
+    line-height: 40rpx;
+}
+
+.place_img {
+    width: 28rpx;
+    height: 40rpx;
+    vertical-align: middle;
+    display: inline-block;
+    padding-left: 20rpx;
+    line-height: 40rpx;
+}
+
+.phone_img {
+    width: 30rpx;
+    height: 32rpx;
+    vertical-align: middle;
+    display: inline-block;
+    padding-left: 20rpx;
+    line-height: 40rpx;
+}
+
+.act_date {
+    margin-top: 30rpx;
+    margin-left: 30rpx;
+    font-size: 26rpx;
+    margin-right: 30rpx;
+    border-top: 1rpx solid #eee;
+    border-bottom: 1rpx solid #eee;
+    width: calc(100vw -60rpx);
+    padding-top: 30rpx;
+    padding-bottom: 30rpx;
+}
+
+.date_content {
+    display: inline-block;
+    width: 49%;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.date_top {
+    font-size: 28rpx;
+    font-weight: 500;
+}
+
+.date_bottom {
+    font-size: 26rpx;
+}
+
+.detail-add {
+    margin-left: 3rpx;
+    width: 85%;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.fav_info {
+    margin-top: 20rpx;
+    width: 100%;
+    font-size: 24rpx;
+    color: #333;
+    height: 50rpx;
+}
+
+.favor_text {
+    float: right;
+    padding-right: 30rpx;
+}
+
+.favor_star {
+    float: right;
+    width: 30rpx;
+    height: 30rpx;
+    padding-right: 10rpx;
+}
+
+.view_count_text {
+    float: right;
+    padding-right: 30rpx;
+}
+
+.view_count_img {
+    float: right;
+    width: 40rpx;
+    height: 26rpx;
+    padding-right: 10rpx;
+    transform: translateY(15%);
+}
+
+.place-info-text {
+    line-height: 50rpx;
+    color: #333;
+    font-size: 28rpx;
+}
+
+.introduce {
+    margin-top: 20rpx;
+    padding-bottom: 10rpx;
+    width: (100% - 20rpx);
+    height: auto;
+    background-color: white;
+}
+
+.introduce-view {
+    line-height: 70rpx;
+    margin-left: 30rpx;
+}
+
+.introduce-border {
+    border-left: 6rpx solid #e6b53c;
+    padding-left: 12rpx;
+    font-size: 30rpx;
+}
+
+.introduce-detail {
+    background-color: white;
+    word-break: break-all;
+    font-family: PingFangSC-Regular;
+    font-size: 30rpx;
+    color: #333;
+    letter-spacing: 1.04rpx;
+    line-height: 70rpx;
+}
+
+.member_detail {
+    margin-top: 20rpx;
+    background-color: white;
+    width: 100%;
+}
+
+.view_more_detail {
+    margin-top: 10rpx;
+    font-family: PingFangSC-Semibold;
+    font-size: 26rpx;
+    color: #e6b53c;
+    letter-spacing: 0.56px;
+    float: right;
+    margin-right: 17rpx;
+}
+
+.applicant-view {
+    width: 100%;
+    height: auto;
+    min-height: 98rpx;
+    margin-top: 20rpx;
+    background-color: white;
+    padding-bottom: 30rpx;
+}
+
+.applicant-title {
+    width: clac(100%-30rpx);
+    margin-left: 30rpx;
+    padding-top: 20rpx;
+}
+
+.applicant-title-text {
+    border-left: 6rpx solid #e6b53c;
+    padding-left: 12rpx;
+    font-size: 30rpx;
+}
+
+.applicant-each-view {
+    display: inline-block;
+    width: 170rpx;
+    height: 150rpx;
+    margin-top: 30rpx;
+    margin-left: 10rpx;
+}
+
+.applicant-image {
+    display: block;
+    margin: auto;
+    width: 70rpx;
+    height: 70rpx;
+    border-radius: 50%;
+}
+
+.applicant-name {
+    display: inline-block;
+    width: 170rpx;
+    font-size: 23rpx;
+    text-align: center;
+}
+
+.submit_feedback {
+    position: relative;
+    width: 100%;
+    height: auto;
+    padding-top: 30rpx;
+}
+
+.comment_content {
+    display: inline-block;
+    width: 67%;
+    line-height: 58rpx;
+    height: 58rpx;
+    background: #eee;
+    font-size: 28rpx;
+    font-family: PingFangSC-Semibold;
+    vertical-align: middle;
+    border-radius: 30rpx;
+    margin-left: 15px;
+    padding-left: 20rpx;
+}
+
+.text_comment {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    vertical-align: middle;
+}
+
+.comment-btn {
+    display: inline-block;
+    width: 20%;
+    line-height: 58rpx;
+    height: 58rpx;
+    background: #e6b53c;
+    font-size: 28rpx;
+    font-family: PingFangSC-Semibold;
+    vertical-align: middle;
+    border-radius: 30rpx;
+    margin-left: 10px;
+    text-align: center;
+}
+
+.comment-view {
+    width: 100%;
+    margin-top: 20rpx;
+    padding-bottom: 20rpx;
+    height: auto;
+    border-bottom: solid #F4F4F4 1rpx;
+}
+
+.cls_user_comment_info {
+    padding-top: 10rpx;
+    width: 100%;
+    height: auto;
+}
+
+.cls_user_photo {
+    float: left;
+    margin-left: 30rpx;
+    width: 80rpx;
+    height: 80rpx;
+    border-radius: 50%;
+}
+
+.cls_comment_content {
+    display: block;
+    margin-left: 130rpx;
+    word-break: break-all;
+    width: 78%;
+    margin-top: 15rpx;
+    height: auto;
+    font-family: PingFangSC-Regular;
+    font-size: 24rpx;
+    color: #333;
+    letter-spacing: 1.8rpx;
+    line-height: 40rpx;
+}
+
+.cls_comment_date {
+    display: block;
+    margin-bottom: 3rpx;
+    margin-left: 130rpx;
+    width: auto;
+    height: auto;
+    font-family: PingFangSC-Semibold;
+    font-size: 24rpx;
+}
+
+.cls_comment_time {
+    display: block;
+    margin-bottom: 3rpx;
+    margin-left: 130rpx;
+    width: auto;
+    height: auto;
+    font-family: PingFangSC-Semibold;
+    font-size: 22rpx;
+    color: #777;
+}
+
+.interested_content {
+    font-size: 22rpx;
+    padding-top: 10rpx;
+    width: 100%;
+    height: 30rpx;
+    text-align: right;
+    padding-bottom: 10rpx;
+}
+
+.fav_count,
+.message_count,
+.fav_img,
+.message_img,
+.child_time,
+.message_back,
+.message_delete {
+    display: inline-block;
+    padding-right: 30rpx;
+    vertical-align: middle;
+    font-size: 22rpx;
+    color: #888;
+}
+
+.fav_img,
+.message_img {
+    width: 30rpx;
+    height: 30rpx;
+    padding-right: 10rpx;
+}
+
+.message_img {
+    height: 25rpx;
+}
+
+.child_feedback {
+    margin-left: 100rpx;
+    margin-right: 30rpx;
+    position: relative;
+    font-size: 24rpx;
+    margin-top: 7px;
+    width: 625rpx;
+    height: auto;
+    background: #F4F4F4;
+    border-radius: 10rpx;
+    padding-top: 15rpx;
+}
+
+.message_back,
+.message_delete {
+    color: #604000;
+}
+
+.child_item {
+    position: relative;
+    width: 100%;
+    padding-bottom: 25rpx;
+}
+
+.child_name {
+    display: inline-block;
+    width: auto;
+    vertical-align: top;
+    padding-left: 10rpx;
+}
+
+.child_name text {
+    padding-right: 10rpx;
+}
+
+.child_content {
+    display: inline-block;
+    width: 100%;
+}
+
+.child_comment {
+    position: relative
+}
+
+.child_time_content {
+    position: relative;
+    width: 100%;
+    text-align: right;
+}
+
+.limit_info {
+    margin-top: 20rpx;
+    padding-bottom: 10rpx;
+    width: (100% - 20rpx);
+    height: auto;
+    background-color: white;
+}
+
+.limit-payment,
+.limit-num {
+    line-height: 70rpx;
+    margin-left: 30rpx;
+}
+
+.limit-title-text {
+    border-left: 6rpx solid #e6b53c;
+    padding-left: 12rpx;
+    font-size: 30rpx;
+}
+
+.limit-value-text {
+    padding-left: 12rpx;
+    font-size: 28rpx;
+}
+
+.con_title {
+    display: inline-block;
+    border-left: 6rpx solid #e6b53c;
+    padding-left: 12rpx;
+    font-size: 30rpx;
+    font-weight: bold;
+    width: 125rpx;
+    vertical-align: top;
+}
+
+.con_value {
+    display: inline-block;
+    padding-left: 12rpx;
+    font-size: 28rpx;
+    width: 530rpx;
+    vertical-align: top;
+}
+
+.btn-footer {
+    position: fixed;
+    bottom: 0rpx;
+    width: 100%;
+    height: 100rpx;
+    margin-bottom: 0rpx;
+    font-family: PingFangSC-Semibold;
+    letter-spacing: 1.63rpx;
+    border-top: 0.5rpx solid;
+    border-top-color: #eee;
+    background: white;
+    overflow: hidden;
+}
+
+.share_part {
+    display: inline-block;
+    width: 49%;
+    font-size: 24rpx;
+    padding: 14rpx 0 0 5rpx;
+    height: 80rpx;
+    text-align: center;
+    overflow: hidden;
+}
+
+.go_home_view,
+.share_wechat_view,
+.download_view {
+    display: inline-block;
+    width: 30%;
+    height: 80rpx;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    font-size: 24rpx;
+    overflow: hidden;
+}
+
+.share_wechat_view {
+    width: 25%;
+    background-color: white;
+}
+
+button::after {
+    border: none;
+}
+
+.download_view {
+    width: 35%;
+}
+
+.go_home_img,
+.share_wechat_img,
+.download_img {
+    position: absolute;
+    width: 36rpx;
+    height: 36rpx;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.share_wechat_img {
+    width: 45rpx;
+    height: 36rpx;
+}
+
+.download_img {
+    width: 30rpx;
+    height: 36rpx;
+}
+
+.share_text {
+    position: absolute;
+    width: 100%;
+    height: 25rpx;
+    line-height: 25rpx;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    top: 48rpx;
+    font-size: 22rpx;
+    overflow: hidden;
+}
+
+.btn-personal-participate {
+    float: right;
+    width: 40%;
+    line-height: 100rpx;
+    background-color: #e6b53c;
+    font-size: 30rpx;
+    color: white;
+    overflow: visible;
+    text-align: center;
+    border-radius: 0rpx;
+    padding: 0rpx;
+}
+
+.product-explain-view {
+    margin-top: 14rpx;
+    margin-right: 37rpx;
+    font-family: PingFangSC-Regular;
+    font-size: 30rpx;
+    color: #333;
+    letter-spacing: 1.04rpx;
+    line-height: 50rpx;
+    word-break: break-all;
+    padding-left: 25rpx;
+}
+
+@import "../../../wxParse/wxParse.wxss";
+canvas {
+    position: fixed;
+    top: 0;
+    left: 1030px;
+    z-index: 100;
+}
+
+.view_mask {
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+    background: rgba(0, 0, 0, .5);
+    position: absolute;
+    overflow: hidden;
+    top: 0;
+    left: 0;
+}
+
+.show_canvas2 {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    top: 43%;
+    width: 730rpx;
+    height: 960rpx;
+    line-height: 960rpx;
+    z-index: 100;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+}
+
+.show_canvas1 {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    top: 43%;
+    width: 730rpx;
+    height: 960rpx;
+    line-height: 960rpx;
+    z-index: 100;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+}
+
+.canvas_image {
+    width: 100%;
+    height: 100%;
+    border-radius: 25rpx;
+    position: absolute;
+}
+
+.input-message {
+    position: absolute;
+    background: rgba(0, 0, 0, 0.2);
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.input-area {
+    position: absolute;
+    bottom: 50%;
+    left: 0;
+    width: 100%;
+    height: 150rpx;
+    background: white;
+}
+
+.input-comment {
+    position: absolute;
+    left: 30rpx;
+    top: 20rpx;
+    width: calc(75% - 50rpx);
+    height: 90rpx;
+    background: #f0f0f0;
+    color: black;
+    font-size: 26rpx;
+    padding: 10rpx 20rpx;
+    overflow-x: hidden;
+    overflow-y: auto;
+    border-radius: 10rpx;
+    -webkit-border-radius: 10rpx;
+    -moz-border-radius: 10rpx;
+    -ms-border-radius: 10rpx;
+    -o-border-radius: 10rpx;
+}
+
+.input-comment-btn {
+    position: absolute;
+    bottom: 20rpx;
+    right: 30rpx;
+    width: 15%;
+    height: 70rpx;
+    line-height: 70rpx;
+    background: #e6b53c;
+    color: white;
+    font-size: 30rpx;
+    font-weight: 600;
+    text-align: center;
+    border-radius: 10rpx;
+    -webkit-border-radius: 10rpx;
+    -moz-border-radius: 10rpx;
+    -ms-border-radius: 10rpx;
+    -o-border-radius: 10rpx;
+}
+
+@import "../../profile/template/get_userinfo.wxss";

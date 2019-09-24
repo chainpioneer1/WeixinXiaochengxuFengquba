@@ -1,0 +1,99 @@
+<!--pages/booking/booking.wxml-->
+<scroll-view scroll-y class='container'>
+  <view style='width:100%'>
+    <view class="activity">
+      <view class="activity-bar">
+        <label class="activity-no">订单编号：{{booking.idshow}}</label>
+        <label class="activity-status">{{bookingState[booking.state]}}</label>
+      </view>
+      <view class="activity-detail">
+        <view class="activity-picture">          
+          <swiper class="swiper_box" autoplay="true" interval="3000" duration="300">
+              <block wx:for="{{booking.picture}}" wx:key="index">
+                  <swiper-item>
+                      <image class="img-item" mode="aspectFill" src="{{uploadURL + item}}"></image>
+                  </swiper-item>
+              </block>
+          </swiper>
+        </view>
+        <view class="activity-name">
+          <text class='activity-name-label' style="font-weight: bold;">{{booking.name}}</text>
+          <text class="activity-role-text">{{userRole[booking.role]}}</text>
+        </view>
+        <view class="activity-content">
+          <image class="activity-type" src="../../../image/my_bee_category@2x.png"></image>
+          <text class="activity-type-label">{{eventType[booking.type]}}</text>
+          <image class="activity-limit" src="../../../image/my_bee_number@2x.png"></image>
+          <text class="activity-limit-label">{{register_num}}/{{booking.limit}}人</text>
+          <block style="display: inline-block">
+            <image class="activity-cost" src="../../../image/my_bee_m@2x.png"></image>
+            <text class="activity-cost-label">{{booking.cost}}元/人</text>
+          </block>
+        </view>
+      </view>
+      <view class="activity-time">
+        <label class="activity-time-label">时间 | {{booking.start_time}} ~ {{booking.end_time}}</label>
+      </view>
+      <view class="activity-address" bindtap="goto_mapView">
+        <view style='display:inline-block; width: 11%; float: left;'>地址 | </view>
+        <view style='display: inline-block; width: 80%; vertical-align: top;text-decoration: underline;'><text selectable='true'>{{booking.detail_address}}</text></view>
+      </view>
+      <view class="activity-agent">
+        <label class="activity-agent-label">发起人 | {{booking.agent_name}}</label>
+      </view>
+      <view class="activity-phone">
+        <view style='display:inline-block; width: 11%; float: left;'>电话 | </view>
+        <view style='display: inline-block;width: 80%;vertical-align: top;text-decoration: underline;'
+          bindtap="phone_call"><text selectable='true'>{{booking.agent_phone}}</text></view>
+      </view>
+            
+      
+    </view>
+  </view>
+  <view class="detail-info"style='width: calc(100% - 30rpx); padding-left: 30rpx;'>
+    <view class="personal-data">
+      <label class="detail-info-label" style="font-weight: bold;">报名信息</label>
+    </view>
+    <view class="personal-name">
+      <label class="personal-name-label">昵称: {{booking.userName}}</label>
+    </view>
+    <view class="personal-phone">
+      <label class="personal-phone-label">电话：{{booking.phone}}</label>
+    </view>
+    <view class="personal-phone">
+      <label class="personal-phone-label">人数： {{booking.reg_num}}人</label>
+    </view>
+    <view class="personal-phone">
+      <label class="personal-phone-label">备注：{{booking.description}}</label>
+    </view>
+  </view>
+  <view class='introduce' wx:if="{{(booking.state==1) && (rating.length>0)}}">
+    <view class='introduce-view'>
+      <text class='introduce-border' style="font-weight: bold;">我的评价</text>
+    </view>
+    <view class="cls_score_title_bar">
+      <text class="cls_score_title">评分：</text>
+      <view class="cls-score-star-view1" wx:for="{{[1, 2, 3, 4, 5]}}">
+        <view class="cls-score-star-view2" wx:if="{{item <= rating[0].point}}">
+          <image class="cls_score_star" src="{{img_yellow_start_src}}" />
+        </view>
+        <view class="cls-score-star-view2" wx:else>
+          <image class="cls_score_star" src="{{img_black_start_src}}" />
+        </view>
+      </view>
+    </view>
+    <view style='padding-left: 30rpx; width: 100%; height: auto;'>
+      <text class='introduce-detail'>{{ rating[0].comment}}</text>
+    </view>
+  </view>
+  <block wx:if="{{booking.state==0  && bookingcanceltime}}">
+    <form name="pushMsgForm" report-submit bindsubmit="final_cancel">      
+      <button class="cancel-button" form-type="submit">取消蜂约</button>
+    </form>
+  </block>
+  <block wx:if="{{(booking.state==1) && (rating.length==0)}}">
+    <view class="cancel-button" id="{{booking.id}}" bindtap='btn_write_comment'>
+      评价
+    </view>
+  </block>
+</scroll-view>

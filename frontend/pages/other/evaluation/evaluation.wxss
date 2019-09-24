@@ -1,0 +1,136 @@
+/**index.wxss**/
+
+.site_detail {
+    border-bottom: 20rpx solid #f4f4f4;
+    position: relative;
+    left: 0rpx;
+    top: 0rpx;
+    width: 100%;
+    height: auto;
+    background: white;
+    text-align: center;
+    font-size: 30rpx;
+    padding-bottom: 0rpx;
+}
+
+.site_point {
+    padding: 0rpx;
+}
+
+.site_name {
+    font-size: 40rpx;
+    padding: 30rpx;
+    padding-bottom: 20rpx;
+    text-align: left;
+}
+
+.point_text {
+    font-size: 30rpx;
+    display: inline;
+    padding-left: 10rpx;
+}
+
+.star-image {
+    transform: translateY(5%);
+    margin-left: 10rpx;
+    width: 28rpx;
+    height: 28rpx;
+}
+
+.site_type {
+    padding: 20rpx;
+    padding-bottom: 35rpx;
+}
+
+.img_point {
+    width: 30rpx;
+    height: 30rpx;
+    display: inline-block;
+    transform: translateY(10%);
+}
+
+.type_text {
+    display: inline-block;
+    padding-left: 20rpx;
+}
+
+.cls_score_title_bar {
+    border-bottom: 20rpx solid #f4f4f4;
+    position: relative;
+    left: 0rpx;
+    top: 10rpx;
+    width: 100%;
+    height: 88rpx;
+    background: white;
+}
+
+.cls_score_title {
+    position: absolute;
+    left: 30rpx;
+    top: 23rpx;
+    width: auto;
+    height: auto;
+    font-family: PingFangSC-Regular;
+    font-size: 30rpx;
+    color: #333;
+}
+
+.cls_score_star {
+    position: absolute;
+    top: 26rpx;
+    width: 36rpx;
+    height: 36rpx;
+}
+
+.cls_score_text_area_bound {
+    position: absolute;
+    left: 30rpx;
+    top: 29rpx;
+    width: auto;
+    height: auto;
+    min-height: 100rpx;
+    font-family: PingFangSC-Semibold;
+    font-size: 32rpx;
+    color: #333;
+}
+
+.cls_score_text_area {
+    position: relative;
+    top: 40rpx;
+    left: 30rpx;
+    background-color: #f4f4f4;
+    width: 680rpx;
+    height: 320rpx;
+    font-size: 28rpx;
+    font-family: PingFangSC-Regular;
+    border-radius: 10rpx;
+    padding-left: 15rpx;
+    padding-top: 15rpx;
+    background: white;
+}
+
+.cls_text_count {
+    position: relative;
+    right: 30rpx;
+    top: 60rpx;
+    width: auto;
+    height: auto;
+    font-family: PingFangSC-Semibold;
+    font-size: 28rpx;
+    color: #888;
+    float: right;
+}
+
+.btn_add_comment {
+    border-radius: none;
+    position: fixed;
+    bottom: 0rpx;
+    width: 100%;
+    line-height: 98rpx;
+    text-align: center;
+    padding-top: 7rpx;
+    background-color: #e6b53c;
+    font-family: PingFangSC-Semibold;
+    font-size: 30rpx;
+    color: #fff;
+}

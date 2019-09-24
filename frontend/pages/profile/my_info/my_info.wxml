@@ -1,0 +1,64 @@
+
+<!--index.wxml-->
+<view class="container">
+    <view class="profile_image">
+        <image class="img_profile" src="{{userInfo.avatar}}" />
+    </view>
+    <view class="item_view">
+        <view class = "text_area">昵称：</view>
+        <input class="text_input" placeholder="请输入昵称" bindinput='On_blur_name' value="{{userInfo.name}}"/>        
+    </view>
+    <view class="item_view">
+        <view class = "text_area">性别：</view>
+        <radio-group class="sex-group" bindchange="sex_radioChange">
+            <radio value='0' checked = "{{sex_checked_state[0]}}"></radio>男
+            <radio value='1' checked = "{{sex_checked_state[1]}}" style="margin-left: 30rpx;"></radio>女        
+        </radio-group>
+    </view>
+    <view class="item_view">
+        <view class = "text_area">年龄：</view>
+        <input type="number" class="text_input" style="width:300rpx" bindinput='On_blur_age' value="{{((userInfo.age==0)?'':userInfo.age)}}" placeholder="请输入年龄"></input>
+        <view class="text_area" style="display:none;">岁</view>
+    </view>
+    <view class="item_view">
+        <view class = "text_area">电话：</view>
+        <input type="number" class="text_input" bindinput='On_blur_phone' value="{{userInfo.phone}}"></input>
+        <view class="phone-state-text">公开</view>
+        <image class="phone-state" bindtap="ishow_radioChange" src="{{show_array[userInfo.show_state]}}"></image>
+        
+    </view>
+
+    <view class="item_view">
+        <view class = "text_area">运动项目:</view>
+        <view style="overflow-x:auto;" scroll-x="{{true}}" class="sport_type">
+            <view class = "type_item" wx:for="{{selected_sport_type}}" wx:key="{{index}}">
+                <image id="{{index}}" src="../../../image/del02@2x.png" bindtap = 'On_click_deleteType' />
+                <view>{{item}}</view>                                
+            </view>                     
+        </view>  
+        <image class="img_plus" src="{{selected_sport_type.length<3?'../../../image/plus2x.png':'../../../image/plus_n@2x.png'}}" bindtap = 'On_click_AddType' />
+        
+    </view> 
+    
+
+    <view class="item_view" style="border: none;" wx:if="{{!select_menu_state}}">
+        <view class = "property_text">个性签名：</view>
+        <textarea class="detail_text" placeholder = "多行输入100字以内" bindinput='On_blur_personSign' value="{{userInfo.person_sign}}"></textarea>
+    </view>
+    <view class="submit_btn" bindtap = 'On_click_submit'>确认修改</view>
+</view>
+
+<view class="modal-mask" bindtap="preventTouchMove" catchtouchmove="preventTouchMove" wx:if="{{select_menu_state}}"></view>
+<view class="modal-dialog" catchtouchmove="preventTouchMove" wx:if="{{select_menu_state}}">
+    <view class='main-type-content'>
+    <view class='type_contain_each' wx:for="{{remain_array}}" wx:key="index">
+        <view class='display_type' bindtap="clicked_style_item" id="{{index}}" style="color:{{index==select_index?color_array[1]:color_array[0]}}">
+        {{item}}
+        </view>
+    </view>        
+    </view>
+    <view class='main-type-buttons'>
+        <view class="type-button-cancel" bindtap="cancel_btn_clicked">取消</view>
+        <view class="type-button-ok" bindtap="ok_btn_clicked">确定</view>
+    </view>
+</view>

@@ -1,0 +1,67 @@
+<!--pages/booking/booking.wxml-->
+<scroll-view scroll-y class='container'>
+  <view style='width:100%'>
+    <view class="event">
+      <view class="event-bar">
+        <label class="event-no">订单编号：{{booking.idshow}}</label>
+        <label class="event-status">{{bookingState[booking.state]}}</label>
+      </view>
+      <view class="event-detail">        
+        <view class="event-picture">
+          <swiper class="swiper_box" autoplay="true" interval="3000" duration="300">
+              <block wx:for="{{booking.picture}}" wx:key="index">
+                  <swiper-item>
+                      <image class="img-item" mode="aspectFill" src="{{uploadURL + item}}"></image>
+                  </swiper-item>
+              </block>
+          </swiper>
+        </view>
+        <view class="event-name">
+          <text class='event-name-label' style="font-weight: bold;">{{booking.name}}</text>          
+        </view>
+        <view class="event-content">
+          <image class="event-type" src="../../../image/my_bee_category@2x.png"></image>
+          <text class="event-type-label">{{eventType[booking.type]}}</text>
+          <image class="event-limit" src="../../../image/my_bee_number@2x.png"></image>
+          <text class="event-limit-label">{{register_num}}/{{booking.limit}}人</text>
+          <block style="display: inline-block">
+            <image class="event-cost" src="../../../image/my_bee_m@2x.png"></image>
+            <text class="event-cost-label">{{booking.cost}}元/人</text>
+          </block>
+        </view>
+      </view>    
+      
+      <view class="event-time">
+        <label class="event-time-label">时间 |  {{booking.start_time}} ~ {{booking.end_time}}</label>
+      </view>
+      <view class="event-address" bindtap="goto_mapView">
+        <view style='display:inline-block; width: 11%; float: left;'>地址 |  </view>
+        <view style='display: inline-block; width: 80%; vertical-align: top;'><text selectable='true' style="text-decoration: underline;">{{booking.detail_address}}</text></view>
+      </view>
+      <view class="event-phone">
+        <label class="event-phone-label" bindtap='phone_call'>电话 |  <text  style="text-decoration: underline;">{{booking.agent_phone}}</text></label>
+      </view>
+    </view>
+  </view>
+  <view class="detail-info"style='width: calc(100% - 30rpx); padding-left: 30rpx;padding-bottom: 30rpx;'>
+    <view class="personal-data">
+      <label class="detail-info-label" style="font-weight: bold;">报名信息</label>
+    </view>
+    <view class="personal-name" wx:for="{{customer_info}}" wx:key="index">
+      <label class="personal-name-label" wx:if="{{!item.isImg}}">{{item.name}}: {{item.value}}</label>
+      <block wx:else>
+        <label class="personal-name-label">{{item.name}}({{booking.imgprompt}}): </label>
+        <image class="personal-img" src="{{item.value}}" mode="aspectFit" bindtap="show_preview" data-src="{{item.value}}"></image>
+      </block>
+    </view>
+    <!-- <view class="personal-phone">
+      <label class="personal-phone-label">电话：{{booking.phone}}</label>
+    </view> -->
+  </view>   
+  <view class='action'>    
+    <view class="before_complete">
+      <view bindtap="go_to_place" class="view_place">查看赛事详情</view> 
+    </view>   
+  </view>
+
+</scroll-view>
