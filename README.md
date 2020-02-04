@@ -38,4 +38,4 @@ Main Miniprogram Source : frontend
 > 
 > Weixin Mini Program : 微信 - 蜂去吧
 >
-> Contact Developer Email : gong.fei@outlook.com
+> Contact Developer Email : pandaworld1985@outlook.com
